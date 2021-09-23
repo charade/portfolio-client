@@ -1,11 +1,12 @@
 import { useRef } from "react";
-import { useLoader, useFrame } from "@react-three/fiber";
-import { TextureLoader, Mesh, MathUtils } from "three";
+import { useFrame } from "@react-three/fiber";
+import { useTexture } from "@react-three/drei";
+import { Mesh, MathUtils } from "three";
 import Venus from '../../assets/textures/venus.jpeg';
 import Venus_Atmosphere from '../../assets/textures/venus_atmosphere.jpeg';
  
 const VenusModel = () => {
-    const [VMap,VAtmosphereMap ] = useLoader(TextureLoader,[Venus, Venus_Atmosphere ]);
+    const [VMap,VAtmosphereMap ] = useTexture([Venus, Venus_Atmosphere ]);
     const meshRef = useRef<Mesh>();
 
     useFrame(({clock}) => {
@@ -18,7 +19,6 @@ const VenusModel = () => {
             <mesh position = {[0, -3, -4]} >
                 <sphereBufferGeometry 
                     attach = 'geometry'
-                    args = {[1.02, 30, 30]}
                 />
                 <meshBasicMaterial
                     attach = 'material'

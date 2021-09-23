@@ -4,16 +4,19 @@ import { TrackballControls, Stars } from '@react-three/drei'
 import VenusModel from '../threeComponents/VenusModel';
 import Earth from '../threeComponents/Earth';
 import Fictional from '../threeComponents/Fictional';
+import { useMemo } from 'react';
+import * as THREE from 'three';
 
 const AboutCanvas = () => {
-
+    const material = useMemo(() => new THREE.SphereBufferGeometry(),[]);
+    
     return(
         <Canvas
-            mode = "concurrent"
+            mode = 'concurrent'
             // frameloop = 'demand'
             camera={{
                 near: 0.1,
-                far: 50000,
+                far: 1000,
                 zoom: 5.8,
                 fov : 70,
                 position : [40, 10, 8]
@@ -24,7 +27,7 @@ const AboutCanvas = () => {
             <Earth />
             <Fictional />
             <VenusModel /> 
-            <Stars radius = {200} depth = {300} count = {50000}/>
+            <Stars radius = {100} depth = {200} count = {50000}/>
         </Canvas>
     )
 };

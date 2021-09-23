@@ -1,11 +1,12 @@
 import { useRef } from 'react';
-import { TextureLoader, Mesh, } from 'three';
-import {useLoader, useFrame} from '@react-three/fiber';
+import { Mesh } from 'three';
+import { useTexture } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber';
 import FictionalModel from '../../assets/textures/fictional.jpeg';
 import * as THREE from 'three';
 
 const Fictional = () => {
-    const FictionalMap = useLoader(TextureLoader, FictionalModel);
+    const FictionalMap = useTexture(FictionalModel);
     const meshRef = useRef<Mesh>();
 
     useFrame(() => {
@@ -15,7 +16,7 @@ const Fictional = () => {
 
     return(
         <mesh position = {[15, 2, 8]} ref= {meshRef}>
-            <sphereBufferGeometry attach = 'geometry' args = {[1, 1]}/>
+            <sphereBufferGeometry attach = 'geometry' />
             <meshPhysicalMaterial
                 attach = 'material' 
                 map = {FictionalMap} 

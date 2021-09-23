@@ -1,13 +1,20 @@
-import { useLoader, useFrame } from "@react-three/fiber";
-import { TextureLoader, Mesh, MathUtils } from 'three';
+import { useState } from "react";
+import { useFrame } from "@react-three/fiber";
+import {  Mesh, MathUtils } from 'three';
+import { useTexture } from '@react-three/drei'
 import EarthMap from '../../assets/textures/earth.jpeg';
 import EarthSpecMap from '../../assets/textures/earthSpec.jpg';
 import EarthBumpMap from '../../assets/textures/earthBump.jpg';
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
+import { CircularProgress } from "@material-ui/core";
 
 const Earth = () => {
-    const [Map, SpecMap, BumpMap] = useLoader(TextureLoader, [EarthMap, EarthSpecMap, EarthBumpMap]);
+    const [Map, SpecMap, BumpMap] = useTexture([EarthMap, EarthSpecMap, EarthBumpMap]);
     const earthRef = useRef<Mesh>();
+
+    useEffect(() => {
+        console.log(Map)
+    }, [Map])
 
     useFrame(() => {
         earthRef.current.rotation.z +=  MathUtils.lerp(earthRef.current.rotation.z, 0.003, 1);

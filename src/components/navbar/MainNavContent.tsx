@@ -15,30 +15,26 @@ export default function MainNavContent(){
     const history = useHistory()
     const path = useLocation();
 
+    //get current li position to move panelIndicator comp
     useEffect(() => {
-        //get path params value
-        //if there is not path params so we directly take pathname
-        let pathSearch = path.search.split('=')[1] || path.pathname.slice(1) ;
-        //wait for redirecting page unmounted and route changed to targetted route
-        if(pathSearch !== 'redirecting'){
-            //get current navigation li element position
-            const liList = Array.from(navRef.current.querySelectorAll('li'));
-            const liEl = liList.find(li =>{
-                let liLabelPath = li.getAttribute('aria-labelledby');
-                return liLabelPath === pathSearch;
-            });
-            // update navigation indicator position
-            const left = liEl.offsetLeft;
-            const top = liEl.offsetTop;
-            setIndicatorProps({top, left});
-        }
+        let pathSearch = path.pathname ;
+        //get current navigation li element position
+        const liList = Array.from(navRef.current.querySelectorAll('li'));
+        const liEl = liList.find(li =>{
+            let liLabelPath = li.getAttribute('aria-labelledby');
+            return liLabelPath === pathSearch;
+        });
+        // update navigation indicator position
+        const left = liEl.offsetLeft;
+        const top = liEl.offsetTop;
+        setIndicatorProps({top, left});
     },[path])
 
     const handleRedirect = (e : React.MouseEvent<HTMLLIElement>) => {
         const target = e.target as HTMLLIElement;
         const path = target.getAttribute('aria-labelledby')
         // history.push(`/redirecting?path=${path}`)
-        setTimeout(() => history.push(`/redirecting?path=${path}`),400);
+        setTimeout(() => history.push(path), 500);
     }
 
     return(
@@ -46,21 +42,21 @@ export default function MainNavContent(){
             <li>
                 <ul className = {classes.list} >
                     <li 
-                        aria-labelledby = ''
+                        aria-labelledby = '/'
                         className = {classes.listItem}
                         onClick = {handleRedirect}
                     >
                         About
                     </li>
                     <li 
-                        aria-labelledby = 'skills'
+                        aria-labelledby = '/skills'
                         className = {classes.listItem}
                         onClick = {handleRedirect}
                     >
                         Skills
                     </li>
                     <li 
-                        aria-labelledby = 'projects'
+                        aria-labelledby = '/projects'
                         className = {classes.listItem}
                         onClick = {handleRedirect}
                     >
@@ -69,7 +65,7 @@ export default function MainNavContent(){
                 </ul>
             </li> 
             <li 
-                aria-labelledby = 'advices'
+                aria-labelledby = '/advices'
                 className = {classes.listItem}
                 onClick = {handleRedirect}
             >

@@ -1,10 +1,12 @@
-import { Canvas } from '@react-three/fiber';
+import { Canvas, useThree, useFrame } from '@react-three/fiber';
 import { FlyControls, Stars, OrbitControls } from '@react-three/drei'
 import * as THREE from 'three';
 
 export default function DefaultCanvas(){
+
     return(
         <Canvas
+            
             camera = {{
                 near : 0.1,
                 far : 1000,

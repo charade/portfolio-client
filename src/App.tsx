@@ -1,18 +1,17 @@
 import React, { Suspense } from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-// import About from './pages/About';
-import Transition from './pages/Transition';
+import About from './pages/About';
 import Projects from './pages/Projects';
 import Skills from './pages/Skills';
 import SideMenu from './components/SideMenu';
 import NavBar from './components/navbar/NavBar';
 
 // const About = React.lazy(() => import('./pages/About'));
-const About = React.lazy(() => Promise.all([
-  import('./pages/About'),
-  new Promise( resolve => setTimeout(resolve, 1000))
-]).then(([imp]) => imp));
+// const About = React.lazy(() => Promise.all([
+//   import('./pages/About'), 
+//   new Promise(resolve => setTimeout(() => resolve, 500))
+// ]).then(([imp]) => imp));
 
 function App() {
   const location = useLocation();
@@ -26,13 +25,12 @@ function App() {
                 {/* <Route path = '/' component */}
                 <Route exact path = '/'  render = {() => {
                   return(
-                    <Suspense fallback = {null}>
+                    <Suspense fallback = {<h1>COucou</h1>}>
                         <About />
                     </Suspense>
                   )
                 }} 
                 />
-                <Route path = '/redirecting'  component = {Transition} />
                 <Route exact path = '/skills' component = {Skills} />
                 <Route exact path = '/projects'  component = {Projects} />
             </Switch>
