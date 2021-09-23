@@ -23,14 +23,7 @@ function App() {
           <AnimatePresence exitBeforeEnter initial = {false}>
             <Switch location = {location} key = {location.pathname}>
                 {/* <Route path = '/' component */}
-                <Route exact path = '/'  render = {() => {
-                  return(
-                    <Suspense fallback = {<h1>COucou</h1>}>
-                        <About />
-                    </Suspense>
-                  )
-                }} 
-                />
+                <Route exact path = '/'  component = {About}/>
                 <Route exact path = '/skills' component = {Skills} />
                 <Route exact path = '/projects'  component = {Projects} />
             </Switch>

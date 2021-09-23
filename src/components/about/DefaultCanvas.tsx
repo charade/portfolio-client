@@ -6,7 +6,7 @@ export default function DefaultCanvas(){
 
     return(
         <Canvas
-            
+        style = {{border : '3px solid white!important'}}
             camera = {{
                 near : 0.1,
                 far : 1000,

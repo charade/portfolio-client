@@ -2,8 +2,11 @@ import { makeStyles } from "@material-ui/core";
 
 const useIntroStyle = makeStyles(theme => ({
     root : {
+        position : 'absolute',
+        top: '15%',
+        left : '15%',
+        // transform : 'translateX(-30%)',
         zIndex :3,
-        marginLeft : '2rem',
         display:'flex',
         flexDirection : 'column',
     },

@@ -17,7 +17,7 @@ const Fictional = () => {
     return(
         <mesh position = {[15, 2, 8]} ref= {meshRef}>
             <sphereBufferGeometry attach = 'geometry' />
-            <meshPhysicalMaterial
+            <meshStandardMaterial
                 attach = 'material' 
                 map = {FictionalMap} 
                 metalness = {1}

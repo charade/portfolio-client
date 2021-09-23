@@ -49,31 +49,31 @@ export default function Intro(){
                     animate = {loaded ? 'show' : 'hidden'}
                     
                 >
-                    Hi,{` `}  
+                    
                     <motion.span
                         className = {classes.line}
-                        // variants = {lineVariants}
+                        variants = {lineVariants}
                     >
-                        I'm  Charles Ekomie
+                      Hi, I'm  Charles Ekomie
                     </motion.span>
                     <br/>
                     <motion.span
                         className = {classes.line}
-                        // variants = {lineVariants}
+                        variants = {lineVariants}
                     >
                         I do like those moments when ideas become reality,
                     </motion.span>
                     <br/>
                     <motion.span
                         className = {classes.line}
-                        // variants = {lineVariants}
+                        variants = {lineVariants}
                     >
                         when it's pleasant to say i gave life to it...
                     </motion.span>
                     <br/>
                     <motion.span
                         className = {classes.line}
-                        // variants = {lineVariants}
+                        variants = {lineVariants}
                     >
                         That's why i'm a Javascript fullstack web developer,
                     </motion.span>

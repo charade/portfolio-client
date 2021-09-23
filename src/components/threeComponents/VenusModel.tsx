@@ -15,28 +15,19 @@ const VenusModel = () => {
     });
 
     return(
-        <>
-            <mesh position = {[0, -3, -4]} >
-                <sphereBufferGeometry 
-                    attach = 'geometry'
-                />
-                <meshBasicMaterial
-                    attach = 'material'
-                    alphaMap = {VAtmosphereMap}
-                    opacity = {0.4}
-                    transparent = {true}
-                />
-            </mesh>
-            <mesh 
-                ref = {meshRef}
-                position = {[0, -3, -4]}
-            >
-                <sphereBufferGeometry args = {[1, 30, 30]}/>
-                <meshBasicMaterial 
-                    map = {VMap}
-                />
-            </mesh>
-        </>
+        <mesh 
+            ref = {meshRef}
+            position = {[0, -3, -4]}
+        >
+            <sphereBufferGeometry args = {[1, 30, 30]}/>
+            <meshStandardMaterial 
+                map = {VMap}
+                attach = 'material'
+                alphaMap = {VAtmosphereMap}
+                opacity = {0.4}
+                transparent = {true}
+            />
+        </mesh>
     )
 }
 
