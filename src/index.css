@@ -1,13 +1,11 @@
-body {
+body,html {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding : 0;
+  height : 100vh;
+  font-size: 62.5%;
+  background-image: linear-gradient(25deg, black 5%,rgb(14, 25,44));
+  color: white;
+  font-family: 'Avenir Next';
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+
