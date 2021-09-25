@@ -9,41 +9,28 @@ import FictionalTexture from '../assets/textures/fictional.jpeg';
 import EarthTexture from '../assets/textures/earth.jpeg';
 import VenusTexture from '../assets/textures/venus.jpeg';
 import Model from '../components/threeComponents/Model';
-import * as THREE from 'three';
-
-const Camera = ({loaded }: { loaded :boolean })=>{
-    const [vec] = useState(() => new THREE.Vector3(20, 10, 100))
-    return(
-        useFrame(({camera, mouse}) => {
-            if(loaded){
-                
-                camera.position.lerp(vec.set( mouse.x * 2 , 2 - mouse.y * Math.PI, 10), 0.02);
-                camera.lookAt(2, 2, -2);
-                camera.updateProjectionMatrix();
-            }
-        })
-    )
-}
+import Camera from '../components/threeComponents/AboutPageCamera'
+import { motion } from 'framer-motion';
 
 const About = () => {
     const [EarthMap, VenusMap, FictionalMap] = useTexture([EarthTexture,VenusTexture,FictionalTexture])
-    const [loaded, setLoaded] = useState<boolean>(false);   
+    const [loaded, setLoaded] = useState<boolean>(false); 
+
     return(
         <>
             <Canvas
                     mode = 'concurrent'
-                    // frameloop = 'demand'
                     camera={{
                         near: 0.1,
-                        far: 1000,
-                        zoom: 6,
-                        fov : 80,
-                        position : [20, -10, 100]
+                        far: 2000,
+                        zoom: 13,
+                        fov : 75,
+                        position : [18, -10, 100]
                     }}
                 >
                     {!loaded &&
-                        <Html center>
-                            <CircularProgress />
+                        <Html center fullscreen>
+                            <h1>Loading</h1>
                         </Html>
                     }
                     <directionalLight color = 'white' position = {[20, 2, 0]} />
@@ -51,22 +38,22 @@ const About = () => {
                     <OrbitControls />
                     <Camera loaded = {loaded} />
                     <Suspense fallback = {null} >
-                        <group position={[0, -1, -40]}>
-                        <Stars radius = {150} depth = {200} count = {50000}/>
+                            <group position={[0, -1, -40]}>
+                            <Stars radius = {80} depth = {200} count = {70000}/>
                             <Model 
                                 position = {[10, 2, 0]}
-                                setLoaded = {setLoaded}
                                 map = {EarthMap}
                                 metalness = {0.1}
                                 roughness = {0.5}
                                 rotationSpeed = {[0, 0.003, 0]}
-                            />
+                                />
                             <Model 
+                                setLoaded = {setLoaded}
                                 position = {[0, -3, 7]}
                                 map = {VenusMap}
-                                metalness = {1}
+                                metalness = {0.7}
                                 args = {[4, 40, 40]}
-                                roughness = {0.7}
+                                roughness = {0.5}
                                 rotationSpeed = {[0.001, 0.001, 0.001]}
                                 />
                             <Model 
