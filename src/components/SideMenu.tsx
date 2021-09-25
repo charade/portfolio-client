@@ -23,12 +23,12 @@ const SideMenu =  () => {
                 <ListItem className = {classes.icon}>
                     <SettingsIcon />
                 </ListItem>
-                <ListItem className = {classes.icon}>
+                {/* <ListItem className = {classes.icon}>
                     <LinkedInIcon/>
                 </ListItem>
                 <ListItem className = {classes.icon}>
                     <GitHubIcon />
-                </ListItem>
+                </ListItem> */}
                 <ListItem className = {classes.icon}>
                     <FolderIcon />
                 </ListItem>

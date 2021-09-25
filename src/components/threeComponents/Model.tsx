@@ -1,6 +1,9 @@
-import { useFrame } from "@react-three/fiber";
-import {  Mesh, MathUtils, MeshBasicMaterialParameters } from 'three';
+import { useFrame, extend } from "@react-three/fiber";
+import {  Mesh, MathUtils, FrontSide } from 'three';
 import { FC, useEffect, useRef } from "react";
+import * as THREE from 'three';
+import AstralShaderMaterial from '../../shaders/AstralShaderMaterial';
+extend({ AstralShaderMaterial });
 
 type PropsType = {
     setLoaded? : (args : boolean) => void,
@@ -16,7 +19,7 @@ const Model : FC<PropsType> = ({setLoaded, position, map, metalness, roughness, 
     const modelRef = useRef<Mesh>();
 
     useEffect(() => {
-        setLoaded && setLoaded(true);
+            setLoaded && setLoaded(true);
     }, [map, setLoaded])
 
     useFrame(() => {
@@ -26,14 +29,20 @@ const Model : FC<PropsType> = ({setLoaded, position, map, metalness, roughness, 
     });
 
     return(
-        <mesh position = {position} ref = {modelRef}>
-            <sphereBufferGeometry attach = 'geometry' args = {args && args}/>
-            <meshStandardMaterial
+        <mesh position = {position} ref = {modelRef} >
+            <sphereBufferGeometry  attach = 'geometry' args = {args && args}/>
+            <astralShaderMaterial 
+                uColor = {new THREE.Color('red')}
+                map = {map}
+            />
+            
+            {/* <meshStandardMaterial
+                side = {FrontSide}
                 attach = 'material' 
                 map = {map}
                 metalness = {metalness && metalness}
                 roughness = {roughness && roughness}
-            />
+            /> */}
         </mesh>
     )
 }

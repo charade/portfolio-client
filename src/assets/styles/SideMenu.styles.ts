@@ -26,7 +26,7 @@ const useIconsMenuStyle = makeStyles(theme => ({
         },
         '&::before' : {
             bottom : '100%',
-            height : '35px',
+            height : '25px',
 
         },
         ' &::after' : {
