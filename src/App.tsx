@@ -5,21 +5,15 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Skills from './pages/Skills';
 import SideMenu from './components/SideMenu';
-import NavBar from './components/navbar/NavBar';
-
-// const About = React.lazy(() => import('./pages/About'));
-// const About = React.lazy(() => Promise.all([
-//   import('./pages/About'), 
-//   new Promise(resolve => setTimeout(() => resolve, 500))
-// ]).then(([imp]) => imp));
+import Navbar from './components/Navbar'
 
 function App() {
   const location = useLocation();
 
   return (
         <>
+        <Navbar />
           <SideMenu />
-          <NavBar />
           <AnimatePresence exitBeforeEnter initial = {false}>
             <Switch location = {location} key = {location.pathname}>
                 {/* <Route path = '/' component */}
