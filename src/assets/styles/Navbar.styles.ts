@@ -24,60 +24,27 @@ const useNavbarStyle = makeStyles( theme => ({
         },
     },
     toolbar : {
-        // borderBottom : 'thin solid rgba(255, 255, 255, 0.2)',
         justifyContent : 'flex-end',
         width : '100%',
         maxHeight : '50%',
     },
-    upperList : {
-        position : 'relative',
-        padding : 0,
-        display : 'flex',
-        alignItems : 'center',
-        justifyContent :'space-between',
-        // border : '2px solid blue',
-        listStyle : 'none',
-        [theme.breakpoints.up('sm')] : {
-            width : '75%',
+    navLink : {
+        fontSize : '1.4rem',
+        fontWeight : 300,
+        color : 'rgba(255, 255, 255, 0.4)',
+        '&:hover' :{
+            color : 'white'
         }
     },
-    list : {
-        padding : 0,
-        margin :0,
+    linkContainer : {
         display : 'flex',
         alignItems : 'center',
-        listStyle : 'none',
-        // border : '2px solid',
-        [theme.breakpoints.up('sm')] :{
-            width : '400px',
-            justifyContent : 'space-between'
-        },
-        '& > *':{
-            flex : 1,
-            height: '100%',
-        },
     },
-    panelIndicator:{
-        height : '100%',
-        width : '130px',
-        // boxShadow : '0 0 5px white',
-        borderRadius : '8px',
-        border : `1px solid lightgrey`,
-        position : 'absolute',
-        top : 0,
-        left : 0,
-        zIndex : 1,
-        transitionDelay : '1s',
-        transition : '0.5s linear'
-    },
-    listItem : {
-        fontSize : '1.5rem',
-        textAlign : 'center',
-        padding : '5px 20px',
-        cursor : 'pointer',
-        fontWeight : 500,
-        zIndex : 2
+    linkSeparator : {
+        color : 'white',
+        alignSelf : 'center',
     }
+  
 }))
 
 export default useNavbarStyle;

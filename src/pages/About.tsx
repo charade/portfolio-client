@@ -8,14 +8,14 @@ import { CircularProgress } from '@material-ui/core';
 import FictionalTexture from '../assets/textures/fictional.jpeg';
 import EarthTexture from '../assets/textures/earth.jpeg';
 import VenusTexture from '../assets/textures/venus.jpeg';
-import Model from '../components/threeComponents/Model';
-import Camera from '../components/threeComponents/AboutPageCamera'
+import AstraModel from '../components/threeComponents/AstraModel';
+import MainCamera from '../components/threeComponents/MainCamera'
 import { motion } from 'framer-motion';
 
 const About = () => {
     const [EarthMap, VenusMap, FictionalMap] = useTexture([EarthTexture,VenusTexture,FictionalTexture])
     const [loaded, setLoaded] = useState<boolean>(false); 
-
+    
     return(
         <>
             <Canvas
@@ -36,18 +36,18 @@ const About = () => {
                     <directionalLight color = 'white' position = {[20, 2, 0]} />
                     <pointLight intensity = {1} position = {[45, 15, -40]}/>
                     <OrbitControls />
-                    <Camera loaded = {loaded} />
+                    <MainCamera loaded = {loaded} />
                     <Suspense fallback = {null} >
                             <group position={[0, -1, -40]}>
                             <Stars radius = {80} depth = {200} count = {70000}/>
-                            <Model 
+                            <AstraModel 
                                 position = {[10, 2, 0]}
                                 map = {EarthMap}
                                 metalness = {0.1}
                                 roughness = {0.5}
                                 rotationSpeed = {[0, 0.003, 0]}
-                                />
-                            <Model 
+                            />
+                            <AstraModel 
                                 setLoaded = {setLoaded}
                                 position = {[0, -3, 7]}
                                 map = {VenusMap}
@@ -55,8 +55,8 @@ const About = () => {
                                 args = {[4, 40, 40]}
                                 roughness = {0.5}
                                 rotationSpeed = {[0.001, 0.001, 0.001]}
-                                />
-                            <Model 
+                            />
+                            <AstraModel 
                                 position = {[15, 2, 8]}
                                 map = {FictionalMap}
                                 metalness = {1}
