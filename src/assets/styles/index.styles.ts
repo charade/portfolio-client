@@ -4,6 +4,8 @@ import useSideMenuStyle from './SideMenu.styles'
 import useIntroStyle from "./Intro.styles";
 import useSkillsStyle from './Skills.styles';
 import useHardSkillsStyle from './HardSkills.styles';
+import useDirectionStyle from './Direction.styles';
+import useSubNavigationStyle from './AboutSubNavigation.styles';
 
 export {
     useNavbarStyle,
@@ -11,5 +13,7 @@ export {
     useIntroStyle,
     useSideMenuStyle,
     useSkillsStyle,
-    useHardSkillsStyle
+    useHardSkillsStyle,
+    useDirectionStyle,
+    useSubNavigationStyle
 }

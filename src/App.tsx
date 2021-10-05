@@ -1,33 +1,34 @@
-import React, { Suspense } from 'react';
-import { Switch, Route, useLocation } from 'react-router-dom';
+import React , { useState, useRef, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import About from './pages/About';
+// import About from './pages/About';
 import Projects from './pages/Projects';
 import Skills from './pages/Skills';
 import SideMenu from './components/SideMenu';
-import Navbar from './components/Navbar'
+import Navbar from './components/Navbar';
+import { Suspense } from 'react';
+
+const About = React.lazy(() => import('./pages/About'));
 
 function App() {
-  const location = useLocation();
+  const [top, setTop] = useState<number>(0);
+  const ref = useRef<HTMLDivElement>();
+
+  useEffect(() => {
+    // setTimeout(() => ref.current.scrollTop = 1000, 500);
+  },[]);
 
   return (
-        <>
-        <Navbar />
-          <SideMenu />
-          <AnimatePresence exitBeforeEnter initial = {false}>
-            <Switch location = {location} key = {location.pathname}>
-                {/* <Route path = '/' component */}
-                <Route exact path = '/'  render = {() => (
-                      <Suspense fallback ={null}>
-                        <About />
-                      </Suspense>
-                    )
-                }/>
-                <Route exact path = '/skills' component = {Skills} />
-                <Route exact path = '/projects'  component = {Projects} />
-            </Switch>
-          </AnimatePresence>
-        </>
+    <div ref = {ref} style = {{overflow : 'scroll'}}>
+      <Navbar />
+      <SideMenu />
+      <AnimatePresence exitBeforeEnter>
+      <Suspense fallback = {<h1>Loading...</h1>}>
+        <About />
+      </Suspense>
+        <Skills />
+        <Projects />
+      </AnimatePresence>
+    </div>
   );
 }
 

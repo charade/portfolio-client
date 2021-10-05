@@ -4,12 +4,9 @@ const useSkillsStyle = makeStyles(theme => ({
     root :{
         display : 'flex',
         flexDirection : 'column',
-        padding : '100px 0 100px 15% ',
-        // paddingTop: '100px',
-        // paddingLeft: '15%',
-        // border :'2px solid',
+        // padding : '100px 0 100px 15% ',
         overflow : 'hidden',
-        height :'100%',
+        height :'100vh',
         '& > *' :{
             margin :0
         }
