@@ -1,17 +1,13 @@
 import { makeStyles } from "@material-ui/core";
 
-const useIntroStyle = makeStyles(theme => ({
+const useStoryStyle = makeStyles(theme => ({
     root : {
-        position : 'absolute',
-        top: '15%',
-        left : '15%',
-        // transform : 'translateX(-30%)',
-        zIndex :3,
         display:'flex',
         flexDirection : 'column',
+        transformOrigin : 'top left'
     },
     title :{
-        fontSize: '3.5rem',
+        fontSize: '2rem',
         fontWeight : 800,
     }, 
     introBox :{
@@ -44,4 +40,4 @@ const useIntroStyle = makeStyles(theme => ({
     }
 }))
 
-export default useIntroStyle;
+export default useStoryStyle;

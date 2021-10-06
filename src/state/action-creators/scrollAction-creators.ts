@@ -1,10 +1,10 @@
 import { Dispatch } from 'redux';
-import { Actions } from './actions';
+import { ScrollActions } from '../actions/index';
 
 export const scroll = (direction) => {
     return (dispatch : Dispatch) => {
         dispatch({
-            type : Actions.SCROLL,
+            type : ScrollActions.SCROLL,
             payload : direction
         })
     }
@@ -13,7 +13,7 @@ export const scroll = (direction) => {
 export const stopScrolling = () => {
     return (dispatch) => {
         dispatch({
-            type : Actions.STOP_SCROLLING
+            type : ScrollActions.STOP_SCROLLING
         })
     }
 }

@@ -2,11 +2,9 @@ import { makeStyles} from '@material-ui/core';
 
 const useSubNavigationStyle = makeStyles(theme => ({
     root : {
-        position : 'absolute',
-        top: '70px',
-        left : '5%',
-        width : '20rem',
-        height : '20rem',
+        position : 'relative',
+        width : '15rem',
+        height : '15rem',
         borderRadius :'50%',
         borderBottom : '1px solid white',
         borderRight : '1px solid red'
@@ -14,7 +12,6 @@ const useSubNavigationStyle = makeStyles(theme => ({
     block : {
         position : 'absolute',
         minWidth : '118px',
-        cursor : 'pointer',
         // border: '2px solid blue',
         display : 'flex',
         alignItems : 'center',
@@ -23,6 +20,7 @@ const useSubNavigationStyle = makeStyles(theme => ({
         }
     },
     circle : {
+        cursor : 'pointer',
         width : '13px',
         display : 'flex',
         justifyContent : 'center',

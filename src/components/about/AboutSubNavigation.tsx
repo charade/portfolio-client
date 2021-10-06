@@ -1,6 +1,10 @@
 import { useState, useMemo } from 'react';
 import { useSubNavigationStyle } from '../../assets/styles/index.styles';
 import { motion, AnimateSharedLayout } from 'framer-motion';
+import { useDispatch, useSelector } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actionCreators from  '../../state/action-creators/switchAction-creators';
+import { RootStateType } from '../../state/store';
 
 type PositionT = {
     top : string;
@@ -15,38 +19,42 @@ const INDICATOR_INITIAL_POS = {top : '57.8px', left : '93.6%'};
 
 export default function AboutSubNavigation(){
         
-    const [indicatorPos, setIndicatorPos] =useState<PositionT>(INDICATOR_INITIAL_POS);
+    const [indicatorPos, setIndicatorPos] = useState<PositionT>(INDICATOR_INITIAL_POS);
     const [selected, setSelected] = useState<string>('');
-    const classes = useSubNavigationStyle()
+    const classes = useSubNavigationStyle();
+    const dispatch = useDispatch();
+    const { switchSection } = bindActionCreators(actionCreators, dispatch);
+
     const sections = useMemo(() => [
         {
             title : 'story',
             style: {
-                top : '40px',
-                left : '93%'
+                top : '32.5%',
+                left : '95.3%'
             }
         },
          {
             title : 'hard skills',
             style : {
-                top : '149px',
-                left : '82%' 
+                top : '70%',
+                left : '81.5%' 
             }
         },
         {
             title : 'soft skills',
             style : {
                 flexDirection : 'column',
-                top : '190px',
-                left : '10%' 
+                top : '93.5%',
+                left : '3%' 
             }
         },
-       ],[]);
+    ],[]);
     
     const handleIndicatorPos = (e : React.MouseEvent<HTMLSpanElement>) => {
         const target = e.target as HTMLSpanElement;
         const selectedLabel = target.getAttribute('aria-label')
         setSelected(selectedLabel);
+        switchSection(selectedLabel);
     };
 
     return(
@@ -54,7 +62,7 @@ export default function AboutSubNavigation(){
             <div className = {classes.root}>
                 {sections.map((section : SectionProperties, i : number) => {
                     return(
-                        <div 
+                        <div
                             key = {i}
                             className = {classes.block}
                             style = {section.style}

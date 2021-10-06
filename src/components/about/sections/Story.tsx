@@ -1,16 +1,36 @@
 import { useEffect, useState, useMemo } from 'react';
-import { useIntroStyle } from '../../assets/styles/index.styles';
+import { useStoryStyle } from '../../../assets/styles/index.styles';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 const Bar = styled(motion.span)``;
+
+const rootvariants = {
+    hidden : {
+        rotate : '-90deg',
+        opacity : 0,
+        transition : {
+            duration : .9,
+            type :'spring',
+        }
+    },
+    show : {
+        rotate : 0,
+        opacity : 1,
+        transiton : {
+            duration: .9,
+            type : 'spring',
+            // damping: 120
+        }
+    },
+};
 
 const parentVariants = {
     hidden : {},
     show : {
         transition : {
             staggerChildren : 2,
-            delayChildren : 1
+            delayChildren : 0.2
         }
     }
 }
@@ -26,9 +46,11 @@ const childrenVariants = {
         }
     },
 }
-export default function Intro(){
+
+
+export const Story = () =>{
     const [loaded, setLoaded] = useState<boolean>(false);
-    const classes = useIntroStyle();
+    const classes = useStoryStyle();
 
     useEffect(() => {
         setLoaded(true);
@@ -38,7 +60,13 @@ export default function Intro(){
     const lineVariants = useMemo(() => childrenVariants,[]);
     
     return(
-        <div className = {classes.root}>
+        <motion.div 
+            className = {classes.root}
+            variants = {rootvariants}
+            initial = 'hidden'
+            animate = 'show'
+            exit = 'hidden'
+        >
             <h1 className = {classes.title} >A programming story...</h1>
             <div className = {classes.introBox}>
                 <Bar className = {classes.bar}></Bar>
@@ -86,6 +114,7 @@ export default function Intro(){
                     </motion.span>
                 </motion.p>
             </div>
-        </div>
+        </motion.div>
     )
 }
+

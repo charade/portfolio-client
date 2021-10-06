@@ -2,20 +2,17 @@
 import { useState, Suspense, useEffect, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stars, useTexture } from '@react-three/drei'
-import Intro from '../components/about/Intro';
+import { SectionIndex } from '../components/about/sections/Index';
 import { useAboutStyle } from '../assets/styles/index.styles';
 import FictionalTexture from '../assets/textures/fictional.jpeg';
 import JupiterTexture from '../assets/textures/jupiter.jpeg';
 import VenusTexture from '../assets/textures/venus.jpeg';
 import AstraModel from '../components/threeComponents/AstraModel';
+import VenuModel from  '../components/threeComponents/VenusModel';
 import MainCamera from '../components/threeComponents/MainCamera';
 import { extend, useFrame } from '@react-three/fiber';
 import { motion } from 'framer-motion';
 import Down from '../components/directions/Down';
-import AboutSubNavigation from '../components/about/AboutSubNavigation';
-import AstralShaderMaterial from '../shaders/AstralShaderMaterial';
-import * as THREE from 'three';
-extend({AstralShaderMaterial});
 
 const rootVariants = {
     open : {
@@ -28,18 +25,9 @@ const rootVariants = {
     }
 };
 const About = () => {
-    const [JupiterMap, VenusMap, FictionalMap] = useTexture([JupiterTexture,VenusTexture,FictionalTexture])
+    const [JupiterMap, FictionalMap] = useTexture([JupiterTexture,FictionalTexture])
     const [loaded, setLoaded] = useState<boolean>(false); 
     const classes = useAboutStyle();
-    const materialRef = useRef<any>()
-    
-    useEffect(() => {
-        let timer = null;
-        if(loaded){
-           timer = setInterval(() => materialRef.current.uTime += 1, 1);
-        }
-        return () => clearInterval(timer)
-    }, [loaded]);
 
     return(
         <motion.div 
@@ -64,9 +52,9 @@ const About = () => {
                 <pointLight intensity = {0.4} position = {[12, 15, -40]}/>
                 <OrbitControls enablePan = {false}/>
                 <MainCamera loaded = {loaded} />
-                <Stars radius = {150} depth = {200} count = {30000}/>
-                <group position={[-4, -1, 50]}>
-                    <Suspense fallback = {null} >
+                <Suspense fallback = {null} >  
+                    {loaded && <Stars radius = {150} depth = {200} count = {30000}/>}
+                    <group position={[-4, -1, 50]}>
                         <AstraModel 
                             position = {[16, -2, 0]}
                             map = {JupiterMap}
@@ -75,27 +63,7 @@ const About = () => {
                             roughness = {0.5}
                             rotationSpeed = {[0, 0.003, 0]}
                         />
-                        <mesh 
-                            position = {[-5, -3, 9]}
-                            rotation = {[0.0003, 0.0003, 0.002]}
-                        >
-                            <sphereBufferGeometry 
-                                args = {[5, 30, 30]}
-                            />
-                            <astralShaderMaterial 
-                                ref = {materialRef}
-                                uColor = {new THREE.Color('red')}
-                                uMap = {VenusMap}
-                            />
-                        </mesh>
-                        {/* <AstraModel 
-                            position = {[-5, -3, 9]}
-                            map = {VenusMap}
-                            metalness = {0.8}
-                            args = {[5, 40, 40]}
-                            roughness = {0.5}
-                            rotationSpeed = {[0.0004, 0.0004, 0.00035]}
-                        /> */}
+                        <VenuModel />
                         <AstraModel 
                             position = {[14, 5, 30]}
                             setLoaded = {setLoaded}
@@ -107,14 +75,25 @@ const About = () => {
                             bumpScale = {0.14}
                             rotationSpeed = {[0.00005, 0.00005, -0.0005]}
                         />
-                    </Suspense>
-                </group>
+                    </group>
+                </Suspense>
             </Canvas>
-            {/* {loaded && <Intro />}  */}
-            {loaded && <AboutSubNavigation />} 
+            {loaded && <SectionIndex />} 
             {loaded && <Down to = 'skills' />} 
         </motion.div>
     )
 };
 
 export default About;
+
+
+/*standard astral material*/
+
+{/* <AstraModel 
+    position = {[-5, -3, 9]}
+    map = {VenusMap}
+    metalness = {0.8}
+    args = {[5, 40, 40]}
+    roughness = {0.5}
+    rotationSpeed = {[0.0004, 0.0004, 0.00035]}
+/> */}
