@@ -10,7 +10,8 @@ const useNavbarStyle = makeStyles( theme => ({
         background : 'transparent',
         height : '80px',
         boxShadow : 'none',
-        fontSize : '1.8rem'
+        fontSize : '1.8rem',
+        transition : '.3s ease'
     },
     avatar : {
         borderBottom : `1px solid rgba(255,255,255,.8)`,

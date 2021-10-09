@@ -1,16 +1,18 @@
-import React , { useRef } from 'react';
+import React from 'react';
 import Projects from './pages/Projects';
 import SideMenu from './components/SideMenu';
 import Navbar from './components/Navbar';
 import { Suspense } from 'react';
+import { useAppStyle } from "./assets/styles/index.styles";
 
 const About = React.lazy(() => import('./pages/About'));
 
 function App() {
-  const ref = useRef<HTMLDivElement>();
+
+  const classes = useAppStyle();
 
   return (
-    <div ref = {ref} style = {{overflow : 'scroll'}}>
+    <div className = {classes.root}>
       <Navbar />
       <SideMenu />
       <Suspense fallback = {<h1>Loading...</h1>}>

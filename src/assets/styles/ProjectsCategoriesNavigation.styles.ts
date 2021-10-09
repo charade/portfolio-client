@@ -25,7 +25,7 @@ const useCategoriesNavigationStyle = makeStyles(theme => ({
         },
     },
     separator : {
-        borderBottom : '2px solid rgba(200, 0 , 0, .5)',
+        borderBottom : '2px solid rgba(250, 0 , 0, .5)',
         // border: '2px solid',
         width : '200px',
         transform : 'translateY(-22px)',

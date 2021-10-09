@@ -12,8 +12,10 @@ import useBlockTitleStyle from './BlockTitle.styles';
 import useProjectsStyle from './Projects.styles';
 import useCategoriesNavigationStyle from './ProjectsCategoriesNavigation.styles';
 import useNavigationCirclesStyle from './NavigationCircles.style';
+import useAppStyle from './About.styles';
 
 export {
+    useAppStyle,
     useNavbarStyle,
     useAboutStyle,
     useStoryStyle,
