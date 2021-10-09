@@ -2,9 +2,10 @@ import { makeStyles } from "@material-ui/core";
 
 const useIconsMenuStyle = makeStyles(theme => ({
     root : {
+        zIndex : 5,
         background : 'transparent',
         border : 'none',
-        width : '9rem',
+        width : '7rem',
         justifyContent : 'flex-end',
         alignItems : 'center',
         paddingBottom: '20px',

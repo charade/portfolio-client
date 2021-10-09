@@ -3,42 +3,35 @@ import { makeStyles } from '@material-ui/core';
 const useHardSkillsStyle = makeStyles(theme => ({
     root : {
         display : 'flex',
-        // border :'2px solid',
-        margin : 0,
-        width : '90%',
-        justifyContent :'center',
-        alignSelf : 'center',
+        transformOrigin : 'top left',
+        justifyContent : 'center',
         '& > *' : {
-            margin : '2%'
-        }
+            margin : '15px'
+        }        
     },
     section : {
         display : 'flex',
-        // border : '2px solid',
         flexDirection : 'column',
         alignItems : 'center',
-        '& > *' : {
-            // border :'2px solid red',
-            width : '100%'
-        },
         '& > ul' :{
             listStyle : 'none',
-            padding :0
+            padding : 0
         }
     },
     block : {
-
     },
-    blockTitle :{
-        fontSize :'1.7rem',
-    },
+    
     techno : {
-        fontSize : '1.7rem'
+        fontSize : '1.8rem',
+        fontWeight : 400,
+        [theme.breakpoints.up('sm')] : {
+            margin : '10px',
+        }
     },
     divider :{
-        height: '300px',
+        height: '200px',
         alignSelf :'center',
-        borderRight :'1px solid rgba(255, 255, 255, 0.3)'
+        borderRight :'1px solid rgba(255, 255, 255, 0.7)'
     }
 }))
 

@@ -1,33 +1,23 @@
-import React, { Suspense } from 'react';
-import { Switch, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
-import About from './pages/About';
+import React , { useRef } from 'react';
 import Projects from './pages/Projects';
-import Skills from './pages/Skills';
 import SideMenu from './components/SideMenu';
-import Navbar from './components/Navbar'
+import Navbar from './components/Navbar';
+import { Suspense } from 'react';
+
+const About = React.lazy(() => import('./pages/About'));
 
 function App() {
-  const location = useLocation();
+  const ref = useRef<HTMLDivElement>();
 
   return (
-        <>
-        <Navbar />
-          <SideMenu />
-          <AnimatePresence exitBeforeEnter initial = {false}>
-            <Switch location = {location} key = {location.pathname}>
-                {/* <Route path = '/' component */}
-                <Route exact path = '/'  render = {() => (
-                      <Suspense fallback ={null}>
-                        <About />
-                      </Suspense>
-                    )
-                }/>
-                <Route exact path = '/skills' component = {Skills} />
-                <Route exact path = '/projects'  component = {Projects} />
-            </Switch>
-          </AnimatePresence>
-        </>
+    <div ref = {ref} style = {{overflow : 'scroll'}}>
+      <Navbar />
+      <SideMenu />
+      <Suspense fallback = {<h1>Loading...</h1>}>
+        <About />
+        <Projects />
+      </Suspense>
+    </div>
   );
 }
 

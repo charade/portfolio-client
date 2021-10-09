@@ -17,9 +17,6 @@ export default function Navbar(){
                     <Link color = 'initial' underline = 'hover' href = '/'>
                         <h3 className = {classes.navLink}>about</h3>
                     </Link>
-                    <Link color = 'initial' underline = 'hover' href = 'skills'>
-                        <h3 className = {classes.navLink}>skills</h3>
-                    </Link>
                     <Link color = 'initial' underline = 'hover' href = 'projects'>
                        <h3 className = {classes.navLink}> projects</h3>
                     </Link>
