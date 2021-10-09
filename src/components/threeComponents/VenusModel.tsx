@@ -1,10 +1,9 @@
-import { useRef, useMemo } from 'react';
+import { useRef } from 'react';
 import { useFrame, extend } from '@react-three/fiber';
 import { useTexture } from '@react-three/drei';
 import VenusTexture from '../../assets/textures/venus.jpeg';
 import AstralShaderMaterial from '../../shaders/AstralShaderMaterial';
 import * as THREE from 'three';
-// import { loadingActionCreator } from '../../state/action-creators/index';
 
 extend({AstralShaderMaterial });
  
@@ -15,6 +14,7 @@ export default function VenusModel(){
 
 
     useFrame(({clock}) => {
+        // materialRef.current.uTime = clock.getElapsedTime();
         meshRef.current.rotation.x += 0.0002
         meshRef.current.rotation.y += 0.001
         meshRef.current.rotation.z += 0.0003;
@@ -23,7 +23,7 @@ export default function VenusModel(){
     return(
        <mesh
             ref = {meshRef} 
-            position = {[-5, 0, 9]}
+            position = {[-5.5, 0, 9]}
         >
             <sphereBufferGeometry 
                 args = {[5, 40, 40]}
@@ -33,9 +33,6 @@ export default function VenusModel(){
                 uColor = {new THREE.Color('red')}
                 uMap = {VenusMap}
             />
-            {/* <meshBasicMaterial 
-                map = {VenusMap}
-            /> */}
         </mesh>
     )
 }

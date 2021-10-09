@@ -5,7 +5,7 @@ const useNavbarStyle = makeStyles( theme => ({
     root : {
         display : 'flex',
         flexDirection : 'row',
-        padding : '20px',
+        padding : '13px',
         alignItems : 'center',
         background : 'transparent',
         height : '80px',
@@ -31,7 +31,7 @@ const useNavbarStyle = makeStyles( theme => ({
     navLink : {
         fontSize : '1.4rem',
         fontWeight : 300,
-        color : 'rgba(255, 255, 255, 0.4)',
+        color : 'rgba(255, 255, 255, 0.6)',
         '&:hover' :{
             color : 'white'
         }

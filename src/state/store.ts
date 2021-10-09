@@ -1,9 +1,8 @@
-import { scrollReducer, loadingReducer, switchAboutSectionsReducer  } from './reducers/index';
+import { loadingReducer, switchAboutSectionsReducer  } from './reducers/index';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 const reducer = combineReducers({
-    scroll : scrollReducer, 
     loading : loadingReducer,
     section : switchAboutSectionsReducer
 });

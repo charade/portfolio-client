@@ -1,19 +1,21 @@
 import { SwitchAboutSectionsAction } from '../actions/index';
 
-type Action = {
-    type : string,
-    payload : string
+type StateType = {
+    label : string,
+    position : number
 };
 
-type StateType = {
-    label : string
-}
+type Action = {
+    type : string,
+    payload : StateType
+};
 
-const INITIAL = {label : ''};
+
+const INITIAL = {label : '', position : 0};
 
 export const switchAboutSectionsReducer = (state : StateType = INITIAL, action : Action) =>{
     switch(action.type){
-        case SwitchAboutSectionsAction.SWITCH : return {label : action.payload};
+        case SwitchAboutSectionsAction.SWITCH : return {label : action.payload.label, position : action.payload.position};
         default : return state;
     }
 }

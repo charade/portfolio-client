@@ -1,7 +1,6 @@
-import { useFrame, extend } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import {  Mesh, MathUtils, FrontSide } from 'three';
 import { FC, useLayoutEffect, useRef } from "react";
-import * as THREE from 'three';
 
 type PropsType = {
     setLoaded? : (args : boolean) => void,
@@ -12,7 +11,9 @@ type PropsType = {
     metalness?: number,
     rotationSpeed : number[],
     args? : any,
-    bumpScale? : number
+    bumpScale? : number,
+    color ?: THREE.Color | string,
+    envMap ?: any
 }
 
 const Model : FC<PropsType> = ({
@@ -24,17 +25,17 @@ const Model : FC<PropsType> = ({
     rotationSpeed,
     args,
     bumpScale,
-    bumpMap
+    bumpMap,
+    color,
+    envMap
     }) => {
     const modelRef = useRef<Mesh>();
-    const materialRef = useRef<any>();
     
     useLayoutEffect(() => {
             setLoaded && setLoaded(true);
     }, [map, setLoaded])
 
     useFrame(({clock}) => {
-        // materialRef.current.uTime = clock.getElapsedTime();
         modelRef.current.rotation.z +=  MathUtils.lerp(modelRef.current.rotation.z, rotationSpeed[2], 1);
         modelRef.current.rotation.y +=  MathUtils.lerp(modelRef.current.rotation.y, rotationSpeed[1] , 1);
         modelRef.current.rotation.x +=  MathUtils.lerp(modelRef.current.rotation.x, rotationSpeed[0] , 1);
@@ -43,12 +44,6 @@ const Model : FC<PropsType> = ({
     return(
         <mesh position = {position} ref = {modelRef} dispose = {null}>
             <sphereBufferGeometry  attach = 'geometry' args = {args && args}/>
-            {/* <astralShaderMaterial 
-                ref = {materialRef}
-                uColor = {new THREE.Color('red')}
-                uMap = {map}
-            /> */}
-            
             <meshStandardMaterial
                 side = {FrontSide}
                 attach = 'material' 
@@ -57,6 +52,9 @@ const Model : FC<PropsType> = ({
                 bumpScale = {bumpScale}
                 metalness = {metalness && metalness}
                 roughness = {roughness && roughness}
+                color = {color}
+                envMap = {envMap}
+                envMapIntensity = {2}
             />
         </mesh>
     )

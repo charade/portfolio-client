@@ -22,6 +22,5 @@ const useDirectionStyle = makeStyles(theme => ({
         minWidth : '30px',
         minHeight :'30px'
     }
-    
 }));
 export default useDirectionStyle;

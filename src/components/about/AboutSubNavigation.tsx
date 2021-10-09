@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { useSubNavigationStyle } from '../../assets/styles/index.styles';
+import { useSubNavigationStyle, useNavigationCirclesStyle } from '../../assets/styles/index.styles';
 import { motion, AnimateSharedLayout } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -11,50 +11,70 @@ type PositionT = {
     left : string;
 };
 type SectionProperties = {
-    title : string,
+    label : string,
     style : PositionT
 };
 
-const INDICATOR_INITIAL_POS = {top : '57.8px', left : '93.6%'};
-
 export default function AboutSubNavigation(){
         
-    const [indicatorPos, setIndicatorPos] = useState<PositionT>(INDICATOR_INITIAL_POS);
     const [selected, setSelected] = useState<string>('');
     const classes = useSubNavigationStyle();
+    const circleNavigationClass = useNavigationCirclesStyle();
     const dispatch = useDispatch();
     const { switchSection } = bindActionCreators(actionCreators, dispatch);
 
     const sections = useMemo(() => [
         {
-            title : 'story',
+            label : 'story',
             style: {
                 top : '32.5%',
                 left : '95.3%'
             }
         },
          {
-            title : 'hard skills',
+            label : 'hard skills',
             style : {
                 top : '70%',
-                left : '81.5%' 
+                left : '83.5%' 
             }
         },
         {
-            title : 'soft skills',
+            label : 'soft skills',
             style : {
                 flexDirection : 'column',
-                top : '93.5%',
-                left : '3%' 
+                top : '87.5%',
+                left : '-10%' 
             }
         },
     ],[]);
     
-    const handleIndicatorPos = (e : React.MouseEvent<HTMLSpanElement>) => {
+    
+    const handleIndicatorPos = (e : React.PointerEvent<HTMLSpanElement>) => {
         const target = e.target as HTMLSpanElement;
         const selectedLabel = target.getAttribute('aria-label')
         setSelected(selectedLabel);
-        switchSection(selectedLabel);
+        let position = 0;
+        //each label corresponds to a position;
+        
+        switch(selectedLabel){
+            case 'story' : 
+                position = 1;
+                break;
+            case 'hard skills' : 
+                position = 2;
+                break;
+            case 'soft skills' : 
+                position = 3;
+                break;
+            default : return
+        };
+
+        const payload = {
+            label : selectedLabel,
+            position
+        }
+
+        switchSection(payload);
     };
 
     return(
@@ -69,13 +89,12 @@ export default function AboutSubNavigation(){
                         >
                             
                             <SectionItem
-                                 selected = {selected} 
-                                 classes = {classes}
-                                 isSelected = { selected === section.title }
+                                 classes = {circleNavigationClass}
+                                 isSelected = { selected === section.label }
                                  onClick = { handleIndicatorPos }
-                                 ariaLabel = {section.title}
+                                 ariaLabel = {section.label}
                             />
-                            <h3 className = {classes.title}>{section.title}</h3> 
+                            <h3 className = {circleNavigationClass.label}>{section.label}</h3> 
                         </div>
                     )
                 })}
@@ -84,7 +103,7 @@ export default function AboutSubNavigation(){
     )
 }
 
-const SectionItem = ({selected, classes, onClick, ariaLabel, isSelected}) => {
+const SectionItem = ({classes, onClick, ariaLabel, isSelected}) => {
     return(
         <span 
             className = {classes.circle}
@@ -96,7 +115,6 @@ const SectionItem = ({selected, classes, onClick, ariaLabel, isSelected}) => {
                     className = {classes.indicator}
                     initial = {false}
                     layoutId = "indicator"
-                    animate = {{x : 1}}
                     // transition = {spring}
                 />}
         </span>

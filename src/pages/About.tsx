@@ -1,18 +1,16 @@
 
-import { useState, Suspense, useEffect, useRef } from 'react';
+import { useState, Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stars, useTexture } from '@react-three/drei'
-import { SectionIndex } from '../components/about/sections/Index';
+import { AboutSectionsIndex } from '../components/about/sections/Index';
 import { useAboutStyle } from '../assets/styles/index.styles';
 import FictionalTexture from '../assets/textures/fictional.jpeg';
 import JupiterTexture from '../assets/textures/jupiter.jpeg';
-import VenusTexture from '../assets/textures/venus.jpeg';
 import AstraModel from '../components/threeComponents/AstraModel';
 import VenuModel from  '../components/threeComponents/VenusModel';
 import MainCamera from '../components/threeComponents/MainCamera';
-import { extend, useFrame } from '@react-three/fiber';
 import { motion } from 'framer-motion';
-import Down from '../components/directions/Down';
+import AboutSubNavigation from '../components/about/AboutSubNavigation';
 
 const rootVariants = {
     open : {
@@ -43,18 +41,22 @@ const About = () => {
                     near: 0.1,
                     far: 10000,
                     zoom: 4,
-                    fov : 82,
-                    position : [10, -8, 110]
+                    fov : 76,
+                    position : [10, -11, 113]
                 }}
             >
                  
                 <directionalLight color = 'white' position = {[40, 40, 0]} />
                 <pointLight intensity = {0.4} position = {[12, 15, -40]}/>
-                <OrbitControls enablePan = {false}/>
+                <OrbitControls 
+                    enablePan = {false} 
+                    enableZoom = {false}
+                    enableRotate = {false}
+                />
                 <MainCamera loaded = {loaded} />
                 <Suspense fallback = {null} >  
-                    {loaded && <Stars radius = {150} depth = {200} count = {30000}/>}
-                    <group position={[-4, -1, 50]}>
+                    {loaded && <Stars radius = {200} depth = {200} count = {10000}/>}
+                    <group position={[-3, -3.5, 50]}>
                         <AstraModel 
                             position = {[16, -2, 0]}
                             map = {JupiterMap}
@@ -65,7 +67,7 @@ const About = () => {
                         />
                         <VenuModel />
                         <AstraModel 
-                            position = {[14, 5, 30]}
+                            position = {[13, 4, 30]}
                             setLoaded = {setLoaded}
                             // map = {FictionalMap}
                             bumpMap = {FictionalMap}
@@ -78,8 +80,13 @@ const About = () => {
                     </group>
                 </Suspense>
             </Canvas>
-            {loaded && <SectionIndex />} 
-            {loaded && <Down to = 'skills' />} 
+            {loaded && 
+                <>
+                    <AboutSectionsIndex />
+                    <AboutSubNavigation />
+                </>
+            }
+            
         </motion.div>
     )
 };
@@ -87,13 +94,3 @@ const About = () => {
 export default About;
 
 
-/*standard astral material*/
-
-{/* <AstraModel 
-    position = {[-5, -3, 9]}
-    map = {VenusMap}
-    metalness = {0.8}
-    args = {[5, 40, 40]}
-    roughness = {0.5}
-    rotationSpeed = {[0.0004, 0.0004, 0.00035]}
-/> */}

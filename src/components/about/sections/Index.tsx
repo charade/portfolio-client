@@ -3,20 +3,16 @@ import { Story } from './Story';
 import { useSelector } from 'react-redux';
 import { RootStateType } from '../../../state/store';
 import { useAboutSectionsStyle } from '../../../assets/styles/index.styles';
-import AboutSubNavigation from '../AboutSubNavigation';
+import HardSkills from './HardSkills';
+import SoftSkills from './SoftSkills';
 
-const variants = {
-
-}
-export const SectionIndex = () => {
-
+export const AboutSectionsIndex = () => {
     const section = useSelector((state: RootStateType) => state.section)
     const classes = useAboutSectionsStyle();
 
     return(
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence >
             <div className = {classes.root} key = {section.label}>
-                <AboutSubNavigation />
                 <Switch label = {section.label}/>   
             </div>
         </AnimatePresence>
@@ -29,8 +25,9 @@ type SwitchProps = {
 
 function Switch({label} : SwitchProps){
     switch(label){
-        case 'story' : 
-            return <Story />
+        case 'story' : return <Story />;
+        case 'hard skills' : return <HardSkills />
+        case 'soft skills' : return <SoftSkills />
         default : return null
     }
 }

@@ -1,11 +1,15 @@
 import { Dispatch } from 'redux';
 import { SwitchAboutSectionsAction } from '../actions/index';
 
-export const switchSection = (section : string) => {
+type PayloadType = {
+    label : string;
+    position : number
+}
+export const switchSection = (args : PayloadType) => {
     return (dispatch : Dispatch) => {
         dispatch({
             type : SwitchAboutSectionsAction.SWITCH,
-            payload : section
+            payload : args
         })
     }
 }

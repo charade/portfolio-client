@@ -2,34 +2,34 @@ import { useEffect, useState, useMemo } from 'react';
 import { useStoryStyle } from '../../../assets/styles/index.styles';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+import { RootStateType } from '../../../state/store';
 
 const Bar = styled(motion.span)``;
 
 const rootvariants = {
-    hidden : {
-        rotate : '-90deg',
+    hidden : position => ({
+        y : position === 0 ? 100 : -100,
         opacity : 0,
         transition : {
-            duration : .9,
-            type :'spring',
+            duration : .5
         }
-    },
-    show : {
-        rotate : 0,
+    }),
+    open : {
+        y: 0,
         opacity : 1,
-        transiton : {
-            duration: .9,
-            type : 'spring',
-            // damping: 120
+        transition : {
+            delay : .3,
+            duration : .4
         }
     },
 };
 
 const parentVariants = {
     hidden : {},
-    show : {
+    open : {
         transition : {
-            staggerChildren : 2,
+            staggerChildren : .5,
             delayChildren : 0.2
         }
     }
@@ -39,18 +39,18 @@ const childrenVariants = {
     hidden : {
         opacity : 0 
     },
-    show : {
+    open : {
         opacity : 1,
         transition : {
-            duration : 1.4
+            duration : 0.5
         }
     },
 }
 
-
 export const Story = () =>{
     const [loaded, setLoaded] = useState<boolean>(false);
     const classes = useStoryStyle();
+    const section = useSelector((store : RootStateType) => store.section);
 
     useEffect(() => {
         setLoaded(true);
@@ -61,10 +61,11 @@ export const Story = () =>{
     
     return(
         <motion.div 
-            className = {classes.root}
-            variants = {rootvariants}
+            className = { classes.root }
+            variants = { rootvariants }
+            custom = { section.position }
             initial = 'hidden'
-            animate = 'show'
+            animate = 'open'
             exit = 'hidden'
         >
             <h1 className = {classes.title} >A programming story...</h1>
@@ -74,8 +75,7 @@ export const Story = () =>{
                     className = {classes.text}
                     variants = {textVariants}
                     initial = {false}
-                    animate = {loaded ? 'show' : 'hidden'}
-                    
+                    animate = {loaded ? 'open' : 'hidden'}
                 >
                     
                     <motion.span

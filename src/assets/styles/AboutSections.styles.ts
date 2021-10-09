@@ -2,19 +2,14 @@ import { makeStyles } from '@material-ui/core';
 
 const useAboutSectionsStyle = makeStyles(theme => ({
     root : {
-        zIndex :3,
         position : 'absolute',
-        top: '5px',
-        left : '3%',
-        display : 'flex',
-        flexDirection : 'column',
-        alignItems : 'flex-start',
-        width :'100%',
-        '& > *' : {
-            margin : '4%'
-        },
-        [theme.breakpoints.up('md')] : {
-            flexDirection : 'row'
+        top : '32%',
+        left : '50%',
+        transform : 'translateX(-40%)',
+        [theme.breakpoints.up('sm')] : {
+            transform : 'translateX(0)',
+            top: '20%',
+            left : '36%',
         }
     }
 }))
