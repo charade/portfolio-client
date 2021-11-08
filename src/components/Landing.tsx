@@ -1,38 +1,71 @@
+import React, { useCallback, useEffect, useRef } from "react";
 import { useLandingStyle } from "../assets/styles/index.styles";
+import { AnimatedLoading } from "./AnimatedLoading";
 import { motion, Variants } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useSelector,useDispatch } from "react-redux";
+import * as landingEvntActionCreators from "../state/action-creators/landingEvent-action-creators";
+import { ReducerRootStateType } from "../state/store";
+import { bindActionCreators } from "redux";
 
-const loadingVariants : Variants  = {
-    start: {
-        strokeDashoffset : ["440", "0"],
+const landingVariants : Variants = {
+    open : {
+        opacity : 1
+    },
+    close : {
+        opacity : 0,
+        display : 'none'
+    }
+
+}
+const captionVariants : Variants = {
+    open : {
+        opacity : 1,
         transition : {
-            duration : 3,
-            delay : .5
+            duration : .3
         }
     },
-    initial:{
-        strokeDashoffset : "440"
+    close : {
+        opacity : 0
     }
 }
 
 export const Landing = () => {
     const classes = useLandingStyle();
-    const progressRef = useRef<SVGCircleElement>(null);
+    //user click
+    const ref = useRef<HTMLDivElement>(null)
+    const landingEvent = useSelector((store :ReducerRootStateType) => store.landingEvent);
+    const dispatch = useDispatch();
+    const { setActive } = bindActionCreators(landingEvntActionCreators, dispatch);
+
+    useEffect(() => {
+        if(!landingEvent.loading && ref.current){
+            ref.current.style.cursor = 'pointer'
+        }
+    },[landingEvent.loading])
+
+    const handleCloseLanding = useCallback((e : React.MouseEvent<HTMLDivElement>) => {
+       //wait loading animation end before listening click ev
+        !landingEvent.loading && setActive(true);
+   },[landingEvent.loading, setActive])
 
     return(
-        <div className = {classes.root}>
-            <svg className = {classes.circle} width = '200' height = "200">
-                <circle cx = "50%" cy = "50%" r="70" />
-                <motion.circle 
-                    onAnimationComplete = {() => console.log('end')}
-                    variants = { loadingVariants }
-                    animate = "start"
-                    initial = "initial"
-                    ref = { progressRef }
-                    cx = "50%" cy = "50%" r="70" 
-                    className = {classes.progress}
-                />
-            </svg>
-        </div>
+        <motion.div
+            ref = {ref}
+            variants = { landingVariants } 
+            initial = 'open'
+            animate = { landingEvent.active ? 'close' : 'open' }
+            className = {classes.root} 
+            onClick = { handleCloseLanding }
+        >
+            <motion.h4 
+                variants = { captionVariants }
+                initial = "close"
+                animate = { landingEvent.loading ? "close" : "open" }
+                className = {classes.caption}
+            >
+                click to continue
+            </motion.h4>
+            <AnimatedLoading />
+        </motion.div>
     )
 }

@@ -1,13 +1,14 @@
-import { loadingReducer, switchAboutSectionsReducer  } from './reducers/index';
+import { loadingReducer, switchAboutSectionsReducer,landingEventReducer  } from './reducers/index';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 const reducer = combineReducers({
     loading : loadingReducer,
-    section : switchAboutSectionsReducer
+    section : switchAboutSectionsReducer,
+    landingEvent : landingEventReducer
 });
 
 export const store = createStore(reducer, applyMiddleware(thunk));
 
-export type RootStateType = ReturnType<typeof reducer>
+export type ReducerRootStateType = ReturnType<typeof reducer>
 

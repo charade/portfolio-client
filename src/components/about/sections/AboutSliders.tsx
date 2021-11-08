@@ -1,14 +1,14 @@
 import { AnimatePresence } from 'framer-motion';
 import { Story } from './Story';
 import { useSelector } from 'react-redux';
-import { RootStateType } from '../../../state/store';
-import { useAboutSectionsStyle } from '../../../assets/styles/index.styles';
+import { ReducerRootStateType } from '../../../state/store';
+import { useAboutSlidersStyle } from '../../../assets/styles/index.styles';
 import HardSkills from './HardSkills';
 import SoftSkills from './SoftSkills';
 
-export const AboutSectionsIndex = () => {
-    const section = useSelector((state: RootStateType) => state.section)
-    const classes = useAboutSectionsStyle();
+export const AboutSliders = () => {
+    const section = useSelector((state: ReducerRootStateType) => state.section)
+    const classes = useAboutSlidersStyle();
 
     return(
         <AnimatePresence >

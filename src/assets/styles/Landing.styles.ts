@@ -2,6 +2,9 @@ import { makeStyles } from "@material-ui/core";
 
 const useLandingStyle = makeStyles(theme => ({
     root : {
+        display : 'flex',
+        justifyContent :'center',
+        alignItems : 'center',
         zIndex : 10,
         position  : 'fixed',
         top :0, 
@@ -10,21 +13,11 @@ const useLandingStyle = makeStyles(theme => ({
         height : '100vh',
         background : 'black'
     },
-    circle : {
-        position : 'absolute',
-        top :'80%',
-        left :'50%',
-        transform : 'translate(-50%, -50%)',
-        fill : "none",
-        stroke: "lightgrey",
-        strokeWidth : '0.3px',
-        // border:'2px solid'
-    },
-    progress : {
-        strokeWidth : '2px',
-        stroker : 'white',
-        strokeDasharray : '440',
-        
+    caption : {
+        textAlign : 'center',
+        fontSize :'1.7rem',
+        color :'white',
+        fontWeight : 200
     }
 }))
 

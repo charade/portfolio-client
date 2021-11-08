@@ -2,7 +2,7 @@ import { useHardSkillsStyle, useBlockTitleStyle } from '../../../assets/styles/i
 import { Divider } from '@material-ui/core';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
-import { RootStateType } from '../../../state/store';
+import { ReducerRootStateType } from '../../../state/store';
 import { AnimateUnderLine } from '../../AnimateUnderLine';
 //animation variants
 const variants = {
@@ -26,7 +26,7 @@ const variants = {
 export default function HardSkills(){
     const classes = useHardSkillsStyle();
     const titleClasses = useBlockTitleStyle();
-    const section = useSelector((state : RootStateType) => state.section);
+    const section = useSelector((state : ReducerRootStateType) => state.section);
 
     return(
         <motion.div 

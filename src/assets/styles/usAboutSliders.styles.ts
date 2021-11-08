@@ -1,17 +1,17 @@
 import { makeStyles } from '@material-ui/core';
 
-const useAboutSectionsStyle = makeStyles(theme => ({
+const useAboutSlidersStyle = makeStyles(theme => ({
     root : {
         position : 'absolute',
-        top : '32%',
+        top : '10%',
         left : '50%',
         transform : 'translateX(-40%)',
         [theme.breakpoints.up('sm')] : {
             transform : 'translateX(0)',
-            top: '20%',
+            top: '5%',
             left : '36%',
         }
     }
 }))
 
-export default useAboutSectionsStyle;
+export default useAboutSlidersStyle;

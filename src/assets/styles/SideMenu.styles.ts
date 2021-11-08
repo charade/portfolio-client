@@ -5,10 +5,10 @@ const useIconsMenuStyle = makeStyles(theme => ({
         zIndex : 5,
         background : 'transparent',
         border : 'none',
-        width : '7rem',
+        width : '5rem',
         justifyContent : 'flex-end',
         alignItems : 'center',
-        paddingBottom: '20px',
+        paddingBottom: '10px',
     },
     listEl :{
         position : 'relative',
@@ -17,7 +17,7 @@ const useIconsMenuStyle = makeStyles(theme => ({
         // border : '1px solid',
         flexDirection : 'column',
         justifyContent : 'center',
-        margin : '50px',
+        margin : '20px',
         '&::before, &::after' : {
             content : '""',
             position : 'absolute',
