@@ -1,6 +1,6 @@
 import { AppBar, Breadcrumbs, Link, Toolbar, Avatar } from '@material-ui/core';
 import { useNavbarStyle } from '../assets/styles/index.styles';
-import Avatar from '../assets/imgs/avatar.png';
+import AvatarImg from '../assets/imgs/avatar.png';
 
 export default function Navbar(){
     const classes = useNavbarStyle();
@@ -9,7 +9,7 @@ export default function Navbar(){
         <AppBar className = {classes.root}>
             <Avatar 
                 className = {classes.avatar}
-                src = {Avatar} 
+                src = {AvatarImg} 
                 alt = 'charles ekomie avatar'
             />
             <Toolbar className = {classes.toolbar}>

@@ -2,10 +2,9 @@ import { makeStyles } from "@material-ui/core";
 
 const useProjectsCategoriesSliderStyle = makeStyles(theme => ({
     container : {
-        marginLeft : "10%"
-        // width : '300px',
-        // height : '300px',
-        // border :'4px solid white'
+        marginLeft : "15%",
+        display : 'flex',
+        alignItems: 'center',
     }
 }))
 

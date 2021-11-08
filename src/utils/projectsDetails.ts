@@ -3,6 +3,14 @@ import Foody from "../assets/imgs/foody.png";
 import Api from "../assets/imgs/api.png"
 import Sneakers from "../assets/imgs/sneakers.png";
 
+export type ProjectItemType = {
+    image : string,
+    title :string,
+    link : string,
+    description : string,
+    stack : string
+}
+
 export const projectsDetails = {
     front : [
         {

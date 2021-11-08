@@ -10,9 +10,6 @@ export const Card = (props : CardProps) => {
     return(
         <div className = {classes.cardContainer}>
             <div className = {classes.lowerLayer}></div>
-            <svg className = {classes.middleLayer}>
-
-            </svg>
             <div className = {classes.upperLayer}></div>
         </div>
     )

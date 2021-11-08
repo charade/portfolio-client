@@ -6,6 +6,7 @@ const useCardStyle = makeStyles(theme => ({
         position : 'relative',
         width : '250px',
         height : '280px',
+        margin : '10px',
         cursor : 'pointer',
         '& > *' : {
             position : 'absolute',
@@ -20,16 +21,8 @@ const useCardStyle = makeStyles(theme => ({
         borderRadius : '20px',
         boxShadow : '0 0 10px white'
     },
-    middleLayer : {
-        stroke : 'rgba(255, 255, 255, .2)',
-        strokeWidth : ".8px",
-        fill : "none"
-    },
     upperLayer : {
         zIndex : 2,
-        backgroundSize : 'contain',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition : 'center center',
         width : '95%',
         height : '95%',
         top : '50%',
