@@ -9,7 +9,7 @@ const loadingVariants : Variants  = {
     start: {
         strokeDashoffset : ["440", "0"],
         transition : {
-            duration : 5,
+            duration : 2,
             delay : .5
         }
     },

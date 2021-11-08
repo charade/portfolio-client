@@ -26,13 +26,13 @@ const variants = {
 export default function HardSkills(){
     const classes = useHardSkillsStyle();
     const titleClasses = useBlockTitleStyle();
-    const section = useSelector((state : ReducerRootStateType) => state.section);
+    const category = useSelector((state : ReducerRootStateType) => state.category);
 
     return(
         <motion.div 
             className = {classes.root}
             variants = {variants}
-            custom = { section.position }
+            custom = { category.position }
             initial = 'hidden'
             animate = 'open'
             exit = 'hidden'

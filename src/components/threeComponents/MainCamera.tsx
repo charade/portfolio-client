@@ -16,7 +16,7 @@ const Camera = ({active} : CameraProps)=>{
             vec.set( -mouse.x * 2 ,  y , camera.position.z);
             //wait user clik on landing to animate camera at the Intro
             if(active){
-                camera.position.lerp(vec, 0.04);
+                camera.position.lerp(vec, 0.05);
                 camera.lookAt(5, 2, -1);
                 camera.updateProjectionMatrix();
             }

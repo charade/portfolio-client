@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useSoftSkillsStyle, useBlockTitleStyle } from '../../../assets/styles/index.styles';
 import { AnimateUnderLine } from '../../AnimateUnderLine';
+import { color } from '../../../utils/color';
 
 const variants = {
     open : {
@@ -34,23 +35,17 @@ export default function SoftSkills(){
             <div className = {classes.section}>
                 <h3 className = {titleClasses.blockTitle}>
                     team player
-                    <AnimateUnderLine bg = 'rgba(255, 255, 255, .7)'/>
+                    <AnimateUnderLine bg = {color.gray}/>
                 </h3>
                 <p className = {classes.text}>
                     what is better than pair-programming ?
-                    and knowledges sharing ?
-                    {/* I belong to discord progamming groups aiming to share knolodges.
-                    You can find me on :
-                    <br />  
-                    <span>__UNDEFINED__ {` `}</span> 
-                    <br/>
-                    <span>{` `} What The Fabrik </span> */}
+                    or knowledges sharing ?
                  </p>
             </div>
             <div className = {classes.section}>
                 <h3 className = {titleClasses.blockTitle}>
                     self-taught
-                    <AnimateUnderLine bg = 'rgba(100, 255, 10, .5)'/>
+                    <AnimateUnderLine bg = {color.lightGreen}/>
                 </h3>
                 <p className = {classes.text}>
                     I'm one of those who spend their free time 
@@ -60,7 +55,7 @@ export default function SoftSkills(){
             <div className = {classes.section}>
                 <h3 className = {titleClasses.blockTitle}>
                     Challenge-seeker
-                    <AnimateUnderLine bg = 'rgb(115, 149, 215, .9)'/>
+                    <AnimateUnderLine bg = {color.lightBlue} />
                 </h3>
                 <p className = {classes.text}>
                     Constantly discovering new issues, new concepts, is what i like the most in programming.

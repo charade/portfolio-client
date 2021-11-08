@@ -5,7 +5,19 @@ const useProjectsStyle = makeStyles(theme => ({
         zIndex : 4,
         position : 'relative',
         height: '100vh',
-        background : 'black'
+    },
+    overlay : {
+        zIndex : 6,
+        position : 'absolute',
+        width :'100%',
+        height : '100%',
+        display  :'flex',
+        justifyContent: 'center',
+        alignItems : 'center'
+    },
+    canvasContainer : {
+        zIndex : 5,
+        height : '100%'
     }
 }))
 

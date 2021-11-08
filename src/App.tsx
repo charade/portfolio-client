@@ -4,7 +4,7 @@ import SideMenu from './components/SideMenu';
 import Navbar from './components/Navbar';
 import { Suspense } from 'react';
 import { useAppStyle } from "./assets/styles/index.styles";
-import {  lerp } from "./utils";
+import {  lerp } from "./utils/lerp";
 import { Landing } from "./components/Landing";
 
 const About = React.lazy(() => import('./pages/About'));
