@@ -2,13 +2,10 @@ import { makeStyles } from "@material-ui/core";
 
 const useProjectsStyle = makeStyles(theme => ({
     root : { 
-        // display : 'flex',
-        // flexDirection : 'column',
-        // alignItems : 'center',
+        zIndex : 4,
         position : 'relative',
         height: '100vh',
-        
-        // paddingTop : '10px'
+        background : 'black'
     }
 }))
 

@@ -2,10 +2,10 @@ import { Drawer } from '@material-ui/core';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import FolderIcon from '@mui/icons-material/Folder';
-import SettingsIcon from '@mui/icons-material/Settings';
+// import SettingsIcon from '@mui/icons-material/Settings';
 import { List, ListItem } from '@material-ui/core'
 import { useSideMenuStyle } from '../assets/styles/index.styles'
-import HelpIcon from '@mui/icons-material/Help';
+// import HelpIcon from '@mui/icons-material/Help';
 
 const SideMenu =  () => {
 
@@ -17,12 +17,12 @@ const SideMenu =  () => {
             classes = {{paper : classes.root}}
         >
             <List className = {classes.listEl}>
-                <ListItem className = {classes.icon}>
+                {/* <ListItem className = {classes.icon}>
                     <HelpIcon />
                 </ListItem>
                 <ListItem className = {classes.icon}>
                     <SettingsIcon />
-                </ListItem>
+                </ListItem> */}
                 <ListItem className = {classes.icon}>
                     <LinkedInIcon/>
                 </ListItem>
