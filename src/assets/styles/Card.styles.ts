@@ -16,7 +16,7 @@ const useCardStyle = makeStyles(theme => ({
     lowerLayer : {
         zIndex : -1,
         background : '#4A4A4A',
-        opacity : .4,
+        opacity : .6,
         borderRadius : '20px',
         boxShadow : '0 0 10px white'
     },
@@ -27,7 +27,6 @@ const useCardStyle = makeStyles(theme => ({
     },
     upperLayer : {
         zIndex : 2,
-        backgroundImage: 'url(./imgs/traveler.png)',
         backgroundSize : 'contain',
         backgroundRepeat: 'no-repeat',
         backgroundPosition : 'center center',
