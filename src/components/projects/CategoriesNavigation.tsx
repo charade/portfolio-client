@@ -42,7 +42,7 @@ export default function CategoriesNavigation(){
                             {/* ensure to only adding separator between circles*/}
                             {i < (categories.length - 1) &&
                                 <span 
-                                className = {classes.separator}
+                                    className = {classes.separator}
                                 >
                                 </span>
                             }

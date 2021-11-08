@@ -3,7 +3,7 @@ import { useStoryStyle } from '../../../assets/styles/index.styles';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-import { RootStateType } from '../../../state/store';
+import { ReducerRootStateType } from '../../../state/store';
 
 const Bar = styled(motion.span)``;
 
@@ -50,7 +50,7 @@ const childrenVariants = {
 export const Story = () =>{
     const [loaded, setLoaded] = useState<boolean>(false);
     const classes = useStoryStyle();
-    const section = useSelector((store : RootStateType) => store.section);
+    const section = useSelector((store : ReducerRootStateType) => store.section);
 
     useEffect(() => {
         setLoaded(true);

@@ -1,8 +1,10 @@
 
 import { useState, Suspense } from 'react';
+import { useSelector } from 'react-redux';
+import { ReducerRootStateType } from '../state/store';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stars, useTexture } from '@react-three/drei'
-import { AboutSectionsIndex } from '../components/about/sections/Index';
+import { AboutSliders } from '../components/about/sections/AboutSliders';
 import { useAboutStyle } from '../assets/styles/index.styles';
 import FictionalTexture from '../assets/textures/fictional.jpeg';
 import JupiterTexture from '../assets/textures/jupiter.jpeg';
@@ -26,6 +28,7 @@ const About = () => {
     const [JupiterMap, FictionalMap] = useTexture([JupiterTexture,FictionalTexture])
     const [loaded, setLoaded] = useState<boolean>(false); 
     const classes = useAboutStyle();
+    const landingEvent = useSelector((store : ReducerRootStateType) => store.landingEvent);
 
     return(
         <motion.div 
@@ -53,7 +56,7 @@ const About = () => {
                     enableZoom = {false}
                     enableRotate = {false}
                 />
-                <MainCamera loaded = {loaded} />
+                <MainCamera active = {landingEvent.active} />
                 <Suspense fallback = {null} >  
                     {loaded && <Stars radius = {200} depth = {200} count = {10000}/>}
                     <group position={[-3, -3.5, 50]}>
@@ -82,7 +85,7 @@ const About = () => {
             </Canvas>
             {loaded && 
                 <>
-                    <AboutSectionsIndex />
+                    <AboutSliders />
                     <AboutSubNavigation />
                 </>
             }

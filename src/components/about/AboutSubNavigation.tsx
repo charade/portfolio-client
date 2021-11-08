@@ -1,10 +1,9 @@
 import { useState, useMemo } from 'react';
 import { useSubNavigationStyle, useNavigationCirclesStyle } from '../../assets/styles/index.styles';
 import { motion, AnimateSharedLayout } from 'framer-motion';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actionCreators from  '../../state/action-creators/switchAction-creators';
-import { RootStateType } from '../../state/store';
 
 type PositionT = {
     top : string;

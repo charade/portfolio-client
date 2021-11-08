@@ -35,6 +35,7 @@ const Model : FC<PropsType> = ({
             setLoaded && setLoaded(true);
     }, [map, setLoaded])
 
+    //ratation animation
     useFrame(({clock}) => {
         modelRef.current.rotation.z +=  MathUtils.lerp(modelRef.current.rotation.z, rotationSpeed[2], 1);
         modelRef.current.rotation.y +=  MathUtils.lerp(modelRef.current.rotation.y, rotationSpeed[1] , 1);

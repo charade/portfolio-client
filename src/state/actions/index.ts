@@ -1,4 +1,4 @@
 import { LoadingAction } from './loadingAction';
 import { SwitchAboutSectionsAction } from './switchAboutSectionsAction';
-
-export { LoadingAction, SwitchAboutSectionsAction };
+import { LandingEventAction } from "./landingEventAction";
+export { LoadingAction, SwitchAboutSectionsAction, LandingEventAction };
