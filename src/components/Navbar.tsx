@@ -1,34 +1,12 @@
-import React, {useState, useRef, useEffect} from 'react';
 import { AppBar, Breadcrumbs, Link, Toolbar, Avatar } from '@material-ui/core';
 import { useNavbarStyle } from '../assets/styles/index.styles';
 import Pic from '../assets/avatar/portfolio_img.png';
 
 export default function Navbar(){
     const classes = useNavbarStyle();
-    const navRef = useRef<HTMLDivElement>();
-    const [scrollPosition, setScrollPosition] = useState<number>(0);
-
-    // useEffect(() => {
-        // const handleScroll = (e: Event) => {
-            // e.stopPropagation();
-            // setScrollPosition(e.currentTarget.scrollTop);
-            // console.log(e)
-            // if(e.currentTarget.scrollTop > scrollPosition){
-            //     navRef.current.style.opacity = '0';
-            //     return
-            // }
-            // navRef.current.style.opacity = '1'
-        // };
-
-    //     window.addEventListener('scroll', handleScroll);
-
-    //     return () => window.removeEventListener('scroll', handleScroll);
-    // },[scrollPosition]);
 
     return(
-        <AppBar className = {classes.root}
-            ref = {navRef}
-        >
+        <AppBar className = {classes.root}>
             <Avatar 
                 className = {classes.avatar}
                 src = {Pic} 

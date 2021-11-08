@@ -1,14 +1,17 @@
 import { makeStyles } from '@material-ui/styles';
 
-
 const useAppStyle = makeStyles({
     root : {
-        // height : '100vh',
-        border: '5px solid blue',
-        display : 'flex',
+        height : '100%',
         width : '100%',
+        // border: '5px solid blue',
+        display : 'flex',
         backgroud : 'white',
         overflow : 'hidden'
+    },
+    container : {
+        height :'100%',
+        width : '100%'
     }
 })
 

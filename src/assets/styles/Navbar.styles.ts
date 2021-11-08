@@ -1,17 +1,19 @@
 import { makeStyles } from "@material-ui/core";
 
 const useNavbarStyle = makeStyles( theme => ({
-    
     root : {
+        zIndex : 5,
+        position : 'fixed',
         display : 'flex',
         flexDirection : 'row',
         padding : '13px',
         alignItems : 'center',
         background : 'transparent',
-        height : '80px',
+        height : '45px',
         boxShadow : 'none',
         fontSize : '1.8rem',
-        transition : '.3s ease'
+        transition : '.3s ease',
+        backdropFilter : 'blur(10px)'
     },
     avatar : {
         borderBottom : `1px solid rgba(255,255,255,.8)`,
@@ -19,7 +21,7 @@ const useNavbarStyle = makeStyles( theme => ({
         alignSelf : 'flex-start',
         width : '80px',
         height : '80px',
-        zIndex : 5,
+        zIndex : 6,
         '& > *' :{
             transform : 'translateY(8%)'
         },
