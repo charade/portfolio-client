@@ -50,7 +50,7 @@ const childrenVariants = {
 export const Story = () =>{
     const [loaded, setLoaded] = useState<boolean>(false);
     const classes = useStoryStyle();
-    const section = useSelector((store : ReducerRootStateType) => store.section);
+    const category = useSelector((store : ReducerRootStateType) => store.category);
 
     useEffect(() => {
         setLoaded(true);
@@ -63,7 +63,7 @@ export const Story = () =>{
         <motion.div 
             className = { classes.root }
             variants = { rootvariants }
-            custom = { section.position }
+            custom = { category.position }
             initial = 'hidden'
             animate = 'open'
             exit = 'hidden'

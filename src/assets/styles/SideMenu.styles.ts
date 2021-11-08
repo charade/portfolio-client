@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 const useIconsMenuStyle = makeStyles(theme => ({
     root : {
-        zIndex : 5,
+        zIndex : 7,
         background : 'transparent',
         border : 'none',
         width : '5rem',

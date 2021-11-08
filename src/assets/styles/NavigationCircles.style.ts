@@ -20,7 +20,7 @@ const useNavigationCirclesStyle = makeStyles({
         boxShadow :'-2px 0 10px gold; 2px 0 30px white; 0 2px 20px gold; 0 -2px 30px white'
     },
     label :{
-        fontSize : '1.4rem',
+        fontSize : '1.2rem',
         fontWeight : 300
     },
 })

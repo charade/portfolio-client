@@ -14,7 +14,10 @@ import useCategoriesNavigationStyle from './ProjectsCategoriesNavigation.styles'
 import useNavigationCirclesStyle from './NavigationCircles.style';
 import useAppStyle from './App.styles';
 import useLandingStyle from "./Landing.styles";
-import useAnimatedLoadingStyle from "./AnimatedLoading.styles"
+import useAnimatedLoadingStyle from "./AnimatedLoading.styles";
+import useProjectsCategoriesSliderStyle from './ProjectsCategoriesSlider.styles';
+import useCardStyle from "./Card.styles";
+
 export {
     useAppStyle,
     useNavbarStyle,
@@ -32,5 +35,7 @@ export {
     useNavigationCirclesStyle,
     useCategoriesNavigationStyle,
     useLandingStyle,
-    useAnimatedLoadingStyle
+    useAnimatedLoadingStyle,
+    useProjectsCategoriesSliderStyle,
+    useCardStyle
 }

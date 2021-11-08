@@ -4,7 +4,7 @@ const useSubNavigationStyle = makeStyles(theme => ({
     root : {
         zIndex : 10,
         position : 'absolute',
-        border :'2px solid',
+        // border :'2px solid',
         top : '40px',
         left : '4%',
         width : '14rem',

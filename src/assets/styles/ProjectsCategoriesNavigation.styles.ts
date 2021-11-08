@@ -8,7 +8,7 @@ const useCategoriesNavigationStyle = makeStyles(theme => ({
         alignItems : 'center',
         top : '30px',
         right : '5%',
-        width : '25rem',
+        width : '20rem',
         '& > *' : {
             display : 'flex',
             flexDirection : 'column',
@@ -22,9 +22,9 @@ const useCategoriesNavigationStyle = makeStyles(theme => ({
     },
     separator : {
         borderBottom : '2px solid rgba(250, 0 , 0, .5)',
+        margin : '10px',
         width : '200px',
         transform : 'translateY(-22px)',
     }
-}))
-
+}));
 export default useCategoriesNavigationStyle;

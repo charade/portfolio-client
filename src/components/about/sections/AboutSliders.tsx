@@ -7,13 +7,13 @@ import HardSkills from './HardSkills';
 import SoftSkills from './SoftSkills';
 
 export const AboutSliders = () => {
-    const section = useSelector((state: ReducerRootStateType) => state.section)
+    const category = useSelector((state: ReducerRootStateType) => state.category)
     const classes = useAboutSlidersStyle();
 
     return(
         <AnimatePresence >
-            <div className = {classes.root} key = {section.label}>
-                <Switch label = {section.label}/>   
+            <div className = {classes.root} key = {category.label}>
+                <Switch label = {category.label}/>   
             </div>
         </AnimatePresence>
     )

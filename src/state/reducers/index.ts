@@ -1,9 +1,9 @@
 import { loadingReducer } from './loadingReducer';
-import { switchAboutSectionsReducer } from './switchAboutSectionReducer';
+import { categoriesReducer } from './categoriesReducer';
 import { landingEventReducer } from "./landingEventReducer";
 
 export {
     loadingReducer,
-    switchAboutSectionsReducer,
+    categoriesReducer,
     landingEventReducer
 }

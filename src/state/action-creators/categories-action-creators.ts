@@ -5,7 +5,7 @@ type PayloadType = {
     label : string;
     position : number
 }
-export const switchSection = (args : PayloadType) => {
+export const setCategory = (args : PayloadType) => {
     return (dispatch : Dispatch) => {
         dispatch({
             type : SwitchAboutSectionsAction.SWITCH,
