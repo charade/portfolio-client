@@ -40,7 +40,7 @@ export const projectsDetails = {
     fullstack : [
         {
             image : Sneakers,
-            title: Sneakers,
+            title: "Sneakers",
             link : '',//need to add
             description: "An e-commerce projet build width React.Js and using my Sneakers Api",
             stack : "TypeScript | React.js | React-three/fiber | @mui/material"
