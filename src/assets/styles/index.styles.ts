@@ -17,6 +17,7 @@ import useLandingStyle from "./Landing.styles";
 import useAnimatedLoadingStyle from "./AnimatedLoading.styles";
 import useProjectsCategoriesSliderStyle from './ProjectsCategoriesSlider.styles';
 import useCardStyle from "./Card.styles";
+import useProjectIndicatorStyle from "./ProjectIndicator.styles";
 
 export {
     useAppStyle,
@@ -37,5 +38,6 @@ export {
     useLandingStyle,
     useAnimatedLoadingStyle,
     useProjectsCategoriesSliderStyle,
-    useCardStyle
+    useCardStyle,
+    useProjectIndicatorStyle
 }

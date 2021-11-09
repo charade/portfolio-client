@@ -24,7 +24,6 @@ const contentVariants : Variants = {
         transition : {
             type : "spring",
             damping : 30,
-            // duration : .1
         }
     },
 };
@@ -48,7 +47,8 @@ export const ProjectsCategoriesSlider = () => {
     
     //listening to user change category to start animating
     useEffect(() => {
-        setTransitionActive(!transitionActive);
+        if(projectsDetails.hasOwnProperty(category.label))
+            setTransitionActive(!transitionActive);
     },[category]);
     
     //content in/out animation delay

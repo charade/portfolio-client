@@ -24,7 +24,8 @@ function App() {
     }
     const animateScroll = () => {
       if(ref.current){
-        scrollPosY = lerp(scrollPosY, window.scrollY, 0.0555555);
+        scrollPosY = lerp(scrollPosY, window.scrollY, 0.11);
+
         ref.current.style.transform = `translate3d(0, -${scrollPosY}px, 0)`;
         animateRef.current = requestAnimationFrame(animateScroll);
       }

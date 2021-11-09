@@ -1,11 +1,9 @@
 import { Suspense } from "react";
-import { motion } from "framer-motion"
 import { useProjectsStyle } from '../assets/styles/index.styles';
 import { Canvas } from "@react-three/fiber";
 import { Stars, useTexture, Environment, OrbitControls } from "@react-three/drei";
 import AstralModel from "../components/threeComponents/AstraModel";
 import NeonTexture from '../assets/textures/neon_shymere.jpeg';
-import MainCamera from '../components/threeComponents/MainCamera';
 import {ProjectsOverLay} from "../components/projects/ProjectsOverLay";
 
 export default function Projects(){
@@ -27,7 +25,6 @@ export default function Projects(){
                 >
                     <Stars count = {3000} depth = {200} radius = { 100 }/>
                     <directionalLight color = 'white' position = {[40, 40, 0]} />
-                    <MainCamera />
                     <OrbitControls 
                         enablePan = {false} 
                         enableZoom = {false} 
