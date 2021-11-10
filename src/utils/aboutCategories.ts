@@ -15,14 +15,14 @@ export const aboutCategories = [
         label : 'story',
         style: {
             top : '25.5%',
-            left : '93.3%'
+            left : '91.3%'
         }
     },
      {
          label : 'hard skills',
         style : {
-            top : '65.5%',
-            left : '80.6%',
+            top : '78.5%',
+            left : '83.6%',
         }
     },
     {
@@ -30,8 +30,7 @@ export const aboutCategories = [
         style : {
             flexDirection : 'column',
             top : '89.5%',
-            left : '-35%' ,
-            // border :'2px solid',
+            left : '20%' ,
         }
     },
 ]

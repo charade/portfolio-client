@@ -5,13 +5,14 @@ const useProjectsCategoriesSliderStyle = makeStyles(theme => ({
         position: 'relative',
         display : 'flex',
         alignItems: 'center',
-        justifyContent : 'center',
-        width : "55%",
-        height : '55%',
-        // overflow : 'hidden',
-        // border  : '2px solid red',
-        '& > *' :{
-            height :'100%'
+        width : "100%",
+        height : '380px',
+        overflowX : 'scroll',
+        padding : '5px 0',
+        border  : '2px solid red',
+        [theme.breakpoints.up('sm')] : {
+           justifyContent : 'center', 
+           overflow : "hidden"
         }
     }
 }))

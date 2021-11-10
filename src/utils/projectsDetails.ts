@@ -26,8 +26,6 @@ export const projectsDetails = {
             stack : 'React.Js',
             captionStyle :{
                 color : color.white,
-                fontSize : `${1.5 * window.devicePixelRatio}rem`,
-                lineHeight : '40px'
             },
             caption : "Food enthusiasts",
             underlineColor : color.lightBlue,
@@ -39,11 +37,7 @@ export const projectsDetails = {
             description : 'Traveler is a memories saver application. I attached a memory to a location, a memo, a category (for instance restaurants, bars...), a custom marker to locate a memory on an interactive map. Users are free to create their own category'  ,
             stack : "Typescript | React.Js | react-leaflet | @mui/material",
             captionStyle :{
-                width : "70%",
                 color : color.orange,
-                fontSize : `${1.5 * window.devicePixelRatio}rem`,
-                lineHeight : '40px',
-                textShadow : '0 0 2px black'
             },
             caption: "Interactive map & geolocation",
             underlineColor : color.orange,
@@ -60,10 +54,6 @@ export const projectsDetails = {
             underlineColor : color.orange,
             captionStyle :{
                 color : color.darkOrange,
-                fontSize : `${1.5 * window.devicePixelRatio}rem`,
-                width : "84%",
-                lineHeight : '40px',
-                textShadow : '0 0 2px black'
             }
         }
     ],
@@ -78,9 +68,6 @@ export const projectsDetails = {
             underlineColor : color.gray,
             captionStyle :{
                 color : color.lightBlue,
-                fontSize : `${1.7 * window.devicePixelRatio}rem`,
-                // width : "75%",
-                textShadow : '0 0 2px black'
             }
         }
     ]

@@ -9,10 +9,13 @@ const useCategoriesNavigationStyle = makeStyles(theme => ({
         top : '.5%',
         right : '5%',
         height : `${32 * window.devicePixelRatio}px`,
-        width : `${15 * window.devicePixelRatio}rem`,
+        width : '70%',
         '& > *:last-child' :{
             alignItems : 'flex-start',
             paddingLeft : '10px'
+        },
+        [theme.breakpoints.up('sm')]: {
+           width : `${10 * window.devicePixelRatio}rem`
         },
     },
     box : {

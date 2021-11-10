@@ -19,6 +19,7 @@ import useProjectsCategoriesSliderStyle from './ProjectsCategoriesSlider.styles'
 import useCardStyle from "./Card.styles";
 import useProjectIndicatorStyle from "./ProjectIndicator.styles";
 import useProjectDetailsStyle from './ProjectDetails.styles';
+import useRedirectBtnStyle from './RedirectButton.styles';
 
 export {
     useAppStyle,
@@ -41,5 +42,6 @@ export {
     useProjectsCategoriesSliderStyle,
     useCardStyle,
     useProjectIndicatorStyle,
-    useProjectDetailsStyle
+    useProjectDetailsStyle,
+    useRedirectBtnStyle
 }
