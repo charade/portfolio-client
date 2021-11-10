@@ -2,28 +2,37 @@ import { makeStyles } from "@material-ui/core";
 import { color } from "../../utils/color";
 
 const useProjectDetailsStyle = makeStyles(theme => ({
-    detailsContainer : {
-        zIndex: 4,
-        position : 'absolute',
+    backdrop: {
+        zIndex: 10,
+        position : 'fixed',
+        top : 0, 
+        left:0,
         height: '100%',
         width : '100%',
-        top : 0,
-        left:0,
-        background : 'rgba(0, 0, 0, 1)',
-        backgroundSize : 'contain',
-        backgroundRepeat : 'no-repeat',
-        backgroundPosition : 'center center',
         display : 'flex',
-        alignItems : 'center',
-        boxShadow : `0 0 7px ${color.white}`,
-        borderRadius : '20px',
-        overflow : 'hidden'
+        justifyContent : 'center',
+        alignItems :'center',
+        background : 'rgba(0, 0, 0, .7)',
+        backdropFilter : 'grayscale(100%) blur(10px)',
+    },
+    detailsContainer : {
+        // position : 'absolute',
+        height: '60%',
+        width : '65%',
+        top : 0,
+        right:0,
+        display : 'flex',
+        // alignItems : 'center',
+        boxShadow : `0 0 10px ${color.white}`,
+        borderRadius : '25px',
+        overflow : 'hidden',
+        borderRight : '3px solid rgba(255, 255, 255, .7)',
+        // border :'1px solid rgba(255, 255, 255, .8)',
     },
     img : {
         width : "50%",
         height: '100%',
-        border : 'none',
-        boxShadow : '0 0 5px white',
+        boxShadow : '0 0 10px white',
     },
     box : {
         position : 'relative',
@@ -34,6 +43,7 @@ const useProjectDetailsStyle = makeStyles(theme => ({
     },
     caption : {
         // border :'2px solid red',
+        fontSize : "3.5rem",
         width : '100%',
         margin : '2% 0',
         display : 'flex',

@@ -20,6 +20,7 @@ import useCardStyle from "./Card.styles";
 import useProjectIndicatorStyle from "./ProjectIndicator.styles";
 import useProjectDetailsStyle from './ProjectDetails.styles';
 import useRedirectBtnStyle from './RedirectButton.styles';
+import useProjectOverLayStyle from "./ProjectOverLay.styles";
 
 export {
     useAppStyle,
@@ -43,5 +44,6 @@ export {
     useCardStyle,
     useProjectIndicatorStyle,
     useProjectDetailsStyle,
-    useRedirectBtnStyle
+    useRedirectBtnStyle,
+    useProjectOverLayStyle
 }

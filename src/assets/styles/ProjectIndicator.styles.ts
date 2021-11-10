@@ -7,7 +7,7 @@ const useProjectIndicatorStyle = makeStyles(theme => ({
         width : '250px',
         // marginLeft : '200px',
         // marginRight : '150px',
-        border : "2px solid blue",
+        // border : "2px solid blue",
         display : 'flex',
         flexDirection : 'column',
         justifyContent : 'center',

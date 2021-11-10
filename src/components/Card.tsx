@@ -1,7 +1,7 @@
 import React from "react";
 import { useCardStyle } from "../assets/styles/index.styles";
 import { ProjectItemType } from "../utils/projectsDetails";
-import {  motion } from "framer-motion";
+import {  AnimatePresence, motion } from "framer-motion";
 import { SelectedItem } from "./projects/ProjectDetails";
 import { useMediaQuery } from "@mui/material";
 import { RedirectBtn } from './RedirectBtn';
@@ -31,13 +31,19 @@ export const Card = (props : CardProps) => {
             aria-label = {`${props.item.title}-project-details`}
             key = {props.itemKey}
             className = {classes.cardContainer}
+            layout
         >
-            <motion.h2  className = {classes.caption} style = { props.item.captionStyle}>
+            <motion.h2 
+                layoutId = {`caption-${props.itemKey}`} 
+                className = {classes.caption} 
+                style = { props.item.captionStyle}
+            >
                 { props.item.caption }
             </motion.h2>
-            <div  className = {classes.lowerLayer}></div>
+            <motion.div layoutId = {`layer-${props.itemKey}`} className = {classes.lowerLayer}>
+            </motion.div>
             <motion.img 
-                layoutId = {props.itemKey}
+                layoutId = {`image-${props.itemKey}`}
                 className = {classes.upperLayer} 
                 src = {props.item.image}
                 alt = {`${props.item.title}-project`}
