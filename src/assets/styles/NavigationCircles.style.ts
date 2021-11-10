@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core";
+import { color } from "../../utils/color";
 
 const useNavigationCirclesStyle = makeStyles({
     circle : {
@@ -6,10 +7,10 @@ const useNavigationCirclesStyle = makeStyles({
         justifyContent : 'center',
         alignItems : 'center',
         cursor : 'pointer',
-        width : '13px',
-        height : '13px',
-        background : 'rgb(14, 25,44)',
-        border : '1px solid white',
+        width : `${7 * window.devicePixelRatio}px`,
+        height : `${7 * window.devicePixelRatio}px`,
+        background : color.dark,
+        border : `1px solid ${color.lightBlue}`,
         borderRadius : '50%',
     },
     indicator:{
@@ -20,7 +21,8 @@ const useNavigationCirclesStyle = makeStyles({
         boxShadow :'-2px 0 10px gold; 2px 0 30px white; 0 2px 20px gold; 0 -2px 30px white'
     },
     label :{
-        fontSize : '1.2rem',
+        cursor : 'pointer',
+        fontSize : `${.7 * window.devicePixelRatio}rem`,
         fontWeight : 300
     },
 })

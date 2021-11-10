@@ -26,6 +26,7 @@ const sliderVariants : Variants = {
         opacity : 0,
         transition : {
             type : 'spring',
+            duration : .8
         }
     },
     animate : {
@@ -47,13 +48,15 @@ export const ProjectIndicator = () => {
     //need to set titles out of view to animated them in when projects are set
     useEffect(() => {
         //only want to animate when category is either back/fullstack/front
-        if(projectsDetails[category.label])
+        if(projectsDetails[category.label] || (!category.label))
             controls.start("initial")
     },[category, controls]);
     
+   
+
     const handleSliderAnimationEnd = useCallback(() => {
         controls.start("animate")
-    },[projects, controls]);
+    },[controls]);
 
     return(
         <motion.div className = {classes.container}>
@@ -61,9 +64,9 @@ export const ProjectIndicator = () => {
                return(
                    <motion.div
                         variants = { sliderVariants } 
-                        onAnimationComplete = {handleSliderAnimationEnd}
+                        onAnimationComplete = { handleSliderAnimationEnd }
                         whileHover = "hover"
-                        initial = "initial"
+                        initial = {false}
                         animate = {controls}
                         className = {classes.block} 
                         key = {i} 

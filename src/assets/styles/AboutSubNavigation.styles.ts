@@ -7,8 +7,8 @@ const useSubNavigationStyle = makeStyles(theme => ({
         // border :'2px solid',
         top : '40px',
         left : '4%',
-        width : '14rem',
-        height : '14rem',
+        width : '150px',
+        height : '150px',
         borderRadius :'50%',
         borderBottom : '1px solid white',
         borderRight : '1px solid red',
@@ -19,8 +19,7 @@ const useSubNavigationStyle = makeStyles(theme => ({
     },
     block : {
         position : 'absolute',
-        minWidth : '118px',
-        // border: '2px solid blue',
+        minWidth : '250px',
         display : 'flex',
         alignItems : 'center',
         '& > *' : {

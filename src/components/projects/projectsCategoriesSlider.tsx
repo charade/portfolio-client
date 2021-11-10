@@ -3,10 +3,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { ReducerRootStateType } from "../../state/store";
 import { bindActionCreators } from "redux";
 import * as projectsActionCreators from "../../state/action-creators/projects-action-creators";
-import { motion, Variants } from "framer-motion";
+import { AnimatePresence, AnimateSharedLayout, motion, Variants } from "framer-motion";
 import { Card } from "../Card";
 import { projectsDetails } from "../../utils/projectsDetails";
 import { useCallback, useEffect, useState } from "react";
+import { ProjectDetails, SelectedItem } from "./ProjectDetails";
 
 const contentVariants : Variants = {
     //when content is out of view
@@ -14,7 +15,7 @@ const contentVariants : Variants = {
         x : 300,
         opacity : 0,
         transition : {
-            duration : .5
+            duration : .3
         }
     },
     //when content get back into view
@@ -23,18 +24,21 @@ const contentVariants : Variants = {
         opacity : 1,
         transition : {
             type : "spring",
-            damping : 30,
+            stiffness : 160,
+            damping : 50,
         }
     },
 };
 
 export const ProjectsCategoriesSlider = () => {
-    const classes = useProjectsCategoriesSliderStyle();
+    const [transitionActive, setTransitionActive] = useState<boolean>(false);
+    const [expand, setExpand] = useState<boolean>(false);
+    const [selectedItem, setSelectedItem] = useState<SelectedItem>();
     const dispatch = useDispatch();
     const { loadProjects } = bindActionCreators(projectsActionCreators, dispatch);
     const category = useSelector((store : ReducerRootStateType) => store.category);
     const projects = useSelector((store : ReducerRootStateType) => store.projects);
-    const [transitionActive, setTransitionActive] = useState<boolean>(false);
+    const classes = useProjectsCategoriesSliderStyle();
 
     //wait transtion exit end to load projects card
     const handleTransitionEnd = useCallback(()=>{
@@ -66,9 +70,20 @@ export const ProjectsCategoriesSlider = () => {
             animate = { transitionActive ? "start" : "exit"}
             initial = "start"
         >
-            { projects.map( project => (
-                <Card />
-            ))}
+            <AnimateSharedLayout type = 'crossfade'>
+                { projects.map((project, i) => (
+                    <Card
+                        setSelected = { setSelectedItem } 
+                        setExpand = { setExpand }
+                        itemKey = {`project-item${i}`} 
+                        item = {project}
+                    />
+                ))}
+                {/* animating on component unmounting */}
+                <AnimatePresence>
+                    { expand && <ProjectDetails setExpand = {setExpand} selected = {selectedItem}/>}
+                </AnimatePresence>
+            </AnimateSharedLayout>
         </motion.div>
     )
 }

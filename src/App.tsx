@@ -19,18 +19,18 @@ function App() {
 
   useEffect(() => {
     //redefine scroll to be container height
-    if(ref.current){
-      document.body.style.height = `${ref.current.getBoundingClientRect().height}px`;
-    }
+    // if(ref.current){
+    //   document.body.style.height = `${ref.current.getBoundingClientRect().height}px`;
+    // }
     const animateScroll = () => {
       if(ref.current){
-        scrollPosY = lerp(scrollPosY, window.scrollY, 0.11);
+        scrollPosY = lerp(scrollPosY, window.scrollY, .07);
 
         ref.current.style.transform = `translate3d(0, -${scrollPosY}px, 0)`;
         animateRef.current = requestAnimationFrame(animateScroll);
       }
     }
-    animateRef.current = requestAnimationFrame(animateScroll)
+    // animateRef.current = requestAnimationFrame(animateScroll)
 
     return () => cancelAnimationFrame(animateRef.current)
   },[]);

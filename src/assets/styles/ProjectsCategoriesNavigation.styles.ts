@@ -6,25 +6,28 @@ const useCategoriesNavigationStyle = makeStyles(theme => ({
         position : 'absolute',
         display : 'flex',
         alignItems : 'center',
-        top : '30px',
+        top : '.5%',
         right : '5%',
-        width : '20rem',
-        '& > *' : {
-            display : 'flex',
-            flexDirection : 'column',
-            alignItems : 'center',
-            maxWidth : '300px',
-            '&:last-child' :{
-                alignItems : 'flex-start',
-                paddingLeft : '10px'
-            },
+        height : `${32 * window.devicePixelRatio}px`,
+        width : `${15 * window.devicePixelRatio}rem`,
+        '& > *:last-child' :{
+            alignItems : 'flex-start',
+            paddingLeft : '10px'
         },
+    },
+    box : {
+        display : 'flex',
+        flexDirection : 'column',
+        alignItems : 'center',
+        '& > *' :{
+            marginBottom : ' 5px'
+        },
+        justifyContent : 'flex-start',
     },
     separator : {
         borderBottom : '2px solid rgba(250, 0 , 0, .5)',
-        margin : '10px',
-        width : '200px',
-        transform : 'translateY(-22px)',
+        transform: `translateY(-30px)`,
+        width : '20%',
     }
 }));
 export default useCategoriesNavigationStyle;
