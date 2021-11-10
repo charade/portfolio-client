@@ -1,6 +1,8 @@
 import { makeStyles } from "@material-ui/core";
 import { color } from "../../utils/color";
 
+const UPPER_MEDIUM = 1025;
+
 const useCardStyle = makeStyles(theme => ({
     cardContainer : {
         position : 'relative',
@@ -8,22 +10,21 @@ const useCardStyle = makeStyles(theme => ({
         justifyContent : 'flex-end',
         flexDirection : 'column',
         alignItems : 'center',
-        maxWidth : `280px`,
+        maxWidth : `270px`,
         height : '90%',
         margin : ' 0 10px',
-        overflow : 'hidden',
+        // overflow : 'hidden',
         cursor : 'pointer',
         '& > *:not(img)' : {
             position : 'absolute',
         },
         [theme.breakpoints.up('xs')]: {
-            width : "400px"
+            maxWidth : "500px"
         },
-        [theme.breakpoints.up('md')] :{
-            width : '500px'
+        [theme.breakpoints.down(UPPER_MEDIUM)] :{
+            width : '400px',
+            height : '93%'
         },
-        boxShadow : `0 0 7px ${color.white}`,
-        borderRadius : '20px',
     },
     caption : {
         zIndex : 2,
@@ -34,8 +35,8 @@ const useCardStyle = makeStyles(theme => ({
         lineHeight :'30px',
     },
     lowerLayer : {
-        // boxShadow : `0 0 7px ${color.white}`,
-        // borderRadius : '20px',
+        boxShadow : `0 0 7px ${color.white}`,
+        borderRadius : '20px',
         zIndex : -1,
         background : color.lightDark,
         opacity : .6,

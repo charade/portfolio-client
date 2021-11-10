@@ -8,7 +8,7 @@ const useProjectsCategoriesSliderStyle = makeStyles(theme => ({
         height : '380px',
         overflowX : 'scroll',
         [theme.breakpoints.up('sm')] : {
-           justifyContent : 'center', 
+            justifyContent : 'center', 
         }
     }
 }))

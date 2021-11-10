@@ -1,6 +1,9 @@
 import { makeStyles } from "@material-ui/core";
 import { color } from "../../utils/color";
 
+
+const UPPER_MEDIUM = 1025;
+
 const useProjectDetailsStyle = makeStyles(theme => ({
     backdrop: {
         zIndex: 10,
@@ -16,23 +19,35 @@ const useProjectDetailsStyle = makeStyles(theme => ({
         backdropFilter : 'grayscale(100%) blur(10px)',
     },
     detailsContainer : {
-        // position : 'absolute',
         height: '60%',
         width : '65%',
         top : 0,
         right:0,
         display : 'flex',
-        // alignItems : 'center',
         boxShadow : `0 0 10px ${color.white}`,
         borderRadius : '25px',
         overflow : 'hidden',
         borderRight : '3px solid rgba(255, 255, 255, .7)',
-        // border :'1px solid rgba(255, 255, 255, .8)',
+        [theme.breakpoints.up('sm')] : {
+            width : '88%',  
+            height :'43%'  
+        },
+        [theme.breakpoints.up('md')] :{
+            width : '50%',
+            height : '60%'
+        },
+        [theme.breakpoints.down(UPPER_MEDIUM)] : {
+            width : '75%',
+            height : '40%'
+        },
     },
     img : {
         width : "50%",
         height: '100%',
         boxShadow : '0 0 10px white',
+        [theme.breakpoints.up('sm')] : {
+            minWidth : '45%'
+        }
     },
     box : {
         position : 'relative',
@@ -43,32 +58,57 @@ const useProjectDetailsStyle = makeStyles(theme => ({
     },
     caption : {
         // border :'2px solid red',
-        fontSize : "3.5rem",
+        fontSize : '3.5rem',
         width : '100%',
         margin : '2% 0',
         display : 'flex',
         flexDirection : 'column',
         '& > *' : {
             margin : '5px'
+        },
+        [theme.breakpoints.down(UPPER_MEDIUM)] : {
+            fontSize : '4rem',
+            //set text on multilines
+            width : '85%'
         }
     },
     description: {
-        fontSize : `${.68 * window.devicePixelRatio}rem`,
-        margin : '5% 0'
-        // border :'2px solid white'
+        fontSize : '1.7rem',
+        margin : '3% 0',
+        [theme.breakpoints.up('sm')] : {
+            fontSize : '1.8rem',
+        },
+        [theme.breakpoints.up('md')] : {
+            fontSize : '2rem',
+        },
+        [theme.breakpoints.up(UPPER_MEDIUM)] :{
+            fontSize :'1.4rem',
+            margin : '6px 0'
+        }
     },
     stack : {
-        fontSize : `${.55 * window.devicePixelRatio}rem`,
-        fontWeight : 500
+        fontSize : '1.6rem',
+        fontWeight : 500,
+        [theme.breakpoints.up('sm')] : {
+            fontSize : '1.5rem',
+            fontWeight : 300
+        },
+        [theme.breakpoints.up('md')] : {
+            fontSize : '1.8rem',
+        },
+        [theme.breakpoints.up(UPPER_MEDIUM)] : {
+            fontSize : '1.3rem',
+            fontWeight : 300
+        },
     },
     
     closeBtn :{
-        padding : '3px',
+        padding : '3px ',
         border: '1px solid rgba(255, 255, 255, .4)',
         width :'40px',
         height :'40px',
         color : color.gray,
-        alignSelf : 'flex-end'
+        alignSelf : 'flex-end',
     }
 }));
 
