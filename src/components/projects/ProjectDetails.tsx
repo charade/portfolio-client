@@ -5,7 +5,7 @@ import { AnimateUnderLine } from "../AnimateUnderLine";
 import { IconButton } from '@material-ui/core';
 import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
 import { RedirectBtn } from "../RedirectBtn";
-import { useEffect, useRef } from "react";
+import {  useRef } from "react";
 
 export interface SelectedItem {
     item : ProjectItemType;
@@ -33,28 +33,42 @@ export const ProjectDetails = ({selected, setExpand} : ItemsDetailsType) => {
     const handleCloseDetails = () => setExpand(false);
 
     return(
-        <motion.div
-            ref = {ref} 
-            layoutId = { selected.layoutId }
-            className = {classes.detailsContainer} onClick = {handleCloseDetails}
-            aria-label = {`${selected.item.title}-project-detail`}
+        <motion.div 
+            className = {classes.backdrop}
             variants = {detailsVariants}
-            animate = "expand"
             exit = "exit"
+            animate = "expand"
         >
-            <img className = {classes.img} src = {selected.item.image} alt = {`${selected.item.title}-project`}/>
-            <div className = {classes.box }>
-                <IconButton className = {classes.closeBtn}>
-                    <CloseFullscreenIcon />
-                </IconButton>
-                <h2 className = {classes.caption} style = { selected.item.captionStyle }>
-                    { selected.item.caption }
-                    <AnimateUnderLine bg = { selected.item.underlineColor }/>
-                </h2>
-                <p className = {classes.description}> { selected.item.description } </p>
-                <h4 className = {classes.stack}>stack : { selected.item.stack }</h4>
-                <RedirectBtn link = {selected.item.link}/>
-           </div>
+            <motion.div
+                ref = {ref}
+                layout 
+                layoutId = {`layer-${selected.layoutId}`}
+                className = {classes.detailsContainer} onClick = {handleCloseDetails}
+                aria-label = {`${selected.item.title}-project-detail`}
+                >
+                <motion.img
+                    layoutId = { `image-${selected.layoutId}` } 
+                    className = {classes.img} 
+                    src = {selected.item.image} 
+                    alt = {`${selected.item.title}-project`}
+                    />
+                <div className = {classes.box }>
+                    <IconButton className = {classes.closeBtn}>
+                        <CloseFullscreenIcon />
+                    </IconButton>
+                    <motion.h2 
+                        layoutId = {`caption-${selected.layoutId}`}
+                        className = {classes.caption} 
+                        style = { selected.item.captionStyle }
+                        >
+                        { selected.item.caption }
+                        <AnimateUnderLine bg = { selected.item.underlineColor }/>
+                    </motion.h2>
+                    <p className = {classes.description}> { selected.item.description } </p>
+                    <h4 className = {classes.stack}>stack : { selected.item.stack }</h4>
+                    <RedirectBtn link = {selected.item.link}/>
+            </div>
+            </motion.div>
         </motion.div>
     )
 }
