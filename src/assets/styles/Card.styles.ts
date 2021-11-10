@@ -6,16 +6,20 @@ const useCardStyle = makeStyles(theme => ({
         position : 'relative',
         display : 'flex',
         justifyContent : 'flex-end',
+        flexDirection : 'column',
         alignItems : 'center',
-        width : `${13 * window.devicePixelRatio}rem`,
+        maxWidth : `280px`,
         height : '90%',
         margin : ' 0 10px',
-        overflow : 'hidden',
         cursor : 'pointer',
-        boxShadow : `0 0 7px ${color.white}`,
-        borderRadius : '20px',
         '& > *:not(img)' : {
             position : 'absolute',
+        },
+        [theme.breakpoints.up('xs')]: {
+            width : "400px"
+        },
+        [theme.breakpoints.up('md')] :{
+            width : '500px'
         }
     },
     caption : {
@@ -23,8 +27,12 @@ const useCardStyle = makeStyles(theme => ({
         fontWeight : 800,
         top : '-10px',
         left : '10px',
+        fontSize : "3.5rem",
+        lineHeight :'30px'
     },
     lowerLayer : {
+        boxShadow : `0 0 7px ${color.white}`,
+        borderRadius : '20px',
         zIndex : -1,
         background : color.lightDark,
         opacity : .6,
@@ -36,10 +44,10 @@ const useCardStyle = makeStyles(theme => ({
         backgroundSize : 'contain',
         backgroundRepeat: 'no-repeat',
         backgroundPosition : 'center center',
-        margin : '55px  20px 0 0',
-        width : `${9.5 * window.devicePixelRatio}rem`,
+        margin : '55px  20px',
+        width : `250px`,
         height : '75%',
-        filter : 'blur(1.3px)'
+        filter : 'grayscale(1.3%)',
     },
 }))
 

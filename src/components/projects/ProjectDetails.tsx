@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import { ProjectItemType } from "../../utils/projectsDetails";
 import { AnimateUnderLine } from "../AnimateUnderLine";
 import { IconButton } from '@material-ui/core';
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
+import { RedirectBtn } from "../RedirectBtn";
+import { useEffect, useRef } from "react";
 
 export interface SelectedItem {
     item : ProjectItemType;
@@ -14,23 +15,26 @@ type ItemsDetailsType = {
     selected : SelectedItem;
     setExpand : (expand : boolean) => void
 };
-
 const detailsVariants = {
     expand : {
         opacity : 1,
     },
     exit : {
-        opacity : 0
+        opacity : 0,
+        transition : {
+            duration : .2
+        }
     }
 }
 
 export const ProjectDetails = ({selected, setExpand} : ItemsDetailsType) => {
     const classes = useProjectDetailsStyle();
-
+    const ref = useRef<HTMLDivElement>(null)
     const handleCloseDetails = () => setExpand(false);
 
     return(
-        <motion.div 
+        <motion.div
+            ref = {ref} 
             layoutId = { selected.layoutId }
             className = {classes.detailsContainer} onClick = {handleCloseDetails}
             aria-label = {`${selected.item.title}-project-detail`}
@@ -49,10 +53,7 @@ export const ProjectDetails = ({selected, setExpand} : ItemsDetailsType) => {
                 </h2>
                 <p className = {classes.description}> { selected.item.description } </p>
                 <h4 className = {classes.stack}>stack : { selected.item.stack }</h4>
-                <a className = {classes.link} href = {selected.item.link} target = "_external"  rel='opener'>
-                    visit
-                    <OpenInNewIcon />
-                </a>
+                <RedirectBtn link = {selected.item.link}/>
            </div>
         </motion.div>
     )

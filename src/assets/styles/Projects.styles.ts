@@ -12,13 +12,9 @@ const useProjectsStyle = makeStyles(theme => ({
         width :'100%',
         height : '100%',
         display  :'flex',
-        justifyContent: 'center',
-        // padding : '0 3%',
+        // justifyContent: 'center',
+        // overflow : 'scroll',
         alignItems : 'center',
-        // border :'2px solid white',
-        '& > *' : {
-            margin : "3%"
-        }
     },
     canvasContainer : {
         zIndex : 5,

@@ -8,6 +8,8 @@ import { Card } from "../Card";
 import { projectsDetails } from "../../utils/projectsDetails";
 import { useCallback, useEffect, useState } from "react";
 import { ProjectDetails, SelectedItem } from "./ProjectDetails";
+import { useMediaQuery } from "@mui/material";
+import { device } from "../../utils/device";
 
 const contentVariants : Variants = {
     //when content is out of view
@@ -39,6 +41,7 @@ export const ProjectsCategoriesSlider = () => {
     const category = useSelector((store : ReducerRootStateType) => store.category);
     const projects = useSelector((store : ReducerRootStateType) => store.projects);
     const classes = useProjectsCategoriesSliderStyle();
+    const canCrossfadeOnExpand = useMediaQuery(device.sm);
 
     //wait transtion exit end to load projects card
     const handleTransitionEnd = useCallback(()=>{
@@ -68,21 +71,25 @@ export const ProjectsCategoriesSlider = () => {
             className = {classes.container}
             variants = { contentVariants }
             animate = { transitionActive ? "start" : "exit"}
-            initial = "start"
+            initial = "exit"
         >
-            <AnimateSharedLayout type = 'crossfade'>
+            <AnimateSharedLayout type= "crossfade">
                 { projects.map((project, i) => (
                     <Card
                         setSelected = { setSelectedItem } 
                         setExpand = { setExpand }
                         itemKey = {`project-item${i}`} 
                         item = {project}
+                        expand = {expand}
                     />
                 ))}
                 {/* animating on component unmounting */}
-                <AnimatePresence>
-                    { expand && <ProjectDetails setExpand = {setExpand} selected = {selectedItem}/>}
-                </AnimatePresence>
+                {
+                    canCrossfadeOnExpand &&
+                    <AnimatePresence>
+                        { expand && <ProjectDetails setExpand = {setExpand} selected = {selectedItem}/>}
+                    </AnimatePresence>
+                }
             </AnimateSharedLayout>
         </motion.div>
     )

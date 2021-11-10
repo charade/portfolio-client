@@ -19,12 +19,13 @@ const useSubNavigationStyle = makeStyles(theme => ({
     },
     block : {
         position : 'absolute',
-        minWidth : '250px',
+        width : '130px',
         display : 'flex',
-        alignItems : 'center',
+        // alignItems : 'center',
         '& > *' : {
             marginRight: '7px'
-        }
+        },
+        // border : '2px solid red'
     },
     
 }))
