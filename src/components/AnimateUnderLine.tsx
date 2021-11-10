@@ -18,7 +18,6 @@ const underLineVariants = {
         width: 0,
         opacity : 0
     }
-
 }
 
 export const AnimateUnderLine= (props : {bg : string}) => {
@@ -28,7 +27,7 @@ export const AnimateUnderLine= (props : {bg : string}) => {
         <motion.span
             style = {{background : props.bg}}
             className = {classes.root}
-            variants = {underLineVariants}
+            variants = { underLineVariants }
             initial = 'hidden'
             animate = 'open'
             exit = 'hidden'

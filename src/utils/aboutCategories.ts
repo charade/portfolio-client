@@ -14,23 +14,24 @@ export const aboutCategories = [
     {
         label : 'story',
         style: {
-            top : '32.5%',
-            left : '95.3%'
+            top : '25.5%',
+            left : '93.3%'
         }
     },
      {
          label : 'hard skills',
         style : {
-            top : '70.5%',
-            left : '82.6%' 
+            top : '65.5%',
+            left : '80.6%',
         }
     },
     {
         label : 'soft skills',
         style : {
             flexDirection : 'column',
-            top : '92.5%',
-            left : '0' 
+            top : '89.5%',
+            left : '-35%' ,
+            // border :'2px solid',
         }
     },
 ]

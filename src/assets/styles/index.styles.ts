@@ -5,7 +5,7 @@ import useStoryStyle from "./Story.styles";
 import useHardSkillsStyle from './HardSkills.styles';
 import useDirectionStyle from './Direction.styles';
 import useSubNavigationStyle from './AboutSubNavigation.styles';
-import useAboutSlidersStyle from './usAboutSliders.styles';
+import useAboutSlidersStyle from './AboutSliders.styles';
 import useAnimateUnderlineStyle from './AnimateUnderLine.styles';
 import useSoftSkillsStyle from './SoftSkills.styles';
 import useBlockTitleStyle from './BlockTitle.styles';
@@ -18,6 +18,7 @@ import useAnimatedLoadingStyle from "./AnimatedLoading.styles";
 import useProjectsCategoriesSliderStyle from './ProjectsCategoriesSlider.styles';
 import useCardStyle from "./Card.styles";
 import useProjectIndicatorStyle from "./ProjectIndicator.styles";
+import useProjectDetailsStyle from './ProjectDetails.styles';
 
 export {
     useAppStyle,
@@ -39,5 +40,6 @@ export {
     useAnimatedLoadingStyle,
     useProjectsCategoriesSliderStyle,
     useCardStyle,
-    useProjectIndicatorStyle
+    useProjectIndicatorStyle,
+    useProjectDetailsStyle
 }

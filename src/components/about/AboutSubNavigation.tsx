@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import { useSubNavigationStyle, useNavigationCirclesStyle } from '../../assets/styles/index.styles';
 import { motion, AnimateSharedLayout } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,13 +22,11 @@ export default function AboutSubNavigation(){
         category.label === 'hard skills' || category.label === 'story'
     },[category]);
 
-    const handleIndicatorPos = (e : React.PointerEvent<HTMLSpanElement>) => {
-        const target = e.target as HTMLSpanElement;
-        const selectedLabel = target.getAttribute('aria-label');
-        setSelected(selectedLabel);
+    const handleIndicatorPos = useCallback((label : string) => () => {
+        setSelected(label);
         let position = 0;
         //each label corresponds to a position;
-        switch(selectedLabel){
+        switch(label){
             case 'story' : 
                 position = 1;
                 break;
@@ -40,13 +38,9 @@ export default function AboutSubNavigation(){
                 break;
             default : return
         };
-
-        const payload = {
-            label : selectedLabel,
-            position
-        };
+        const payload = {label,position};
         setCategory(payload);
-    };
+    },[setCategory]);
 
     return(
         <AnimateSharedLayout>
@@ -58,16 +52,20 @@ export default function AboutSubNavigation(){
                             className = {classes.block}
                             style = {section.style}
                         >
-                            
                             <SectionItem
                                  classes = {circleNavigationClass}
                                  //if selected label not in {soft skill, hard skill, story}
                                  //lighting ball desapear
                                  isSelected = { selected === section.label && isSelectedLabelValid}
-                                 onClick = { handleIndicatorPos }
+                                 onClick = { handleIndicatorPos(section.label) }
                                  ariaLabel = {section.label}
                             />
-                            <h3 className = {circleNavigationClass.label}>{section.label}</h3> 
+                            <h3
+                                //allow to animate ball on clickin label also
+                                onClick = { handleIndicatorPos(section.label) }
+                                className = {circleNavigationClass.label}>
+                                {section.label}
+                            </h3> 
                         </div>
                     )
                 })}
@@ -88,11 +86,7 @@ const SectionItem = ({classes, onClick, ariaLabel, isSelected}) => {
                     className = {classes.indicator}
                     initial = {false}
                     layoutId = "indicator"
-                    // transition = {spring}
                 />}
         </span>
     )
-    
-
-    
 }

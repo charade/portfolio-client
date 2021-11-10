@@ -5,7 +5,6 @@ import { bindActionCreators } from 'redux';
 import { useDispatch } from 'react-redux';
 import * as categoriesActionCreators from  '../../state/action-creators/categories-action-creators';
 
-
 export const CategoriesNavigation = () =>{
     const [selected, setSelected] = useState<string>('');
     const dispatch = useDispatch();
@@ -32,7 +31,9 @@ export const CategoriesNavigation = () =>{
                 position = 3;
                 break
         }
-        setCategory({label, position})
+        setCategory({label, position});
+        //animate lighting ball
+        setSelected(label)
     };
 
     return(
@@ -41,7 +42,8 @@ export const CategoriesNavigation = () =>{
                 {categories.map((category, i) => {
                     return(
                         <>
-                            <div 
+                            <div
+                                className = {classes.box} 
                                 aria-labelledby = { category }
                                 onClick = { handleChooseCategory }
                                 key = {`${category}-catagory`} 
@@ -64,7 +66,6 @@ export const CategoriesNavigation = () =>{
                                     {category}
                                 </h3>
                             </div>
-                            
                             {/* ensure to only adding separator between circles*/}
                             { (i < (categories.length - 1)) && <span className = {classes.separator}></span> }
                         </>

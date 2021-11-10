@@ -2,10 +2,11 @@ import { makeStyles } from "@material-ui/core";
 
 const useLandingStyle = makeStyles(theme => ({
     root : {
+        // display : 'none',
         display : 'flex',
         justifyContent :'center',
         alignItems : 'center',
-        zIndex : 10,
+        zIndex : 15,
         position  : 'fixed',
         top :0, 
         left : 0,

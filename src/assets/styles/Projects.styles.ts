@@ -15,7 +15,7 @@ const useProjectsStyle = makeStyles(theme => ({
         justifyContent: 'center',
         // padding : '0 3%',
         alignItems : 'center',
-        // border :'2px solid white'
+        // border :'2px solid white',
         '& > *' : {
             margin : "3%"
         }
