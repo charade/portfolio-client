@@ -1,21 +1,25 @@
 import { makeStyles } from "@material-ui/core";
+import { UPPER_MEDIUM } from './constants';
 
 const useStoryStyle = makeStyles(theme => ({
     root : {
         display:'flex',
         flexDirection : 'column',
-        transformOrigin : 'top left'
     },
     title :{
-        fontSize: '2rem',
+        fontSize: '1.8rem',
         fontWeight : 800,
+        [theme.breakpoints.up('sm')] : {
+            fontSize :'3.5rem'
+        },
     }, 
     introBox :{
         position : 'relative',
         diplay : 'flex',
         flexDirection:  'column',
         justifyContent: 'flex-start',
-        paddingLeft : '15px'
+        paddingLeft : '15px',
+        // border:'2px solid',
     },
     bar : {
         position : 'absolute',
@@ -31,6 +35,12 @@ const useStoryStyle = makeStyles(theme => ({
         fontSize :'1.3rem',
         [theme.breakpoints.up('sm')] : {
             fontSize : '1.8rem'
+        },
+        [theme.breakpoints.up('sm')] : {
+            fontSize :'2.8rem'
+        },
+        [theme.breakpoints.up(UPPER_MEDIUM)] : {
+            fontSize :'2rem'
         },
     },
     line : {

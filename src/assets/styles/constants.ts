@@ -1,0 +1,3 @@
+const UPPER_MEDIUM = 1025;
+
+export { UPPER_MEDIUM }

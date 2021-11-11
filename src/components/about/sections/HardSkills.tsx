@@ -1,5 +1,4 @@
 import { useHardSkillsStyle, useBlockTitleStyle } from '../../../assets/styles/index.styles';
-import { Divider } from '@material-ui/core';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { ReducerRootStateType } from '../../../state/store';
@@ -54,7 +53,6 @@ export default function HardSkills(){
                     <li className = {classes.techno}>ElectronJs</li>
                 </ul>
             </div>
-            <Divider component = 'div' orientation = 'vertical' className = {classes.divider}/>
             <div className  = {classes.section}>
                 <h3 className = {titleClasses.blockTitle}>
                     Work flow 
