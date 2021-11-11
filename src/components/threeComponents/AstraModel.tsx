@@ -17,7 +17,7 @@ type PropsType = {
     envMap ?: any
 }
 
-const Model : FC<PropsType> = ({
+const AstralModel : FC<PropsType> = ({
     setLoaded,
     vecPos,
     map,
@@ -45,7 +45,7 @@ const Model : FC<PropsType> = ({
 
 
     //ratation animation
-    useFrame(({clock}) => {
+    useFrame(() => {
         modelRef.current.rotation.z +=  MathUtils.lerp(modelRef.current.rotation.z, rotationSpeed[2], 1);
         modelRef.current.rotation.y +=  MathUtils.lerp(modelRef.current.rotation.y, rotationSpeed[1] , 1);
         modelRef.current.rotation.x +=  MathUtils.lerp(modelRef.current.rotation.x, rotationSpeed[0] , 1);
@@ -70,4 +70,4 @@ const Model : FC<PropsType> = ({
     )
 }
 
-export default Model;
+export default AstralModel;

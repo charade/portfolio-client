@@ -8,9 +8,8 @@ import { AboutSliders } from '../components/about/sections/AboutSliders';
 import { useAboutStyle } from '../assets/styles/index.styles';
 import FictionalTexture from '../assets/textures/fictional.jpeg';
 import JupiterTexture from '../assets/textures/jupiter.jpeg';
-import AstraModel from '../components/threeComponents/AstraModel';
-import VenuModel from  '../components/threeComponents/VenusModel';
-import MainCamera from '../components/threeComponents/MainCamera';
+import { VenusModel, MainCamera, AstralModel } from  '../components/threeComponents/';
+
 import { motion } from 'framer-motion';
 import AboutSubNavigation from '../components/about/AboutSubNavigation';
 
@@ -60,7 +59,7 @@ const About = () => {
                 <Suspense fallback = {null} >  
                     {loaded && <Stars radius = {200} depth = {200} count = {10000}/>}
                     <group position={[-3 , -3.5, 50]}>
-                        <AstraModel 
+                        <AstralModel 
                             vecPos = {{x :16 , y: -2, z :0}}
                             map = {JupiterMap}
                             args = {[3, 20, 20]}
@@ -68,8 +67,8 @@ const About = () => {
                             roughness = {0.5}
                             rotationSpeed = {[0, 0.003, 0]}
                         />
-                        <VenuModel />
-                        <AstraModel 
+                        <VenusModel />
+                        <AstralModel 
                             vecPos = {{x :13, y :4, z :30}}
                             setLoaded = {setLoaded}
                             // map = {FictionalMap}

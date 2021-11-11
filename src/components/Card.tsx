@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useCardStyle } from "../assets/styles/index.styles";
 import { ProjectItemType } from "../utils/projectsDetails";
-import {  AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { SelectedItem } from "./projects/ProjectDetails";
-import { useMediaQuery } from "@mui/material";
 import { RedirectBtn } from './RedirectBtn';
 
 type CardProps = {
@@ -15,40 +14,39 @@ type CardProps = {
     expand : boolean
 };
 
-export const Card = (props : CardProps) => {
+export const Card = ({item, itemKey, setSelected, setExpand, expand} : CardProps) => {
     const classes = useCardStyle();
 
-    const handleHandleExpand = () =>{
+    const handleHandleExpand = useCallback(async() =>{
         //save expanding item id and datas
-        props.setSelected({layoutId : props.itemKey, item : props.item});
-        //open details
-        props.setExpand(true);
-    } 
+        setSelected({layoutId : itemKey, item : item});
+        //open details when animation totally done to avoid flickering on transform scale
+        setTimeout(() => setExpand(true),350);
+    },[setSelected, setExpand, item, itemKey])
 
     return(
         <motion.div
             onClick = { handleHandleExpand }
-            aria-label = {`${props.item.title}-project-details`}
-            key = {props.itemKey}
+            aria-label = {`${item.title}-project-details`}
+            key = {itemKey}
             className = {classes.cardContainer}
-            layout
         >
-            <motion.h2 
-                layoutId = {`caption-${props.itemKey}`} 
+            <motion.h2
+                layoutId = {`caption-${itemKey}`} 
                 className = {classes.caption} 
-                style = { props.item.captionStyle}
+                style = { item.captionStyle}
             >
-                { props.item.caption }
+                { item.caption }
             </motion.h2>
-            <motion.div layoutId = {`layer-${props.itemKey}`} className = {classes.lowerLayer}>
+            <motion.div layoutId = {`layer-${itemKey}`} className = {classes.lowerLayer}>
             </motion.div>
             <motion.img 
-                layoutId = {`image-${props.itemKey}`}
+                layoutId = {`image-${itemKey}`}
                 className = {classes.upperLayer} 
-                src = {props.item.image}
-                alt = {`${props.item.title}-project`}
+                src = {item.image}
+                alt = {`${item.title}-project`}
             />
-            <RedirectBtn link = { props.item.link }/>
+            <RedirectBtn link = { item.link }/>
         </motion.div>
     )
 }

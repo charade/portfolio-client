@@ -6,7 +6,6 @@ const useProjectsStyle = makeStyles(theme => ({
         position : 'relative',
         height: '100vh',
     },
-   
     canvasContainer : {
         zIndex : 5,
         height : '100%'

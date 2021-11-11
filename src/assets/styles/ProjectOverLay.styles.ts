@@ -8,8 +8,6 @@ const useProjectOverLayStyle = makeStyles(theme => ({
         height : '100%',
         display  :'flex',
         flexDirection :'column',
-        // justifyContent: 'center',
-        // overflow : 'scroll',
     },
     navContainer : {
         display : 'flex',
