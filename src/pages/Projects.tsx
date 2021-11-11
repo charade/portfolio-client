@@ -34,7 +34,7 @@ export default function Projects(){
                     />
                     <Suspense fallback = {null} >
                             <AstralModel
-                                position = {[-10, 0, 9]}
+                                vecPos = {{x :-10, y: 0, z :9}}
                                 map = {NeonMap}
                                 args = {[8, 50, 50]}
                                 metalness = {0.8}

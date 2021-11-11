@@ -1,10 +1,11 @@
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import {  Mesh, MathUtils, FrontSide } from 'three';
-import { FC, useLayoutEffect, useRef } from "react";
+import { FC, useEffect, useLayoutEffect, useRef } from "react";
+import { useState } from "react";
 
 type PropsType = {
     setLoaded? : (args : boolean) => void,
-    position : [x: number, y: number, z: number],
+    vecPos : {x: number, y: number, z: number},
     map ?: any,
     bumpMap?: any,
     roughness?: number, 
@@ -18,7 +19,7 @@ type PropsType = {
 
 const Model : FC<PropsType> = ({
     setLoaded,
-    position,
+    vecPos,
     map,
     metalness,
     roughness,
@@ -30,10 +31,18 @@ const Model : FC<PropsType> = ({
     envMap
     }) => {
     const modelRef = useRef<Mesh>();
-    
+    const { size } = useThree();
+    const [ x, setX ] = useState<number>(0);
+
+    //on resize window save position on x axis
+    useEffect(() => {
+        size.width > 1025 ? setX(vecPos.x) : setX(vecPos.x * size.width / size.height)
+    },[size, vecPos.x]);
+
     useLayoutEffect(() => {
             setLoaded && setLoaded(true);
     }, [map, setLoaded])
+
 
     //ratation animation
     useFrame(({clock}) => {
@@ -43,7 +52,7 @@ const Model : FC<PropsType> = ({
     });
 
     return(
-        <mesh position = {position} ref = {modelRef} dispose = {null}>
+        <mesh position = {[x , vecPos.y, vecPos.z]} ref = {modelRef} dispose = {null}>
             <sphereBufferGeometry  attach = 'geometry' args = {args && args}/>
             <meshStandardMaterial
                 side = {FrontSide}
