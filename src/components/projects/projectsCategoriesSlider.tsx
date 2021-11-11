@@ -26,8 +26,7 @@ const contentVariants : Variants = {
         opacity : 1,
         transition : {
             type : "spring",
-            stiffness : 160,
-            damping : 50,
+            damping : 20,
         }
     },
 };
@@ -73,7 +72,7 @@ export const ProjectsCategoriesSlider = () => {
             animate = { transitionActive ? "start" : "exit"}
             initial = "exit"
         >
-            <AnimateSharedLayout type= "crossfade">
+            <AnimateSharedLayout type = 'crossfade'>
                 { projects.map((project, i) => (
                     <Card
                         setSelected = { setSelectedItem } 

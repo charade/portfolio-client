@@ -1,5 +1,5 @@
 import { useProjectDetailsStyle } from "../../assets/styles/index.styles";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { ProjectItemType } from "../../utils/projectsDetails";
 import { AnimateUnderLine } from "../AnimateUnderLine";
 import { IconButton } from '@material-ui/core';
@@ -15,48 +15,62 @@ type ItemsDetailsType = {
     selected : SelectedItem;
     setExpand : (expand : boolean) => void
 };
-const detailsVariants = {
+
+
+const backdropVariants : Variants = {
     expand : {
         opacity : 1,
+        backdropFilter : 'grayscale(100%) blur(10px)',
     },
     exit : {
+        backdropFilter : 'grayscale(0)',
         opacity : 0,
-        transition : {
-            duration : .2
+    }
+};
+const imageVariants : Variants = {
+    expand : {
+        filter : 'grayscale(0%)',
+        transition :{
+            duration : .5
         }
+    },
+    exit : {
+        filter : 'grayscale(100%)'
     }
 }
 
+
 export const ProjectDetails = ({selected, setExpand} : ItemsDetailsType) => {
     const classes = useProjectDetailsStyle();
-    const ref = useRef<HTMLDivElement>(null)
     const handleCloseDetails = () => setExpand(false);
 
     return(
         <motion.div 
+            variants= {backdropVariants}
+            animate = 'expand'
+            exit = 'exit'
             className = {classes.backdrop}
-            variants = {detailsVariants}
-            exit = "exit"
-            animate = "expand"
         >
             <motion.div
-                ref = {ref}
-                layout 
                 layoutId = {`layer-${selected.layoutId}`}
                 className = {classes.detailsContainer} onClick = {handleCloseDetails}
                 aria-label = {`${selected.item.title}-project-detail`}
                 >
                 <motion.img
+                    variants = {imageVariants}
+                    animate = 'expand'
+                    exit = 'exit'
+                    initial = 'exit'
                     layoutId = { `image-${selected.layoutId}` } 
                     className = {classes.img} 
                     src = {selected.item.image} 
                     alt = {`${selected.item.title}-project`}
-                    />
-                <div className = {classes.box }>
-                    <IconButton className = {classes.closeBtn}>
+                />
+                <motion.div className = {classes.box }>
+                    <IconButton className = {classes.closeBtn} >
                         <CloseFullscreenIcon />
                     </IconButton>
-                    <motion.h2 
+                    <motion.h2
                         layoutId = {`caption-${selected.layoutId}`}
                         className = {classes.caption} 
                         style = { selected.item.captionStyle }
@@ -67,7 +81,7 @@ export const ProjectDetails = ({selected, setExpand} : ItemsDetailsType) => {
                     <p className = {classes.description}> { selected.item.description } </p>
                     <h4 className = {classes.stack}>stack : { selected.item.stack }</h4>
                     <RedirectBtn link = {selected.item.link}/>
-            </div>
+                </motion.div>
             </motion.div>
         </motion.div>
     )

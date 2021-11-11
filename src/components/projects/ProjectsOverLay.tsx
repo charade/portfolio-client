@@ -15,10 +15,10 @@ export const ProjectsOverLay = () => {
             <div className = {classes.navContainer}>
                 <CategoriesNavigation/>
             </div>
-            <div className = {classes.box}>
+            <div  className = {classes.box}>
                 { canDisplayIndicator && <ProjectIndicator />}
                 <ProjectsCategoriesSlider />
-            </div>
+            </div >
         </motion.div>
     )
 }

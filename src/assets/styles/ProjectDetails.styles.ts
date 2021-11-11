@@ -6,17 +6,16 @@ const UPPER_MEDIUM = 1025;
 
 const useProjectDetailsStyle = makeStyles(theme => ({
     backdrop: {
-        zIndex: 10,
         position : 'fixed',
         top : 0, 
         left:0,
-        height: '100%',
-        width : '100%',
+        zIndex: 10,
+        width :'100vw',
+        height :'100vh',
         display : 'flex',
         justifyContent : 'center',
         alignItems :'center',
         background : 'rgba(0, 0, 0, .7)',
-        backdropFilter : 'grayscale(100%) blur(10px)',
     },
     detailsContainer : {
         height: '60%',
@@ -57,7 +56,6 @@ const useProjectDetailsStyle = makeStyles(theme => ({
         height : '100%',
     },
     caption : {
-        // border :'2px solid red',
         fontSize : '3.5rem',
         width : '100%',
         margin : '2% 0',

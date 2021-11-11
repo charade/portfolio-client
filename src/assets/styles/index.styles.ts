@@ -21,6 +21,7 @@ import useProjectIndicatorStyle from "./ProjectIndicator.styles";
 import useProjectDetailsStyle from './ProjectDetails.styles';
 import useRedirectBtnStyle from './RedirectButton.styles';
 import useProjectOverLayStyle from "./ProjectOverLay.styles";
+import useCommentsStyle from './Comments.styles';
 
 export {
     useAppStyle,
@@ -45,5 +46,6 @@ export {
     useProjectIndicatorStyle,
     useProjectDetailsStyle,
     useRedirectBtnStyle,
-    useProjectOverLayStyle
+    useProjectOverLayStyle,
+    useCommentsStyle
 }
