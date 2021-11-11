@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useSoftSkillsStyle, useBlockTitleStyle } from '../../../assets/styles/index.styles';
 import { AnimateUnderLine } from '../../AnimateUnderLine';
 import { color } from '../../../utils/color';
+import { softsSkills, SoftSkillsType } from "../../../utils/softSkills";
 
 const variants = {
     open : {
@@ -32,36 +33,18 @@ export default function SoftSkills(){
             animate = 'open'
             exit = 'hidden'
         >
-            <div className = {classes.section}>
-                <h3 className = {titleClasses.blockTitle}>
-                    team player
-                    <AnimateUnderLine bg = {color.gray}/>
-                </h3>
-                <p className = {classes.text}>
-                    what is better than pair-programming ?
-                    or knowledges sharing ?
-                 </p>
-            </div>
-            <div className = {classes.section}>
-                <h3 className = {titleClasses.blockTitle}>
-                    self-taught
-                    <AnimateUnderLine bg = {color.lightGreen}/>
-                </h3>
-                <p className = {classes.text}>
-                    I'm one of those who spend their free time 
-                    learning new things.
-                </p>
-            </div>
-            <div className = {classes.section}>
-                <h3 className = {titleClasses.blockTitle}>
-                    Challenge-seeker
-                    <AnimateUnderLine bg = {color.lightBlue} />
-                </h3>
-                <p className = {classes.text}>
-                    Constantly discovering new issues, new concepts, is what i like the most in programming.
-                </p>
-            </div>
-        
+            { softsSkills.map((skill: SoftSkillsType, index )=> (
+                /* block containing title and description */
+                <div className = {classes.section} key = {index}>
+                    <h3 className = {titleClasses.blockTitle}>
+                        { skill.label }
+                        <AnimateUnderLine bg = { skill.underlineColor }/>
+                    </h3>
+                    <p className = {classes.text}>
+                        { skill.description }
+                    </p>
+                </div>
+            ))}
         </motion.div>
     )
 }

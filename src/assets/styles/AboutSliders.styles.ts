@@ -1,15 +1,19 @@
 import { makeStyles } from '@material-ui/core';
+import { UPPER_MEDIUM } from './constants';
 
 const useAboutSlidersStyle = makeStyles(theme => ({
     root : {
         position : 'absolute',
-        top : '10%',
-        left : '50%',
-        transform : 'translateX(-40%)',
-        [theme.breakpoints.up('sm')] : {
-            transform : 'translateX(0)',
-            top: '5%',
-            left : '36%',
+        top : '40%',
+        left : '15%',
+        [theme.breakpoints.up('sm')] :{
+            top : '27%',
+            left : '50%',
+            transform : 'translateX(-50%)'
+        },
+        [theme.breakpoints.up(UPPER_MEDIUM)]: {
+            transform : 'translateX(-34%)',
+            top :'10%'
         }
     }
 }))

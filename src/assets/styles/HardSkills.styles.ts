@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core';
+import { UPPER_MEDIUM } from './constants';
 
 const useHardSkillsStyle = makeStyles(theme => ({
     root : {
@@ -7,32 +8,37 @@ const useHardSkillsStyle = makeStyles(theme => ({
         justifyContent : 'center',
         '& > *' : {
             margin : '15px'
-        }        
+        },
+        [theme.breakpoints.up('sm')] : {
+            width : '480px',
+        }
+
     },
     section : {
+        position : 'relative',
         display : 'flex',
         flexDirection : 'column',
-        alignItems : 'center',
         '& > ul' :{
             listStyle : 'none',
             padding : 0
-        }
+        },
+        [theme.breakpoints.up('sm')] : {
+            flex: 1,
+        },
     },
     block : {
     },
-    
     techno : {
         fontSize : '1.8rem',
         fontWeight : 400,
         [theme.breakpoints.up('sm')] : {
             margin : '10px',
-        }
+            fontSize :'3rem'
+        },
+        [theme.breakpoints.up(UPPER_MEDIUM)] : {
+            fontSize :'2rem'
+        },
     },
-    divider :{
-        height: '200px',
-        alignSelf :'center',
-        borderRight :'1px solid rgba(255, 255, 255, 0.7)'
-    }
 }))
 
 export default useHardSkillsStyle;

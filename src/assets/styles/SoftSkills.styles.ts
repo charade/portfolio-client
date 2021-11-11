@@ -1,31 +1,24 @@
 import { makeStyles } from "@material-ui/core";
+import { UPPER_MEDIUM } from "./constants";
 
 const useSoftSkillsStyle = makeStyles(theme => ({
     root : {
         display : 'flex',
         minWidth : '25rem',
-        // alignItems : 'center',
+        
         paddingLeft : '20px',
         flexDirection : 'column',
         '& > *' : {
             margin : 0
         },
-        [theme.breakpoints.up('xs')] : {
-            // minWidth : '40rem',
-        }
     },
     section : {
-        // border : '2px solid',
         '& > *' : {
             margin : '5px',
             [theme.breakpoints.up('sm')] : {
                 margin : '20px'
             }
         },
-        '&:nth-child(even)' : {
-            // alignSelf : 'flex-end',
-            // border :'2px solid'
-        }
     },
     text : {
         maxWidth : '300px',
@@ -33,7 +26,13 @@ const useSoftSkillsStyle = makeStyles(theme => ({
         fontWeight : 200,
         [theme.breakpoints.up('xs')] : {
             fontSize : '1.8rem'
-        }
+        },
+        [theme.breakpoints.up('sm')] : {
+            fontSize :'2.7rem'
+        },
+        [theme.breakpoints.up(UPPER_MEDIUM)] : {
+            fontSize :'2rem'
+        },
     }
 }))
 
