@@ -59,9 +59,9 @@ const About = () => {
                 <MainCamera active = {landingEvent.active} />
                 <Suspense fallback = {null} >  
                     {loaded && <Stars radius = {200} depth = {200} count = {10000}/>}
-                    <group position={[-3, -3.5, 50]}>
+                    <group position={[-3 , -3.5, 50]}>
                         <AstraModel 
-                            position = {[16, -2, 0]}
+                            vecPos = {{x :16 , y: -2, z :0}}
                             map = {JupiterMap}
                             args = {[3, 20, 20]}
                             metalness = {0.6}
@@ -70,7 +70,7 @@ const About = () => {
                         />
                         <VenuModel />
                         <AstraModel 
-                            position = {[13, 4, 30]}
+                            vecPos = {{x :13, y :4, z :30}}
                             setLoaded = {setLoaded}
                             // map = {FictionalMap}
                             bumpMap = {FictionalMap}
