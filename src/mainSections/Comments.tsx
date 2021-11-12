@@ -13,17 +13,15 @@ const Comments = () => {
             <Canvas
                 camera = {{
                     //device pixel ratio
-                    aspect : window.innerWidth / window.innerHeight,
-                    position : [0, 0 , 3],
-                    fov : 80,
+                    position : [0, 0 ,2],
+                    fov : 60,
                     near : 0.1,
                     far : 200,
-                    zoom : 2
                 }}
             >
                 <EffectComposer>
                     <DepthOfField focusDistance={.1} focalLength={1} bokehScale={.4} />
-                    <Bloom intensity = {.3} luminanceThreshold = {.20} luminanceSmoothing = {.23}/>
+                    <Bloom intensity = {.3} luminanceThreshold = {0} luminanceSmoothing = {0}/>
                 </EffectComposer>
                     <MoonModel />
             </Canvas>

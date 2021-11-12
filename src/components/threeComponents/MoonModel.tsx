@@ -10,10 +10,10 @@ const MoonModel = () => {
 
     return(
         <Suspense fallback = {null}>
-            <group position = {[0, 0, -5]}>
-                <mesh>
-                    <sphereBufferGeometry attach = 'geometry' args = {[2, 30, 30]}/>
-                    <meshBasicMaterial map = {moonMap}/>
+            <group  >
+                <mesh position = {[1 , 0, -2]} >
+                    <sphereBufferGeometry attach = 'geometry' args = {[1.4, 30, 30]}/>
+                    <meshBasicMaterial map = {moonMap} attach = "material"/>
                 </mesh>
             </group>
             </Suspense>

@@ -5,6 +5,7 @@ import { Stars, useTexture, Environment, OrbitControls } from "@react-three/drei
 import {AstralModel} from "../components/threeComponents";
 import NeonTexture from '../assets/textures/neon_shymere.jpeg';
 import {ProjectsOverLay} from "../components/projects/ProjectsOverLay";
+import { color } from "../utils/color";
 
 export default function Projects(){
     const classes = useProjectsStyle();
@@ -23,7 +24,7 @@ export default function Projects(){
                 }}
             >
                 <Stars count = {3000} depth = {200} radius = { 100 }/>
-                <directionalLight color = 'white' position = {[40, 40, 0]} />
+                <directionalLight color = 'white' position = {[13, -10, 25]} />
                 <OrbitControls 
                     enablePan = {false} 
                     enableZoom = {false} 
