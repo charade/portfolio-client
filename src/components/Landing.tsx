@@ -6,6 +6,7 @@ import { useSelector,useDispatch } from "react-redux";
 import * as landingEvntActionCreators from "../state/action-creators/landingEvent-action-creators";
 import { ReducerRootStateType } from "../state/store";
 import { bindActionCreators } from "redux";
+import { useProgress } from '@react-three/drei';
 
 const landingVariants : Variants = {
     open : {
@@ -36,6 +37,8 @@ export const Landing = () => {
     const landingEvent = useSelector((store :ReducerRootStateType) => store.landingEvent);
     const dispatch = useDispatch();
     const { setActive } = bindActionCreators(landingEvntActionCreators, dispatch);
+    //requesting meshes loading progress;
+    const {progress} = useProgress();
 
     useEffect(() => {
         if(!landingEvent.loading && ref.current){
@@ -65,7 +68,7 @@ export const Landing = () => {
             >
                 click to continue
             </motion.h4>
-            <AnimatedLoading />
+            <AnimatedLoading progress = { progress }/>
         </motion.div>
     )
 }

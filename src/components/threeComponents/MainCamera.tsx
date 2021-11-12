@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import * as THREE from 'three';
+import { Vector3 } from 'three';
 import { useFrame } from '@react-three/fiber';
 
 
@@ -7,7 +7,7 @@ type CameraProps ={
     active?: boolean
 }
 const Camera = ({active} : CameraProps)=>{
-    const [vec] = useState(() => new THREE.Vector3(0, 0, 0));
+    const [vec] = useState(() => new Vector3(0, 0, 0));
     //update camara position on mouse move
     return(
         useFrame(({camera, mouse}) => {
@@ -23,5 +23,4 @@ const Camera = ({active} : CameraProps)=>{
         })
     )
 };
-
 export default Camera;

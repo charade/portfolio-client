@@ -18,8 +18,9 @@ const useAnimatedLoadingStyle = makeStyles(theme => ({
         boxShadow : '0 0 5px white'
     },
     text : {
+        position : 'absolute',
         fontSize : '1rem',
-        fill : "white"
+        fill : "white",
     }
 }));
 
