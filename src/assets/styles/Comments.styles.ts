@@ -4,7 +4,7 @@ const useCommentsStyle = makeStyles(theme => ({
     root : {
         position : 'relative',
         height : '60vh',
-        border :'2px solid red'
+        // border :'2px solid red'
     },
 }));
 

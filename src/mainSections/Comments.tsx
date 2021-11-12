@@ -1,6 +1,9 @@
 import { Canvas } from '@react-three/fiber';
 import { useCommentsStyle } from '../assets/styles/index.styles';
-import { CommentsIntro, Controls } from "../components/threeComponents";
+import { MoonModel } from "../components/threeComponents";
+import { EffectComposer, Bloom, DepthOfField } from "@react-three/postprocessing";
+
+import { Suspense } from 'react';
 
 const Comments = () => {
     const classes = useCommentsStyle();
@@ -18,8 +21,11 @@ const Comments = () => {
                     zoom : 2
                 }}
             >
-                <CommentsIntro />
-                <Controls />
+                <EffectComposer>
+                    <DepthOfField focusDistance={.1} focalLength={1} bokehScale={.4} />
+                    <Bloom intensity = {.3} luminanceThreshold = {.20} luminanceSmoothing = {.23}/>
+                </EffectComposer>
+                    <MoonModel />
             </Canvas>
         </div>
     )

@@ -12,7 +12,6 @@ export default function VenusModel(){
     const meshRef = useRef<THREE.Mesh>();
     const VenusMap = useTexture(VenusTexture);
 
-
     useFrame(({clock}) => {
         // materialRef.current.uTime = clock.getElapsedTime();
         meshRef.current.rotation.x += 0.0002
@@ -21,18 +20,17 @@ export default function VenusModel(){
     })
 
     return(
-       <mesh
-            ref = {meshRef} 
-            position = {[-5.5, 0, 9]}
-        >
-            <sphereBufferGeometry 
-                args = {[5, 40, 40]}
-            />
-            <astralShaderMaterial 
-                ref = {materialRef}
-                uColor = {new THREE.Color('red')}
-                uMap = {VenusMap}
-            />
-        </mesh>
+        <group ref = {meshRef} position = {[-5.5, 0, 9]}>
+            <mesh>
+                <sphereBufferGeometry 
+                    args = {[5, 40, 40]}
+                />
+                <astralShaderMaterial 
+                    ref = {materialRef}
+                    uColor = {new THREE.Color('red')}
+                    uMap = {VenusMap}
+                />
+            </mesh>
+        </group>
     )
 }
