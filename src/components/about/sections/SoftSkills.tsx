@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useSoftSkillsStyle, useBlockTitleStyle } from '../../../assets/styles/index.styles';
-import { AnimateUnderLine } from '../../AnimateUnderLine';
-import { color } from '../../../utils/color';
+import { AnimatedUnderline } from '../../AnimatedUnderline';
 import { softsSkills, SoftSkillsType } from "../../../utils/softSkills";
 
 const variants = {
@@ -38,7 +37,7 @@ export default function SoftSkills(){
                 <div className = {classes.section} key = {index}>
                     <h3 className = {titleClasses.blockTitle}>
                         { skill.label }
-                        <AnimateUnderLine bg = { skill.underlineColor }/>
+                        <AnimatedUnderline bg = { skill.underlineColor }/>
                     </h3>
                     <p className = {classes.text}>
                         { skill.description }

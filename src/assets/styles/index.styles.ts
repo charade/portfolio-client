@@ -24,6 +24,7 @@ import useProjectOverLayStyle from "./ProjectOverLay.styles";
 import useCommentsStyle from './Comments.styles';
 import useCVViewerStyle from "./CVViewer.styles";
 import useCloseIconButtonStyle from './CloseIconButton.styles';
+import useShortDetailsStyle from './ShortDetails.styles';
 
 export {
     useAppStyle,
@@ -51,5 +52,6 @@ export {
     useProjectOverLayStyle,
     useCommentsStyle,
     useCVViewerStyle,
-    useCloseIconButtonStyle 
+    useCloseIconButtonStyle ,
+    useShortDetailsStyle
 }

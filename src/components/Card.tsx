@@ -1,9 +1,12 @@
-import React, { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useCardStyle } from "../assets/styles/index.styles";
 import { ProjectItemType } from "../utils/projectsDetails";
 import { motion } from "framer-motion";
 import { SelectedItem } from "./projects/ProjectDetails";
-import { RedirectBtn } from './RedirectBtn';
+import OpenInFullIcon from '@mui/icons-material/OpenInFull';
+import { IconButton, useMediaQuery } from '@material-ui/core';
+import { ShortDetails } from "./projects/ShortDetails";
+import { device } from "../utils/device";
 
 type CardProps = {
     itemKey : string
@@ -16,37 +19,64 @@ type CardProps = {
 
 export const Card = ({item, itemKey, setSelected, setExpand, expand} : CardProps) => {
     const classes = useCardStyle();
+    const isScreenSmall = !useMediaQuery(device.sm);
+    //when device mobile only expand choosen one details
+    const [currentId, setCurrentId] = useState<string>('');
 
-    const handleHandleExpand = useCallback(async() =>{
+    //open datails
+    const handleExpand = useCallback(async() =>{
         //save expanding item id and datas
         setSelected({layoutId : itemKey, item : item});
         //open details when animation totally done to avoid flickering on transform scale
-        setTimeout(() => setExpand(true),350);
+        await setCurrentId(itemKey)
+        setTimeout(async() => {
+            setExpand(true);
+        },0)
+        
     },[setSelected, setExpand, item, itemKey])
+
+    useEffect(() => {
+        console.log(currentId)
+    },[currentId]);
 
     return(
         <motion.div
-            onClick = { handleHandleExpand }
             aria-label = {`${item.title}-project-details`}
-            key = {itemKey}
-            className = {classes.cardContainer}
+            className = {classes.mainContainer}
         >
-            <motion.h2
-                layoutId = {`caption-${itemKey}`} 
-                className = {classes.caption} 
-                style = { item.captionStyle}
-            >
-                { item.caption }
-            </motion.h2>
-            <motion.div layoutId = {`layer-${itemKey}`} className = {classes.lowerLayer}>
+            <motion.div onClick = { handleExpand } className = {classes.cardContainer}>
+                <motion.h2
+                    layoutId = {`caption-${itemKey}`} 
+                    className = {classes.caption} 
+                    style = { item.captionStyle}
+                >
+                    { item.caption }
+                </motion.h2>
+                <motion.div layoutId = {`layer-${itemKey}`} className = {classes.lowerLayer}></motion.div>
+                <motion.img 
+                    layoutId = {`image-${itemKey}`}
+                    className = {classes.upperLayer} 
+                    src = {item.image}
+                    alt = {`${item.title}-project`}
+                />
+                <IconButton 
+                    onClick = {  handleExpand } 
+                    className = {classes.expandBtn}
+                    aria-label = "expand-card"
+                >
+                    <OpenInFullIcon />
+                </IconButton>
             </motion.div>
-            <motion.img 
-                layoutId = {`image-${itemKey}`}
-                className = {classes.upperLayer} 
-                src = {item.image}
-                alt = {`${item.title}-project`}
+            {/* only open if device screen <= xs over selected card*/}
+            <ShortDetails
+                canOpen = {isScreenSmall && expand} 
+                setExpand = { setExpand }
+                item = { item }
+                id = { itemKey }
+                currentId = { currentId}
+                setCurrentId = { setCurrentId }
             />
-            <RedirectBtn link = { item.link }/>
+            
         </motion.div>
     )
 }

@@ -6,17 +6,19 @@ import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import { Document, Page} from 'react-pdf/dist/esm/entry.webpack';
 import { AnimatedLoading } from './AnimatedLoading';
 import { saveAs } from 'file-saver';
+import { baseUrl } from "../service";
 
 type Props = {
     open : boolean,
     setOpen : (open : boolean) => void
-    data : string
 };
 
 export const CVViewer = (props : Props) => {
     const [numPages, setNumPages] = useState<number>(0);
     const classes = useCVViewerStyle();
     const [progress, setProgress] = useState<number>(0);
+    //file failed to load
+    const [ loadError, setLoadError ] = useState<boolean>(false);
     //on closing modal
     const handleClose = () => props.setOpen(false);
     //on progress loading
@@ -27,9 +29,10 @@ export const CVViewer = (props : Props) => {
     //on loading complete
     const handleLoadSucces = (pages) => {
         setNumPages(pages.numPages);
-        console.log(pages)
     };
-    const handleDownloadFile = () => saveAs('http://localhost:8080/download', 'charles-Ekomie-cv.pdf');
+    const handleLoadError = () => setLoadError(true);
+
+    const handleDownloadFile = () => saveAs(`${baseUrl}/download`, 'charles-Ekomie-cv.pdf');
 
     return(
         <Modal
@@ -40,6 +43,7 @@ export const CVViewer = (props : Props) => {
             <div className = {classes.container}>
                 <div className = {classes.bar}>
                     <Button 
+                        disabled = {loadError}
                         startIcon = {<CloudDownloadIcon />} 
                         variant = 'contained'
                         onClick = { handleDownloadFile }
@@ -50,9 +54,10 @@ export const CVViewer = (props : Props) => {
                 </div>
                 <Document
                     className = {classes.document}
-                    file = 'http://localhost:8080/download'
+                    file = {`${baseUrl}/download`}
                     onLoadSuccess = { handleLoadSucces }
                     onLoadProgress = { handleLoadFile }
+                    onLoadError = { handleLoadError }
                     loading = { <AnimatedLoading progress = {progress}/> }
                 >
                     {new Array(numPages).fill('').map((page, number) => 

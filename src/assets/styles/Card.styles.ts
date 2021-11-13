@@ -4,26 +4,35 @@ import { color } from "../../utils/color";
 const UPPER_MEDIUM = 1025;
 
 const useCardStyle = makeStyles(theme => ({
-    cardContainer : {
+    mainContainer : {
         position : 'relative',
-        display : 'flex',
-        justifyContent : 'flex-end',
-        flexDirection : 'column',
-        alignItems : 'center',
         maxWidth : `270px`,
         height : '90%',
         margin : ' 0 10px',
         // overflow : 'hidden',
         cursor : 'pointer',
-        '& > *:not(img)' : {
-            position : 'absolute',
-        },
+        boxShadow : `0 0 7px ${color.white}`,
+        borderRadius : '20px',
+        background : color.lightDark,
         [theme.breakpoints.up('xs')]: {
             maxWidth : "500px"
         },
         [theme.breakpoints.down(UPPER_MEDIUM)] :{
             width : '400px',
             height : '93%'
+        },
+    },
+    cardContainer :{
+        zIndex :3,
+        position :'relative',
+        width :"100%",
+        display : 'flex',
+        alignItems : 'center',
+        justifyContent : 'flex-end',
+        flexDirection : 'column',
+        height :'100%',
+        '& > *:not(img)' : {
+            position : 'absolute',
         },
     },
     caption : {
@@ -35,10 +44,8 @@ const useCardStyle = makeStyles(theme => ({
         lineHeight :'30px',
     },
     lowerLayer : {
-        boxShadow : `0 0 7px ${color.white}`,
-        borderRadius : '20px',
+        
         zIndex : -1,
-        background : color.lightDark,
         opacity : .6,
         width : '100%',
         height : '100%',
@@ -54,6 +61,14 @@ const useCardStyle = makeStyles(theme => ({
         height : '75%',
         filter : 'grayscale(100%)',
     },
+    expandBtn : {
+        border: `1px solid ${color.lightBlue}`,
+        width :'35px',
+        height :'35px',
+        color : color.gray,
+        alignSelf : 'flex-end',
+        margin :'8px'
+    }
 }))
 
 export default useCardStyle;

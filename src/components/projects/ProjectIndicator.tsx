@@ -65,7 +65,6 @@ export const ProjectIndicator = () => {
                    <motion.div
                         variants = { sliderVariants } 
                         onAnimationComplete = { handleSliderAnimationEnd }
-                        whileHover = "hover"
                         initial = {false}
                         animate = {controls}
                         className = {classes.block} 

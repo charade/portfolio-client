@@ -6,5 +6,6 @@ export const color = {
     orange : '#D96704' /* 'rgb(182, 125, 42)' */,
     white :'white',
     lightDark : '#4A4A4A',
-    darkOrange : "#B97700"
+    darkOrange : "#B97700",
+    red :"rgba(250, 0 , 0, .5)" 
 }

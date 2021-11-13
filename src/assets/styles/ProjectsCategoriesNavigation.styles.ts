@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core'
+import { color } from "../../utils/color";
 
 const useCategoriesNavigationStyle = makeStyles(theme => ({
     root : {
@@ -24,7 +25,7 @@ const useCategoriesNavigationStyle = makeStyles(theme => ({
         justifyContent : 'flex-start',
     },
     separator : {
-        borderBottom : '2px solid rgba(250, 0 , 0, .5)',
+        borderBottom : `2px solid ${color.red}`,
         transform: `translateY(-30px)`,
         width : '20%',
     }

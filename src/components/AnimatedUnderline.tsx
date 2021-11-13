@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useAnimateUnderlineStyle } from '../assets/styles/index.styles';
 
-const underLineVariants = {
+const underlineVariants = {
     open : {
         width : '30px',
         opacity : 1,
@@ -20,14 +20,14 @@ const underLineVariants = {
     }
 }
 
-export const AnimateUnderLine= (props : {bg : string}) => {
+export const AnimatedUnderline= (props : {bg : string}) => {
     const classes = useAnimateUnderlineStyle();
 
     return(
         <motion.span
             style = {{background : props.bg}}
             className = {classes.root}
-            variants = { underLineVariants }
+            variants = { underlineVariants }
             initial = 'hidden'
             animate = 'open'
             exit = 'hidden'
