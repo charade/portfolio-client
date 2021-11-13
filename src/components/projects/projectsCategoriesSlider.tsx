@@ -53,8 +53,11 @@ export const ProjectsCategoriesSlider = () => {
     
     //listening to user change category to start animating
     useEffect(() => {
-        if(projectsDetails.hasOwnProperty(category.label))
-            setTransitionActive(!transitionActive);
+        const toggleActive = () => {
+            if(projectsDetails.hasOwnProperty(category.label))
+                setTransitionActive(!transitionActive);
+        }
+        toggleActive();
     },[category]);
     
     //content in/out animation delay
@@ -75,15 +78,17 @@ export const ProjectsCategoriesSlider = () => {
             <AnimateSharedLayout type = 'crossfade'>
                 { projects.map((project, i) => (
                     <Card
+                        key = { `${project.title}-project-item-${i}` }
                         setSelected = { setSelectedItem } 
                         setExpand = { setExpand }
-                        itemKey = {`project-item${i}`} 
+                        itemKey = {`${project.title}-project-item-${i}`} 
                         item = {project}
                         expand = {expand}
                     />
                 ))}
                 {/* animating on component unmounting */}
                 {
+                    //when screen under sm not expand in full details
                     canCrossfadeOnExpand &&
                     <AnimatePresence>
                         { expand && <ProjectDetails setExpand = {setExpand} selected = {selectedItem}/>}

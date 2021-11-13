@@ -14,10 +14,10 @@ const useIconsMenuStyle = makeStyles(theme => ({
         position : 'relative',
         display : 'flex',
         alignItems : 'center',
-        // border : '1px solid',
+        // border : '1px solid white',
         flexDirection : 'column',
-        justifyContent : 'center',
-        margin : '20px',
+        justifyContent : 'space-evenly',
+        margin : '20px 0',
         '&::before, &::after' : {
             content : '""',
             position : 'absolute',
@@ -36,14 +36,19 @@ const useIconsMenuStyle = makeStyles(theme => ({
         }
     },
     icon :{
+        // border : "2px solid red",
         position : 'relative',
-        margin :'10px 0',
+        margin :'5px 0',
         padding :'0 8px',
         cursor : 'pointer',
         color : 'lightgrey',
-        '& > *' :{
+        display : 'flex',
+        justifyContent :'center',
+        '& > *:nth-child(n)' :{
             minWidth : '2rem',
-            minHeight :'2rem'
+            minHeight :'2rem',
+            //override redirect btn style
+            position : 'static',
         },
         '&::before' : {
             content  : '""',

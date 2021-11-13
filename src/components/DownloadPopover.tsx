@@ -1,6 +1,5 @@
 import { Popover, Button } from "@material-ui/core";
 import { useState, useCallback } from "react";
-import { downloadResume } from "../service";
 import { CVViewer } from './CVViewer';
 
 type PropsType = {
@@ -11,20 +10,13 @@ type PropsType = {
 
 export const DownloadPopover = (props : PropsType) => {
     const [openViewer, setOpenViewer] = useState<boolean>(false);
-    const [data, setData] = useState<string>('');
     //close poper button
     const handleClose = () => {
         props.setOpen(false);
     };
-    const handleDownload = useCallback(async() => {
-        try{
-            const requested = await downloadResume();
-            setData(requested.data);
-            setTimeout(() => handleClose(), 50);
-            setOpenViewer(true);
-        }catch{
-            //need to define error action
-        }
+    const handleOpenViewer = useCallback(async() => {
+        setTimeout(() => handleClose(), 50);
+        setOpenViewer(true);
     },[]);
 
     return(
@@ -35,11 +27,11 @@ export const DownloadPopover = (props : PropsType) => {
                 anchorEl = { props.anchor }
                 anchorOrigin = {{vertical : 'center', horizontal : 'right'}}
             >
-                <Button onClick = { handleDownload  }>
+                <Button onClick = { handleOpenViewer  }>
                     Resumé
                 </Button>
             </Popover>
-            <CVViewer open = {openViewer} setOpen = {setOpenViewer} data = {data} />
+            <CVViewer open = {openViewer} setOpen = {setOpenViewer} />
         
         </>
     )

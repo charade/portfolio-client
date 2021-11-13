@@ -8,6 +8,7 @@ import { List, ListItem } from '@material-ui/core'
 import { useSideMenuStyle } from '../assets/styles/index.styles'
 // import HelpIcon from '@mui/icons-material/Help';
 import { DownloadPopover } from "./DownloadPopover";
+import { RedirectBtn } from './RedirectBtn';
 
 const SideMenu = () => {
     const [anchorEl, setAnchorEl] = useState<HTMLLIElement>(null);
@@ -34,10 +35,14 @@ const SideMenu = () => {
                     <SettingsIcon />
                 </ListItem> */}
                 <ListItem className = {classes.icon}>
-                    <LinkedInIcon/>
+                    <RedirectBtn link = "https://www.linkedin.com/in/charlesekomie">
+                        <LinkedInIcon/>
+                    </RedirectBtn>
                 </ListItem>
                 <ListItem className = {classes.icon}>
-                    <GitHubIcon />
+                    <RedirectBtn link = "https://github.com/charade">
+                        <GitHubIcon />
+                    </RedirectBtn>
                 </ListItem>
                 <ListItem className = {classes.icon} onClick = {toogleOpen}>
                     <FolderIcon />

@@ -2,7 +2,7 @@ import { useHardSkillsStyle, useBlockTitleStyle } from '../../../assets/styles/i
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { ReducerRootStateType } from '../../../state/store';
-import { AnimateUnderLine } from '../../AnimateUnderLine';
+import { AnimatedUnderline } from '../../AnimatedUnderline';
 //animation variants
 const variants = {
     open : {
@@ -39,7 +39,7 @@ export default function HardSkills(){
             <div className = {classes.section}>
                 <h3 className = {titleClasses.blockTitle}>
                     Stack
-                    <AnimateUnderLine bg = '#f00'/>
+                    <AnimatedUnderline bg = '#f00'/>
                 </h3>
                 <ul className = {classes.block}> 
                     <li className = {classes.techno}>Javascript</li>
@@ -56,7 +56,7 @@ export default function HardSkills(){
             <div className  = {classes.section}>
                 <h3 className = {titleClasses.blockTitle}>
                     Work flow 
-                    <AnimateUnderLine bg = '#f00'/>
+                    <AnimatedUnderline bg = '#f00'/>
                 </h3>
                 <ul className = {classes.block}>
                     <li className = {classes.techno}>Git</li>

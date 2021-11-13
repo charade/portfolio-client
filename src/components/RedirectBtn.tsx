@@ -1,13 +1,17 @@
 import { useRedirectBtnStyle } from "../assets/styles/index.styles";
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
-export const RedirectBtn = ({link} : {link : string}) => {
+type RedirectProps = {
+    link : string;
+    children ?: React.ReactNode;
+    label ?: string
+}
+export const RedirectBtn = ({link, children, label} : RedirectProps) => {
     const classes = useRedirectBtnStyle();
 
     return(
         <a className = {classes.link} href = {link} target = "_external" rel='opener'>
-            visit
-            <OpenInNewIcon />
+            { label }
+            { children }
         </a>
     )
 }

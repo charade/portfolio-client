@@ -1,9 +1,10 @@
 import { useProjectDetailsStyle } from "../../assets/styles/index.styles";
 import { motion, Variants } from "framer-motion";
 import { ProjectItemType } from "../../utils/projectsDetails";
-import { AnimateUnderLine } from "../AnimateUnderLine";
+import { AnimatedUnderline } from "../AnimatedUnderline";
 import { CloseIconButton } from "../CloseIconButton";
 import { RedirectBtn } from "../RedirectBtn";
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 export interface SelectedItem {
     item : ProjectItemType;
@@ -73,11 +74,13 @@ export const ProjectDetails = ({selected, setExpand} : ItemsDetailsType) => {
                         style = { selected.item.captionStyle }
                         >
                         { selected.item.caption }
-                        <AnimateUnderLine bg = { selected.item.underlineColor }/>
+                        <AnimatedUnderline bg = { selected.item.underlineColor }/>
                     </motion.h2>
                     <p className = {classes.description}> { selected.item.description } </p>
                     <h4 className = {classes.stack}>stack : { selected.item.stack }</h4>
-                    <RedirectBtn link = {selected.item.link}/>
+                    <RedirectBtn link = {selected.item.link} label = "visit">
+                        <OpenInNewIcon />
+                    </RedirectBtn>
                 </motion.div>
             </motion.div>
         </motion.div>
