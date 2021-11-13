@@ -7,5 +7,5 @@ export {
     loadingReducer,
     categoriesReducer,
     landingEventReducer,
-    projectsReducer
+    projectsReducer,
 }

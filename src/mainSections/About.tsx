@@ -9,7 +9,6 @@ import { useAboutStyle } from '../assets/styles/index.styles';
 import FictionalTexture from '../assets/textures/fictional.jpeg';
 import JupiterTexture from '../assets/textures/jupiter.jpeg';
 import { VenusModel, MainCamera, AstralModel } from  '../components/threeComponents/';
-
 import { motion } from 'framer-motion';
 import AboutSubNavigation from '../components/about/AboutSubNavigation';
 

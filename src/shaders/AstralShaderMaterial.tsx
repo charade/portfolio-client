@@ -27,9 +27,10 @@ const AstralShaderMaterial  =  shaderMaterial(
         uniform vec3 uColor;
         uniform sampler2D uMap;
         varying vec2 vertex_uv;
+        varying vec3 vertex_normal;
         uniform float uTime;
         void main(){
-            vec3 texture = texture2D(uMap, vertex_uv).xyz + vec3(sin(uTime) +0.003);
+            vec3 texture = texture2D(uMap, vertex_uv).xyz ;
             gl_FragColor = vec4(texture, 1.0);
         }
     `

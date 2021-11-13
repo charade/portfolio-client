@@ -6,11 +6,12 @@ const useAppStyle = makeStyles({
         width : '100%',
         display : 'flex',
         backgroud : 'white',
-        overflow : 'hidden'
+        overflowX : 'hidden'
     },
     container : {
         height :'100%',
-        width : '100%'
+        width : '100%',
+        overflow : 'scroll'
     }
 })
 

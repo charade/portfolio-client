@@ -22,6 +22,8 @@ import useProjectDetailsStyle from './ProjectDetails.styles';
 import useRedirectBtnStyle from './RedirectButton.styles';
 import useProjectOverLayStyle from "./ProjectOverLay.styles";
 import useCommentsStyle from './Comments.styles';
+import useCVViewerStyle from "./CVViewer.styles";
+import useCloseIconButtonStyle from './CloseIconButton.styles';
 
 export {
     useAppStyle,
@@ -47,5 +49,7 @@ export {
     useProjectDetailsStyle,
     useRedirectBtnStyle,
     useProjectOverLayStyle,
-    useCommentsStyle
+    useCommentsStyle,
+    useCVViewerStyle,
+    useCloseIconButtonStyle 
 }

@@ -6,15 +6,16 @@ import { ReducerRootStateType } from "../state/store";
 import * as landingEvntActionCreators from "../state/action-creators/landingEvent-action-creators";
 
 const loadingVariants : Variants  = {
-    start: {
-        strokeDashoffset : ["440", "0"],
+    start: (custom : number )=> ({
+        //converting progress percentage
+        strokeDashoffset : (600 - 600 * custom / 100) + 1,
         transition : {
             duration : 2,
             delay : .5
         }
-    },
+    }),
     initial:{
-        strokeDashoffset : "440"
+        strokeDashoffset : "600"
     }
 }
 
@@ -31,10 +32,11 @@ const loadingVariant: Variants = {
     },
 }
 
-export const AnimatedLoading = ()=>{
+export const AnimatedLoading = ({progress} : {progress : number})=>{
     const classes = useAnimatedLoadingStyle();
     const dispatch = useDispatch();
     const  { setLoading } = bindActionCreators(landingEvntActionCreators, dispatch);
+    
     //waiting for load event or clik evnt
     const landingEvent = useSelector((store : ReducerRootStateType) => store.landingEvent);
     //when progress circle nimation end
@@ -51,17 +53,17 @@ export const AnimatedLoading = ()=>{
         >
                 <circle cx = "50%" cy = "50%" r="50" />
                 <motion.text 
+                    custom = { progress }
                     variants = { loadingVariant }
                     className = {classes.text} 
-                    x = "40%" 
-                    y = "50%"
+                    x = "44.4%" 
+                    y = "52%"
                 >
-                    Loading...
+                    { `${progress} %`} 
                 </motion.text>
                 <motion.circle 
                     onAnimationComplete = { handleProgressEnd }
                     variants = { loadingVariants }
-                    
                     cx = "50%" cy = "50%" r="50" 
                     className = {classes.progress}
                 />

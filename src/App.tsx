@@ -8,12 +8,9 @@ import { Landing } from "./components/Landing";
 
 const About = React.lazy(() => import('./mainSections/About'));
 
-let scrollPosY = 0;
-
 function App() {
   const ref = useRef<HTMLDivElement>(null);
   const classes = useAppStyle();
-
   return (
     <div className = {classes.root} >
       <Navbar />

@@ -25,7 +25,8 @@ const useProjectDetailsStyle = makeStyles(theme => ({
         display : 'flex',
         boxShadow : `0 0 10px ${color.white}`,
         borderRadius : '25px',
-        overflow : 'hidden',
+        //user can zoom over 100%
+        overflow : 'scroll',
         borderRight : '3px solid rgba(255, 255, 255, .7)',
         [theme.breakpoints.up('sm')] : {
             width : '88%',  
@@ -100,14 +101,7 @@ const useProjectDetailsStyle = makeStyles(theme => ({
         },
     },
     
-    closeBtn :{
-        padding : '3px ',
-        border: '1px solid rgba(255, 255, 255, .4)',
-        width :'40px',
-        height :'40px',
-        color : color.gray,
-        alignSelf : 'flex-end',
-    }
+    
 }));
 
 export default useProjectDetailsStyle;
