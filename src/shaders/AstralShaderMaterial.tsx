@@ -14,11 +14,9 @@ const AstralShaderMaterial  =  shaderMaterial(
     //vertex shader
     `   precision mediump float;
         varying vec2 vertex_uv;
-        varying vec3 vertex_normal;
         uniform float uTime;
         void main(){
             vertex_uv = uv;
-            vertex_normal = normal;
             gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
         }
         
@@ -32,7 +30,7 @@ const AstralShaderMaterial  =  shaderMaterial(
         varying vec3 vertex_normal;
         uniform float uTime;
         void main(){
-            vec3 texture = texture2D(uMap, vertex_uv).xyz + 0.05;
+            vec3 texture = texture2D(uMap, vertex_uv).xyz ;
             gl_FragColor = vec4(texture, 1.0);
         }
     `

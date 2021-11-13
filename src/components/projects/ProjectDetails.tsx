@@ -2,10 +2,8 @@ import { useProjectDetailsStyle } from "../../assets/styles/index.styles";
 import { motion, Variants } from "framer-motion";
 import { ProjectItemType } from "../../utils/projectsDetails";
 import { AnimateUnderLine } from "../AnimateUnderLine";
-import { IconButton } from '@material-ui/core';
-import CloseFullscreenIcon from '@mui/icons-material/CloseFullscreen';
+import { CloseIconButton } from "../CloseIconButton";
 import { RedirectBtn } from "../RedirectBtn";
-import {  useRef } from "react";
 
 export interface SelectedItem {
     item : ProjectItemType;
@@ -42,6 +40,7 @@ const imageVariants : Variants = {
 
 export const ProjectDetails = ({selected, setExpand} : ItemsDetailsType) => {
     const classes = useProjectDetailsStyle();
+
     const handleCloseDetails = () => setExpand(false);
 
     return(
@@ -67,9 +66,7 @@ export const ProjectDetails = ({selected, setExpand} : ItemsDetailsType) => {
                     alt = {`${selected.item.title}-project`}
                 />
                 <motion.div className = {classes.box }>
-                    <IconButton className = {classes.closeBtn} >
-                        <CloseFullscreenIcon />
-                    </IconButton>
+                    <CloseIconButton action = { handleCloseDetails }/>
                     <motion.h2
                         layoutId = {`caption-${selected.layoutId}`}
                         className = {classes.caption} 

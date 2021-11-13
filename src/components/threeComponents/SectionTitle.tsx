@@ -1,8 +1,10 @@
-import { Text  } from '@react-three/drei'
+import { Text } from '@react-three/drei'
 import { useThree } from "@react-three/fiber";
 import { useMemo, useRef } from 'react';
-import { Vector3 } from "three";
 import { color } from '../../utils/color';
+
+const SM = 540;
+const UPPER_MD = 1025;
 
 export const SectionTitle = () => {
     const { size } = useThree();
@@ -10,9 +12,9 @@ export const SectionTitle = () => {
 
     const evaluated = useMemo(() => ({
         x : -12 * size.width / size.height,
-        scale : size.width < 1025 ? 9 : 6 ,
-        lineHeight : size.width < 1025  ? 2.7 : 5
-    }), [size])
+        scale : size.width < UPPER_MD ? 10.5 : 6 ,
+        lineHeight : size.width < SM  ? 2.5 : 4 * size.width / size.height 
+    }), [size]);
 
     return(
         <group >
@@ -24,7 +26,7 @@ export const SectionTitle = () => {
                 scale = {evaluated.scale} 
                 fontSize = {0.5 * size.width / size.height }
             > 
-                What they say
+                Get me
             </Text>
             <Text
                 position = {[evaluated.x, Yvalue.current - evaluated.lineHeight, -33]}
@@ -34,7 +36,7 @@ export const SectionTitle = () => {
                 scale = {evaluated.scale} 
                 fontSize = {0.5 * size.width / size.height }
                 > 
-                about
+                in
             </Text>
             <Text
                 position = {[evaluated.x, Yvalue.current - 2 * evaluated.lineHeight, -33]}
@@ -44,7 +46,7 @@ export const SectionTitle = () => {
                 scale = {evaluated.scale} 
                 fontSize = {0.5 * size.width / size.height }
             > 
-                me...
+                touch
             </Text>
         </group>
     )

@@ -101,14 +101,7 @@ const useProjectDetailsStyle = makeStyles(theme => ({
         },
     },
     
-    closeBtn :{
-        padding : '3px ',
-        border: '1px solid rgba(255, 255, 255, .4)',
-        width :'40px',
-        height :'40px',
-        color : color.gray,
-        alignSelf : 'flex-end',
-    }
+    
 }));
 
 export default useProjectDetailsStyle;

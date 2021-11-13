@@ -24,7 +24,6 @@ export default function Projects(){
                 }}
             >
                 <Stars count = {3000} depth = {200} radius = { 100 }/>
-                <directionalLight color = 'white' position = {[13, -10, 25]} />
                 <OrbitControls 
                     enablePan = {false} 
                     enableZoom = {false} 
@@ -33,15 +32,15 @@ export default function Projects(){
                     minDistance = {113.5}
                 />
                 <Suspense fallback = {null} >
-                        <AstralModel
-                            vecPos = {{x :-10, y: 0, z :9}}
-                            map = {NeonMap}
-                            args = {[8, 50, 50]}
-                            metalness = {0.8}
-                            roughness = {0.00001}
-                            bumpScale = {0.14}
-                            rotationSpeed = {[0.00005, 0.00005, -0.0005]}
-                        />
+                    <AstralModel
+                        vecPos = {{x :-10, y: 0, z :9}}
+                        map = {NeonMap}
+                        args = {[8, 50, 50]}
+                        metalness = {0.8}
+                        roughness = {0.00001}
+                        bumpScale = {0.14}
+                        rotationSpeed = {[0.00005, 0.00005, -0.0005]}
+                    />
                 </Suspense >
                 <Environment preset = "night"/>
             </Canvas>
