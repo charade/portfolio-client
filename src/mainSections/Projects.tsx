@@ -39,7 +39,7 @@ export default function Projects(){
                         metalness = {0.8}
                         roughness = {0.00001}
                         bumpScale = {0.14}
-                        rotationSpeed = {[0.00005, 0.00005, -0.0005]}
+                        rotationSpeed = {[0.0, 0.0, 0.0]}
                     />
                 </Suspense >
                 <Environment preset = "night"/>

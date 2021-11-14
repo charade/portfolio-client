@@ -21,10 +21,12 @@ import useProjectIndicatorStyle from "./ProjectIndicator.styles";
 import useProjectDetailsStyle from './ProjectDetails.styles';
 import useRedirectBtnStyle from './RedirectButton.styles';
 import useProjectOverLayStyle from "./ProjectOverLay.styles";
-import useCommentsStyle from './Comments.styles';
+import useFooterStyle from './Footer.styles';
 import useCVViewerStyle from "./CVViewer.styles";
 import useCloseIconButtonStyle from './CloseIconButton.styles';
 import useShortDetailsStyle from './ShortDetails.styles';
+import useGetMeInTouchStyle from './GetMeInTouch.styles';
+import useBoldTextStyle from './BoldText.styles';
 
 export {
     useAppStyle,
@@ -50,8 +52,10 @@ export {
     useProjectDetailsStyle,
     useRedirectBtnStyle,
     useProjectOverLayStyle,
-    useCommentsStyle,
+    useFooterStyle,
     useCVViewerStyle,
-    useCloseIconButtonStyle ,
-    useShortDetailsStyle
+    useCloseIconButtonStyle,
+    useShortDetailsStyle,
+    useGetMeInTouchStyle,
+    useBoldTextStyle
 }

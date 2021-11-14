@@ -5,12 +5,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { store } from './state/store'
+import { ThemeProvider, Theme, createTheme } from "@material-ui/core";
+
+const theme : Theme = createTheme({
+  typography : {
+    fontFamily : "Archivo"
+  }
+})
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store = {store}>
-        <App />
-    </Provider>
+    <ThemeProvider theme = { theme }>
+      <Provider store = {store}>
+          <App />
+      </Provider>
+    </ThemeProvider>
   </React.StrictMode>,document.getElementById('root')
 );
 

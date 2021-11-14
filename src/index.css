@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Archivo";
+  src: url("./assets//fonts/Archivo/Archivo-VariableFont_wdth\,wght.ttf");
+}
+
 body,html,#root {
   margin: 0;
   padding : 0;
