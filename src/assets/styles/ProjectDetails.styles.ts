@@ -1,7 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 import { color } from "../../utils/color";
 
-
 const UPPER_MEDIUM = 1025;
 
 const useProjectDetailsStyle = makeStyles(theme => ({
@@ -24,6 +23,7 @@ const useProjectDetailsStyle = makeStyles(theme => ({
         right:0,
         display : 'flex',
         boxShadow : `0 0 10px ${color.white}`,
+        background : 'rgba(0, 0, 0, .9)',
         borderRadius : '25px',
         //user can zoom over 100%
         overflow : 'scroll',

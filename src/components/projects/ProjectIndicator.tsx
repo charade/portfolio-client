@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useMemo} from "react";
+import { useCallback, useEffect } from "react";
 import { useProjectIndicatorStyle } from "../../assets/styles/index.styles";
 import { projectsDetails, ProjectItemType } from "../../utils/projectsDetails";
 import { useSelector } from "react-redux";

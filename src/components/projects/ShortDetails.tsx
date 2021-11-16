@@ -44,11 +44,7 @@ export const ShortDetails = ({item, id, currentId, setExpand, canOpen, setCurren
         setExpand(false);
         setCurrentId('');
     }
-
-    useEffect(() => {
-        console.log(currentId)
-    },[currentId]);
-
+    
     return(
         <AnimatePresence>
             {

@@ -2,7 +2,6 @@ import { makeStyles } from "@material-ui/core";
 
 const useLandingStyle = makeStyles(theme => ({
     root : {
-        // display : 'none',
         display : 'flex',
         justifyContent :'center',
         alignItems : 'center',

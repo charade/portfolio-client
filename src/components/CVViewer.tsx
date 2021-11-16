@@ -15,16 +15,10 @@ type Props = {
 export const CVViewer = (props : Props) => {
     const [numPages, setNumPages] = useState<number>(0);
     const classes = useCVViewerStyle();
-    const [progress, setProgress] = useState<number>(0);
     //file failed to load
     const [ loadError, setLoadError ] = useState<boolean>(false);
     //on closing modal
     const handleClose = () => props.setOpen(false);
-    //on progress loading
-    const handleLoadFile = (file) => {
-        console.log(file)
-        setProgress(file.loaded / file.total);
-    };
     //on loading complete
     const handleLoadSucces = (pages) => {
         setNumPages(pages.numPages);
@@ -42,7 +36,7 @@ export const CVViewer = (props : Props) => {
             <div className = {classes.container}>
                 <div className = {classes.bar}>
                     <Button 
-                        disabled = {loadError}
+                        // disabled = {loadError}
                         startIcon = {<CloudDownloadIcon />} 
                         variant = 'contained'
                         onClick = { handleDownloadFile }
@@ -55,7 +49,6 @@ export const CVViewer = (props : Props) => {
                     className = {classes.document}
                     file = {`${baseUrl}/download`}
                     onLoadSuccess = { handleLoadSucces }
-                    onLoadProgress = { handleLoadFile }
                     onLoadError = { handleLoadError }
                     loading = { <CircularProgress/> }
                 >

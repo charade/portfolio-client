@@ -7,7 +7,6 @@ const useAboutStyle = makeStyles(theme => ({
         height: '100vh',
         paddingBottom : '0px',
     },
-   
 }))
 
 export default useAboutStyle;

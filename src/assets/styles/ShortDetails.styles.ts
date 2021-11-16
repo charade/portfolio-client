@@ -2,7 +2,6 @@ import { makeStyles } from "@material-ui/core";
 import { color } from "../../utils/color";
 
 const useShortDetailsStyle = makeStyles(() => ({
-
     container : {
         zIndex: 4,
         position : 'absolute',
@@ -31,7 +30,6 @@ const useShortDetailsStyle = makeStyles(() => ({
         fontSize : '1.4rem',
         paddingLeft : '20px',
     }
-   
 }))
 
 export default useShortDetailsStyle;

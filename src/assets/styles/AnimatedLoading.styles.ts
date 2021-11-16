@@ -9,7 +9,6 @@ const useAnimatedLoadingStyle = makeStyles(theme => ({
         fill : "none",
         stroke: "lightgrey",
         strokeWidth : '0.3px',
-        // border:'2px solid'
     },
     progress : {
         strokeWidth : '1px',

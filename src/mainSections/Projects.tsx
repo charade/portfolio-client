@@ -5,7 +5,6 @@ import { Stars, useTexture, Environment, OrbitControls } from "@react-three/drei
 import {AstralModel} from "../components/threeComponents";
 import NeonTexture from '../assets/textures/neon_shymere.jpeg';
 import {ProjectsOverLay} from "../components/projects/ProjectsOverLay";
-import { color } from "../utils/color";
 
 export default function Projects(){
     const classes = useProjectsStyle();
