@@ -11,6 +11,9 @@ import JupiterTexture from '../assets/textures/jupiter.jpeg';
 import { VenusModel, MainCamera, AstralModel } from  '../components/threeComponents/';
 import { motion } from 'framer-motion';
 import AboutSubNavigation from '../components/about/AboutSubNavigation';
+import { ScrollText } from '../components/ScrollText';
+import { device } from '../utils/device';
+import { useMediaQuery } from '@mui/material';
 
 const rootVariants = {
     open : {
@@ -27,6 +30,7 @@ const About = () => {
     const [loaded, setLoaded] = useState<boolean>(false); 
     const classes = useAboutStyle();
     const landingEvent = useSelector((store : ReducerRootStateType) => store.landingEvent);
+    const matchMedia = useMediaQuery(device.xs);
 
     return(
         <motion.div 
@@ -35,6 +39,7 @@ const About = () => {
             animate = 'open'
             exit = 'close'
         >
+            {matchMedia && <ScrollText words = { ["scroll", "down"] }/> }
             <Canvas
                 gl = {{antialias : true, pixelRatio : window.devicePixelRatio}}
                 mode = 'concurrent'

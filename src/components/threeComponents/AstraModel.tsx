@@ -33,7 +33,6 @@ const AstralModel : FC<PropsType> = ({
     const modelRef = useRef<Mesh>();
     const { size } = useThree();
     const [ x, setX ] = useState<number>(0);
-
     //on resize window save position on x axis
     useEffect(() => {
         size.width > 1025 ? setX(vecPos.x) : setX(vecPos.x * size.width / size.height)

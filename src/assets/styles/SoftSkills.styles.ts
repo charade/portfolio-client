@@ -5,7 +5,6 @@ const useSoftSkillsStyle = makeStyles(theme => ({
     root : {
         display : 'flex',
         minWidth : '25rem',
-        
         paddingLeft : '20px',
         flexDirection : 'column',
         '& > *' : {
@@ -22,11 +21,8 @@ const useSoftSkillsStyle = makeStyles(theme => ({
     },
     text : {
         maxWidth : '300px',
-        fontSize : '1.2rem',
+        fontSize : '1.6rem',
         fontWeight : 200,
-        [theme.breakpoints.up('xs')] : {
-            fontSize : '1.8rem'
-        },
         [theme.breakpoints.up('sm')] : {
             fontSize :'2.7rem'
         },

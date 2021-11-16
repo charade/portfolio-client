@@ -1,12 +1,11 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { useFrame, extend } from '@react-three/fiber';
 import { useTexture } from '@react-three/drei';
 import VenusTexture from '../../assets/textures/venus.jpeg';
 import AstralShaderMaterial from '../../shaders/AstralShaderMaterial';
 import * as THREE from 'three';
-
 extend({AstralShaderMaterial });
- 
+
 export default function VenusModel(){
     const materialRef = useRef<any>();
     const meshRef = useRef<THREE.Mesh>();

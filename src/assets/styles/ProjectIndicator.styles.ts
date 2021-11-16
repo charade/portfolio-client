@@ -4,14 +4,14 @@ import { color } from "../../utils/color";
 const useProjectIndicatorStyle = makeStyles(theme => ({
     container : {
         height : "100%",
-        width : '36rem',
+        width : '35rem',
         display : 'flex',
         flexDirection : 'column',
         justifyContent : 'center',
         '& > *' :{
             marginBottom : '1rem'
         },
-        marginLeft :"13rem"
+        marginLeft :"11rem"
         
     },
     block : {

@@ -33,7 +33,7 @@ export const projectsDetails = {
         {
             image : Traveler,
             title : 'Traveler',
-            link : '', //need to add
+            link : 'https://e-traveler.netlify.app', 
             description : 'Traveler is a memories saver application. I attached a memory to a location, a memo, a category (for instance restaurants, bars...), a custom marker to locate a memory on an interactive map. Users are free to create their own category'  ,
             stack : "Typescript | React.Js | react-leaflet | @mui/material",
             captionStyle :{
@@ -61,7 +61,7 @@ export const projectsDetails = {
         {
             image : Sneakers,
             title: "Sneakers",
-            link : '',//need to add
+            link : 'https://e-sneakers.netlify.app/',
             description: "An e-commerce projet build width React.Js and using my Sneakers Api",
             stack : "TypeScript | React.js | React-three/fiber | @mui/material",
             caption : "e-commerce for fashion",

@@ -22,9 +22,7 @@ const useSubNavigationStyle = makeStyles(theme => ({
         '& > *' : {
             marginRight: '7px'
         },
-        // border : '2px solid red'
     },
-    
 }))
 
 export default useSubNavigationStyle;
