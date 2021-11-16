@@ -12,19 +12,6 @@ export default function Navbar(){
                 src = {AvatarImg} 
                 alt = 'charles ekomie avatar'
             />
-            <Toolbar className = {classes.toolbar}>
-                <Breadcrumbs classes = {{root : classes.linkContainer, separator : classes.linkSeparator}}>
-                    <Link color = 'initial' underline = 'hover' href = '/'>
-                        <h3 className = {classes.navLink}>about</h3>
-                    </Link>
-                    <Link color = 'initial' underline = 'hover' href = 'projects'>
-                       <h3 className = {classes.navLink}> projects</h3>
-                    </Link>
-                    <Link color = 'initial' underline = 'hover' href = 'advices'>
-                       <h3 className = {classes.navLink}> advices</h3>
-                    </Link>
-                </Breadcrumbs>
-            </Toolbar>
         </AppBar>
     )
 }

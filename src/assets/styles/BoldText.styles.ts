@@ -9,25 +9,28 @@ const useBoldTextStyle = makeStyles(theme => ({
         left :'50%',
         transform : 'translate3d(-45%, 0, 0)',
         color : 'rgba(255, 255, 255, .6)',
-        fontSize: '3.5rem',
+        fontSize: '2.5rem',
         width :'90%',
         display : 'flex',
         flexDirection :'column',
         fontFamily : theme.typography.fontFamily,
-        // border :'1px solid red',
+        "& > *" : {
+            margin : '5px 0'
+        },
         [theme.breakpoints.up('sm')] :{
-            fontSize : '7rem',
-            width : '200px',
+            fontSize : '5rem',
+            width : '250px',
             transform : 'translate3d(-33rem, 13rem, 0)',
         },
         [theme.breakpoints.up('md')]: {
-            fontSize :'8rem', 
             transform : 'translate3d(-43rem, 20rem, 0)',
         },
         [theme.breakpoints.up(UPPER_MEDIUM)]: {
-            fontSize :'8rem', 
             transform : 'translate3d(-43rem, 0, 0)',
+            lineHeight :'55px',
+            width : "300px"
         },
+        // border:'2px solid'
     },
 }));
 

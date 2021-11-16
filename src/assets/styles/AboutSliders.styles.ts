@@ -5,7 +5,7 @@ const useAboutSlidersStyle = makeStyles(theme => ({
     root : {
         position : 'absolute',
         top : '40%',
-        left : '15%',
+        left : '10%',
         [theme.breakpoints.up('sm')] :{
             top : '27%',
             left : '50%',

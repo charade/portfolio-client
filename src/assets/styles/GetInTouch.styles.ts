@@ -1,7 +1,8 @@
 import { makeStyles } from "@material-ui/core";
 import { UPPER_MEDIUM } from "./constants";
+import { color } from "../../utils/color";
 
-const useGetMeInTouchStyle = makeStyles(theme => ({
+const useGetInTouchStyle = makeStyles(theme => ({
     form :{
         zIndex: 2,
         position :'absolute',
@@ -15,14 +16,13 @@ const useGetMeInTouchStyle = makeStyles(theme => ({
         borderRadius : '15px',
         alignItems: 'center',
         background :'rgba(0, 0, .3, .8)',
-        border : '1px solid rgba(255, 255, 255, .5)',
+        border : `1px solid rgba(255, 255, 255, .5)`,
         backdropFilter :'blur(5px)',
-        boxShadow :'0 0 5px white',
+        boxShadow :`0 0 3px ${color.lightBlue}`,
         overflow: 'hidden',
         '& > *' : {
             width : '80%',
             margin :'15px',
-
         },
         [theme.breakpoints.up('sm')] :{
             width : '53%',
@@ -47,11 +47,15 @@ const useGetMeInTouchStyle = makeStyles(theme => ({
         fontFamily : theme.typography.fontFamily,
         [theme.breakpoints.up('md')] : {
             fontSize :'1.6rem'
-        }
+        },
+        [theme.breakpoints.up(UPPER_MEDIUM)] : {
+            fontSize :'1.4rem'
+        },
     },
     emailField :{
-        border : '1px solid rgba(255, 255, 255, .5)',
-        color : "white"
+        border : '1px solid rgba(255, 255, 255, .4)',
+        color : "white",
+        borderRadius : '15px',
     },
     message : {
         fontStyle : '1.8rem',
@@ -61,12 +65,8 @@ const useGetMeInTouchStyle = makeStyles(theme => ({
         color :'white',
         height : "100%",
         padding: '8px',
+        width : '88%',
         borderRadius : '8px',
-        "&::placeholder" : {
-
-            // color :'1px solid lightgray',
-            // fontStyle :'italic',
-        },
         [theme.breakpoints.up('md')] :{
             fontSize :'2.3rem'
         },
@@ -91,4 +91,4 @@ const useGetMeInTouchStyle = makeStyles(theme => ({
     }
 }))
 
-export default useGetMeInTouchStyle;
+export default useGetInTouchStyle;

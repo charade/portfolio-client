@@ -25,8 +25,10 @@ import useFooterStyle from './Footer.styles';
 import useCVViewerStyle from "./CVViewer.styles";
 import useCloseIconButtonStyle from './CloseIconButton.styles';
 import useShortDetailsStyle from './ShortDetails.styles';
-import useGetMeInTouchStyle from './GetMeInTouch.styles';
+import useGetInTouchStyle from './GetInTouch.styles';
 import useBoldTextStyle from './BoldText.styles';
+import useScrollTextStyle from "./ScrollText.styles";
+import useShareOnMediaStyle from "./ShareOnMedia.styles";
 
 export {
     useAppStyle,
@@ -56,6 +58,8 @@ export {
     useCVViewerStyle,
     useCloseIconButtonStyle,
     useShortDetailsStyle,
-    useGetMeInTouchStyle,
-    useBoldTextStyle
+    useGetInTouchStyle,
+    useBoldTextStyle,
+    useScrollTextStyle,
+    useShareOnMediaStyle
 }

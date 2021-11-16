@@ -1,10 +1,9 @@
 import {useState} from 'react';
-import { Modal, Button } from "@material-ui/core";
+import { Modal, Button, CircularProgress } from "@material-ui/core";
 import { useCVViewerStyle } from "../assets/styles/index.styles";
 import { CloseIconButton } from './CloseIconButton';
 import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import { Document, Page} from 'react-pdf/dist/esm/entry.webpack';
-import { AnimatedLoading } from './AnimatedLoading';
 import { saveAs } from 'file-saver';
 import { baseUrl } from "../service";
 
@@ -58,7 +57,7 @@ export const CVViewer = (props : Props) => {
                     onLoadSuccess = { handleLoadSucces }
                     onLoadProgress = { handleLoadFile }
                     onLoadError = { handleLoadError }
-                    loading = { <AnimatedLoading progress = {progress}/> }
+                    loading = { <CircularProgress/> }
                 >
                     {new Array(numPages).fill('').map((page, number) => 
                         <Page pageNumber = {number + 1} key = {`page-${number}`} />

@@ -8,14 +8,14 @@ import * as landingEvntActionCreators from "../state/action-creators/landingEven
 const loadingVariants : Variants  = {
     start: (custom : number )=> ({
         //converting progress percentage
-        strokeDashoffset : (600 - 600 * custom / 100) + 1,
+        strokeDashoffset : [430, 0],
         transition : {
             duration : 2,
             delay : .5
         }
     }),
     initial:{
-        strokeDashoffset : "600"
+        strokeDashoffset : 430
     }
 }
 
@@ -32,7 +32,7 @@ const loadingVariant: Variants = {
     },
 }
 
-export const AnimatedLoading = ({progress} : {progress : number})=>{
+export const AnimatedLoading = ()=>{
     const classes = useAnimatedLoadingStyle();
     const dispatch = useDispatch();
     const  { setLoading } = bindActionCreators(landingEvntActionCreators, dispatch);
@@ -53,13 +53,12 @@ export const AnimatedLoading = ({progress} : {progress : number})=>{
         >
                 <circle cx = "50%" cy = "50%" r="50" />
                 <motion.text 
-                    custom = { progress }
                     variants = { loadingVariant }
                     className = {classes.text} 
-                    x = "44.4%" 
+                    x = "40.4%" 
                     y = "52%"
                 >
-                    { `${progress} %`} 
+                    { `Loading...`} 
                 </motion.text>
                 <motion.circle 
                     onAnimationComplete = { handleProgressEnd }

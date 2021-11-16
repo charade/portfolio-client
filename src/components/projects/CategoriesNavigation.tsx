@@ -43,10 +43,11 @@ export const CategoriesNavigation = () =>{
                     return(
                         <>
                             <div
+
                                 className = {classes.box} 
                                 aria-labelledby = { category }
                                 onClick = { handleChooseCategory }
-                                key = {`${category}-catagory`} 
+                                key = {`block-${category}-catagory-${i}`} 
                                 role = 'button'
                             >
                                 <span 
@@ -67,7 +68,7 @@ export const CategoriesNavigation = () =>{
                                 </h3>
                             </div>
                             {/* ensure to only adding separator between circles*/}
-                            { (i < (categories.length - 1)) && <span className = {classes.separator}></span> }
+                            { (i < (categories.length - 1)) && <span key = {`s-${category}-${i}`}className = {classes.separator}></span> }
                         </>
                     )
                 })}

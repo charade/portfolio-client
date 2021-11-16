@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useState } from 'react';
 import { Drawer } from '@material-ui/core';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -9,16 +9,19 @@ import { useSideMenuStyle } from '../assets/styles/index.styles'
 // import HelpIcon from '@mui/icons-material/Help';
 import { DownloadPopover } from "./DownloadPopover";
 import { RedirectBtn } from './RedirectBtn';
+import { Share } from '@mui/icons-material';
+import { ShareOnMedia } from "./ShareOnMedia";
 
 const SideMenu = () => {
     const [anchorEl, setAnchorEl] = useState<HTMLLIElement>(null);
     const [open, setOpen] = useState<boolean>(false);
+    const [ openShare, setOpenShare ] = useState<boolean>(false);
 
-    const toogleOpen = useCallback((e : React.MouseEvent<HTMLLIElement>) => {
+    const toggleOpen = (open, setOpen) => (e : React.MouseEvent<HTMLLIElement>) => {
         const target = e.target as HTMLLIElement;
         setAnchorEl(target);
         setOpen(!open);
-    },[open]);
+    };
 
     const classes = useSideMenuStyle()
     return(
@@ -28,12 +31,7 @@ const SideMenu = () => {
             classes = {{paper : classes.root}}
         >
             <List className = {classes.listEl}>
-                {/* <ListItem className = {classes.icon}>
-                    <HelpIcon />
-                </ListItem>
-                <ListItem className = {classes.icon}>
-                    <SettingsIcon />
-                </ListItem> */}
+                
                 <ListItem className = {classes.icon}>
                     <RedirectBtn link = "https://www.linkedin.com/in/charlesekomie">
                         <LinkedInIcon/>
@@ -44,10 +42,19 @@ const SideMenu = () => {
                         <GitHubIcon />
                     </RedirectBtn>
                 </ListItem>
-                <ListItem className = {classes.icon} onClick = {toogleOpen}>
+                <ListItem className = {classes.icon} onClick = {toggleOpen(open, setOpen)}>
                     <FolderIcon />
                 </ListItem>
+                {/* share on linkedIn ??
+                <ListItem className = {classes.icon} onClick = { toggleOpen(openShare, setOpenShare) }>
+                    <Share />
+                </ListItem> */}
             </List>
+            {/* <ShareOnMedia 
+                open = {openShare}
+                setOpen = {setOpenShare }
+                anchor = {anchorEl}
+            />  */}
             <DownloadPopover open = {open} setOpen = {setOpen} anchor = {anchorEl}/>
         </Drawer>
     )

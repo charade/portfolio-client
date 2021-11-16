@@ -2,16 +2,15 @@ import { Canvas } from '@react-three/fiber';
 import { useFooterStyle } from '../assets/styles/index.styles';
 import { MoonModel } from "../components/threeComponents";
 import { EffectComposer, Bloom, DepthOfField } from "@react-three/postprocessing";
-import { GetMeInTouch } from "../components/GetMeInTouch";
-import { OrbitControls } from '@react-three/drei';
+import { GetInTouch } from "../components/GetInTouch";
 import { BoldText } from "../components/BoldText";
 
 const Footer = () => {
     const classes = useFooterStyle();
     return(
         <div className = { classes.root }>
-            <GetMeInTouch />
-            <BoldText text = {'Get me in touch'}/>
+            <GetInTouch />
+            <BoldText />
             <Canvas
                 // dpr={Math.max(window.devicePixelRatio, 2)}
                 camera = {{
