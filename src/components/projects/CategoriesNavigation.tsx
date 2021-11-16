@@ -41,13 +41,12 @@ export const CategoriesNavigation = () =>{
             <AnimateSharedLayout>
                 {categories.map((category, i) => {
                     return(
-                        <>
+                        <div className = {classes.container} key = {`block-${category}-catagory-${i}`} >
                             <div
 
                                 className = {classes.box} 
                                 aria-labelledby = { category }
                                 onClick = { handleChooseCategory }
-                                key = {`block-${category}-catagory-${i}`} 
                                 role = 'button'
                             >
                                 <span 
@@ -68,8 +67,8 @@ export const CategoriesNavigation = () =>{
                                 </h3>
                             </div>
                             {/* ensure to only adding separator between circles*/}
-                            { (i < (categories.length - 1)) && <span key = {`s-${category}-${i}`}className = {classes.separator}></span> }
-                        </>
+                            { (i < (categories.length - 1)) && <span className = {classes.separator}></span> }
+                        </div>
                     )
                 })}
             </AnimateSharedLayout>
