@@ -36,7 +36,7 @@ export const CVViewer = (props : Props) => {
             <div className = {classes.container}>
                 <div className = {classes.bar}>
                     <Button 
-                        // disabled = {loadError}
+                        disabled = {loadError}
                         startIcon = {<CloudDownloadIcon />} 
                         variant = 'contained'
                         onClick = { handleDownloadFile }

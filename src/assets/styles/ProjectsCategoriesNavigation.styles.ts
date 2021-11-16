@@ -6,13 +6,15 @@ const useCategoriesNavigationStyle = makeStyles(theme => ({
         display : 'flex',
         alignItems : 'center',
         height : `${32 * window.devicePixelRatio}px`,
-        width : '70%',
+        width : '30%',
+        marginRight : '80px'
+    },
+    container : {
+        width : '100%',
+        display :'flex',
         '& > *:last-child' :{
             alignItems : 'flex-start',
             paddingLeft : '10px'
-        },
-        [theme.breakpoints.up('sm')]: {
-           width : `${10 * window.devicePixelRatio}rem`
         },
     },
     box : {
@@ -26,8 +28,9 @@ const useCategoriesNavigationStyle = makeStyles(theme => ({
     },
     separator : {
         borderBottom : `2px solid ${color.red}`,
-        transform: `translateY(-30px)`,
-        width : '20%',
+        width : '100%',
+        alignSelf : 'flex-start',
+        transform :'translateY(7px)'
     }
 }));
 export default useCategoriesNavigationStyle;
