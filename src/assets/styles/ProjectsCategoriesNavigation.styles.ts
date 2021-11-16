@@ -7,7 +7,7 @@ const useCategoriesNavigationStyle = makeStyles(theme => ({
         alignItems : 'center',
         height : `${32 * window.devicePixelRatio}px`,
         width : '30%',
-        marginRight : '80px'
+        marginRight : '130px',
     },
     container : {
         width : '100%',
