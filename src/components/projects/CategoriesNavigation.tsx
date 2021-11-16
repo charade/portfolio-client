@@ -43,7 +43,6 @@ export const CategoriesNavigation = () =>{
                     return(
                         <div className = {classes.container} key = {`block-${category}-catagory-${i}`} >
                             <div
-
                                 className = {classes.box} 
                                 aria-labelledby = { category }
                                 onClick = { handleChooseCategory }
