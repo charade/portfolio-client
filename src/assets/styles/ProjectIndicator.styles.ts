@@ -12,7 +12,6 @@ const useProjectIndicatorStyle = makeStyles(theme => ({
             marginBottom : '1rem'
         },
         marginLeft :"11rem"
-        
     },
     block : {
         display : 'flex',

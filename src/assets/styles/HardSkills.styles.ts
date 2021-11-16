@@ -12,7 +12,6 @@ const useHardSkillsStyle = makeStyles(theme => ({
         [theme.breakpoints.up('sm')] : {
             width : '480px',
         }
-
     },
     section : {
         position : 'relative',

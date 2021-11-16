@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { useFrame, extend } from '@react-three/fiber';
 import { useTexture } from '@react-three/drei';
 import VenusTexture from '../../assets/textures/venus.jpeg';

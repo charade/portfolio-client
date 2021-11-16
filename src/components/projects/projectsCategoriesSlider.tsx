@@ -41,16 +41,6 @@ export const ProjectsCategoriesSlider = () => {
     const projects = useSelector((store : ReducerRootStateType) => store.projects);
     const classes = useProjectsCategoriesSliderStyle();
     const canCrossfadeOnExpand = useMediaQuery(device.sm);
-
-    //wait transtion exit end to load projects card
-    const handleTransitionEnd = useCallback(()=>{
-        //check if category is either front, back or fullstack
-        //before getting projects list
-        if(projectsDetails.hasOwnProperty(category.label)){
-            loadProjects(projectsDetails[category.label])
-        }
-    },[category,loadProjects]);
-    
     //listening to user change category to start animating
     useEffect(() => {
         const toggleActive = () => {
@@ -66,6 +56,14 @@ export const ProjectsCategoriesSlider = () => {
             setTimeout(() => setTransitionActive(false), 600)
        }
      },[transitionActive]);
+    //wait transtion exit end to load projects card
+    const handleTransitionEnd = useCallback(()=>{
+        //check if category is either front, back or fullstack
+        //before getting projects list
+        if(projectsDetails.hasOwnProperty(category.label)){
+            loadProjects(projectsDetails[category.label])
+        }
+    },[category,loadProjects]);
 
     return(
         <motion.div 

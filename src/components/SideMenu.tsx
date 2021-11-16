@@ -9,13 +9,10 @@ import { useSideMenuStyle } from '../assets/styles/index.styles'
 // import HelpIcon from '@mui/icons-material/Help';
 import { DownloadPopover } from "./DownloadPopover";
 import { RedirectBtn } from './RedirectBtn';
-import { Share } from '@mui/icons-material';
-import { ShareOnMedia } from "./ShareOnMedia";
 
 const SideMenu = () => {
     const [anchorEl, setAnchorEl] = useState<HTMLLIElement>(null);
     const [open, setOpen] = useState<boolean>(false);
-    const [ openShare, setOpenShare ] = useState<boolean>(false);
 
     const toggleOpen = (open, setOpen) => (e : React.MouseEvent<HTMLLIElement>) => {
         const target = e.target as HTMLLIElement;

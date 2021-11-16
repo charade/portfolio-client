@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core";
-import { color } from "../../utils/color";
 
 const useCVViewerStyle = makeStyles(theme => ({
     root  : {

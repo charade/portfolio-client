@@ -1,7 +1,6 @@
 import { LinkedinShareButton } from "react-share";
 import { Popover, Button } from "@mui/material"
 import { useShareOnMediaStyle } from "../assets/styles/index.styles"
-import { MutableRefObject } from "react";
 
 type PropsType = {
     open : boolean,

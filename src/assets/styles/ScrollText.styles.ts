@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core";
-import { color } from "../../utils/color";
 
 const useScrollTextStyle = makeStyles(theme => ({
     container : {
@@ -10,7 +9,6 @@ const useScrollTextStyle = makeStyles(theme => ({
         right :'4%',
         overflow :'hidden',
         flexDirection : "column",
-        // border : '2px solid red',
         [theme.breakpoints.up('sm')] : {
             right: '3%',
             top :'70%',
@@ -28,7 +26,6 @@ const useScrollTextStyle = makeStyles(theme => ({
     },
     letter : {
         fontSize :'1.5rem',
-        // fontSize : '1.8rem',
         fontFamily : theme.typography.fontFamily,
         [theme.breakpoints.up('sm')] : {
             fontSize :'2rem'

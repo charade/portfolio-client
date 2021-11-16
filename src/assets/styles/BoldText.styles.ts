@@ -30,7 +30,6 @@ const useBoldTextStyle = makeStyles(theme => ({
             lineHeight :'55px',
             width : "300px"
         },
-        // border:'2px solid'
     },
 }));
 

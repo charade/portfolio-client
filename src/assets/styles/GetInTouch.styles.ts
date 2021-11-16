@@ -73,7 +73,6 @@ const useGetInTouchStyle = makeStyles(theme => ({
         [theme.breakpoints.up(UPPER_MEDIUM)] :{
             fontSize :'1.5rem'
         },
-
     },
     submitBtn :{
         width :'130px',

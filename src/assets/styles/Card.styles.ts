@@ -9,7 +9,6 @@ const useCardStyle = makeStyles(theme => ({
         maxWidth : `270px`,
         height : '90%',
         margin : ' 0 10px',
-        // overflow : 'hidden',
         cursor : 'pointer',
         boxShadow : `0 0 7px ${color.white}`,
         borderRadius : '20px',
@@ -44,15 +43,12 @@ const useCardStyle = makeStyles(theme => ({
         lineHeight :'30px',
     },
     lowerLayer : {
-        
         zIndex : -1,
         opacity : .6,
         width : '100%',
         height : '100%',
-
     },
     upperLayer : {
-        // zIndex : 2,
         backgroundSize : 'contain',
         backgroundRepeat: 'no-repeat',
         backgroundPosition : 'center center',

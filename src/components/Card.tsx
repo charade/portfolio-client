@@ -35,10 +35,6 @@ export const Card = ({item, itemKey, setSelected, setExpand, expand} : CardProps
         
     },[setSelected, setExpand, item, itemKey])
 
-    useEffect(() => {
-        console.log(currentId)
-    },[currentId]);
-
     return(
         <motion.div
             aria-label = {`${item.title}-project-details`}
