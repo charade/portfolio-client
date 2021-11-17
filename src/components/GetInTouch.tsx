@@ -1,5 +1,5 @@
 import { useGetInTouchStyle } from "../assets/styles/index.styles";
-import { TextField } from "@material-ui/core";
+import { CircularProgress } from "@material-ui/core";
 import { sendMessage } from "../service";
 import { FieldsType } from "../service/message";
 import React, { useCallback, useState } from "react";
@@ -10,7 +10,7 @@ export const GetInTouch = () => {
     const classes = useGetInTouchStyle();
     const [notification, setNotification] = useState<NotificationType>({severity: "success", message: ''});
     const [openNotif, setOpenNotif] = useState<boolean>(false);
-    
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const handleChange = (e : React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const target = e.target as HTMLInputElement | HTMLTextAreaElement;
         setFields({...fields, [target.name] : target.value})
@@ -18,15 +18,18 @@ export const GetInTouch = () => {
     const handleSubmit = useCallback(async(e : React.SyntheticEvent) => {
         e.preventDefault();
         if(fields.email && fields.message){
+            //waiting for response
+            setIsLoading(true);
             const response = await sendMessage(fields).catch(error => {
                 setNotification({severity: "warning", message :"email adress not found"});
             });
             response && setNotification({severity: "success", message :"successfully sent"});
+            setIsLoading(false);
         }
         else{
             setNotification({severity: "warning", message :"you should fullfill every fields"});
         }
-        setOpenNotif(true)
+        setOpenNotif(true);
     },[fields]);
 
     return(
@@ -57,6 +60,8 @@ export const GetInTouch = () => {
                 >
                     Send
                 </button>
+                {/* load animation on sumit */}
+                { isLoading && <CircularProgress className = {classes.loading}/> }
             </form>
             <Notification   
                 open = {openNotif} 

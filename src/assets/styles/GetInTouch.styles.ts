@@ -77,6 +77,11 @@ const useGetInTouchStyle = makeStyles(theme => ({
             color : "black",
             background :'rgba(255, 255,255, .7)'
         }
+    },
+    loading:{
+        position: 'absolute',
+        bottom  :'5px',
+        right :'2%'
     }
 }))
 
