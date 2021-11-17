@@ -12,6 +12,7 @@ const useGetInTouchStyle = makeStyles(theme => ({
         width : '85%',
         height : '37rem',
         display :'flex',
+        padding :'8px',
         flexDirection: 'column',
         borderRadius : '15px',
         alignItems: 'center',
@@ -21,7 +22,7 @@ const useGetInTouchStyle = makeStyles(theme => ({
         boxShadow :`0 0 3px ${color.lightBlue}`,
         overflow: 'hidden',
         '& > *' : {
-            width : '80%',
+            width : '88%',
             margin :'15px',
         },
         [theme.breakpoints.up('sm')] :{
@@ -40,22 +41,12 @@ const useGetInTouchStyle = makeStyles(theme => ({
             transform : 'translate3d(3rem, -60%,0)',
         },
     },
-    emailLabel :{
-        borderColor : 'white',
-        fontSize : '1.3rem',
-        color : 'lightgrey',
-        fontFamily : theme.typography.fontFamily,
-        [theme.breakpoints.up('md')] : {
-            fontSize :'1.6rem'
-        },
-        [theme.breakpoints.up(UPPER_MEDIUM)] : {
-            fontSize :'1.4rem'
-        },
-    },
     emailField :{
         border : '1px solid rgba(255, 255, 255, .4)',
         color : "white",
-        borderRadius : '15px',
+        borderRadius : '10px',
+        background :'transparent',
+        padding: '8px',
     },
     message : {
         fontStyle : '1.8rem',
@@ -65,7 +56,6 @@ const useGetInTouchStyle = makeStyles(theme => ({
         color :'white',
         height : "100%",
         padding: '8px',
-        width : '88%',
         borderRadius : '8px',
         [theme.breakpoints.up('md')] :{
             fontSize :'2.3rem'

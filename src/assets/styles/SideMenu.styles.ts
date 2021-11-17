@@ -2,22 +2,27 @@ import { makeStyles } from "@material-ui/core";
 
 const useIconsMenuStyle = makeStyles(theme => ({
     root : {
+        position: 'fixed',
         zIndex : 7,
         background : 'transparent',
         border : 'none',
         width : '5rem',
-        justifyContent : 'flex-end',
-        alignItems : 'center',
+        display : 'flex',
+        justifyContent : 'center',
+        alignItems : 'flex-end',
         paddingBottom: '10px',
+        top :0,
+        left : 0,
+        height :'100%',
     },
     listEl :{
         position : 'relative',
         display : 'flex',
         alignItems : 'center',
-        // border : '1px solid white',
         flexDirection : 'column',
         justifyContent : 'space-evenly',
         margin : '20px 0',
+        background :'transparent',
         '&::before, &::after' : {
             content : '""',
             position : 'absolute',
@@ -28,15 +33,13 @@ const useIconsMenuStyle = makeStyles(theme => ({
         '&::before' : {
             bottom : '100%',
             height : '25px',
-
         },
         ' &::after' : {
             top : '100%',
             height : '20px'
-        }
+        },
     },
     icon :{
-        // border : "2px solid red",
         position : 'relative',
         margin :'5px 0',
         padding :'0 8px',

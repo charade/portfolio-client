@@ -32,22 +32,19 @@ export const GetInTouch = () => {
     return(
         <>
             <form className = {classes.form} onSubmit = { handleSubmit }>
-                <TextField
-                    onChange = { handleChange }
-                    variant = 'outlined'
-                    required
-                    InputProps = {{className : classes.emailField}}
+                <input
                     type ='text'
+                    onChange = { handleChange }
+                    required
                     aria-describedby = "email-area"
-                    label = "Your email"
-                    InputLabelProps = {{ className : classes.emailLabel }}
                     name = "email"
-                    classes = {{root : classes.emailField}}
+                    className = {classes.emailField}
+                    placeholder = "Your email adress"
                 />
                 <textarea
                     onChange = { handleChange }
                     required
-                    rows = {8}
+                    rows = {9}
                     aria-describedby = "text-message-area"
                     placeholder = 'Your message...'
                     className = {classes.message}

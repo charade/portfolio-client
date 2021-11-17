@@ -9,6 +9,11 @@ const useCloseIconButtonStyle  = makeStyles(() => ({
         height :'40px',
         color : color.gray,
         alignSelf : 'flex-end',
+        display : 'flex',
+        justifyContent : 'center',
+        alignItems : 'center',
+        borderRadius : '50%',
+        cursor : 'pointer'
     }
 }))
 

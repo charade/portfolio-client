@@ -63,7 +63,11 @@ const useCardStyle = makeStyles(theme => ({
         height :'35px',
         color : color.gray,
         alignSelf : 'flex-end',
-        margin :'8px'
+        margin :'8px',
+        display :'flex',
+        justifyContent : 'center',
+        alignItems : 'center',
+        borderRadius :'50%'
     }
 }))
 

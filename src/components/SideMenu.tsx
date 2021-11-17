@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Drawer } from '@material-ui/core';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import FolderIcon from '@mui/icons-material/Folder';
@@ -19,16 +18,11 @@ const SideMenu = () => {
         setAnchorEl(target);
         setOpen(!open);
     };
+    const classes = useSideMenuStyle();
 
-    const classes = useSideMenuStyle()
     return(
-        <Drawer
-            anchor = 'left'
-            variant = 'permanent'
-            classes = {{paper : classes.root}}
-        >
+        <div className = {classes.root}>
             <List className = {classes.listEl}>
-                
                 <ListItem className = {classes.icon}>
                     <RedirectBtn link = "https://www.linkedin.com/in/charlesekomie">
                         <LinkedInIcon/>
@@ -53,7 +47,7 @@ const SideMenu = () => {
                 anchor = {anchorEl}
             />  */}
             <DownloadPopover open = {open} setOpen = {setOpen} anchor = {anchorEl}/>
-        </Drawer>
+        </div>
     )
 }
 

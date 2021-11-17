@@ -55,13 +55,13 @@ export const Card = ({item, itemKey, setSelected, setExpand, expand} : CardProps
                     src = {item.image}
                     alt = {`${item.title}-project`}
                 />
-                <IconButton 
+                <span 
                     onClick = {  handleExpand } 
                     className = {classes.expandBtn}
                     aria-label = "expand-card"
                 >
                     <OpenInFullIcon />
-                </IconButton>
+                </span>
             </motion.div>
             {/* only open if device screen <= xs over selected card*/}
             <ShortDetails
