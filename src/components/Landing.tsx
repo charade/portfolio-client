@@ -47,7 +47,7 @@ export const Landing = () => {
     const handleCloseLanding = useCallback((e : React.MouseEvent<HTMLDivElement>) => {
        //wait loading animation end before listening click ev
         !landingEvent.loading && setActive(true);
-   },[landingEvent.loading, setActive])
+   },[landingEvent.loading, setActive]);
 
     return(
         <motion.div

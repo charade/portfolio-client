@@ -8,7 +8,7 @@ import { AboutSliders } from '../components/about/sections/AboutSliders';
 import { useAboutStyle } from '../assets/styles/index.styles';
 import FictionalTexture from '../assets/textures/fictional.jpeg';
 import JupiterTexture from '../assets/textures/jupiter.jpeg';
-import { VenusModel, MainCamera, AstralModel } from  '../components/threeComponents/';
+import { VenusModel, MainCamera, AstralModel } from  '../components/threeComponents';
 import { motion } from 'framer-motion';
 import AboutSubNavigation from '../components/about/AboutSubNavigation';
 import { ScrollText } from '../components/ScrollText';
@@ -25,7 +25,9 @@ const rootVariants = {
         opacity : 0
     }
 };
+
 const About = () => {
+    
     const [JupiterMap, FictionalMap] = useTexture([JupiterTexture,FictionalTexture])
     const [loaded, setLoaded] = useState<boolean>(false); 
     const classes = useAboutStyle();
@@ -51,14 +53,8 @@ const About = () => {
                     position : [10, -11, 113]
                 }}
             >
-                 
                 <directionalLight color = 'white' position = {[40, 40, 0]} />
                 <pointLight intensity = {0.4} position = {[12, 15, -40]}/>
-                <OrbitControls 
-                    enablePan = {false} 
-                    enableZoom = {false}
-                    enableRotate = {false}
-                />
                 <MainCamera active = {landingEvent.active} />
                 <Suspense fallback = {null} >  
                     {loaded && <Stars radius = {200} depth = {200} count = {10000}/>}

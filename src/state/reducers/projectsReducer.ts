@@ -4,7 +4,7 @@ import { ProjectItemType } from "../../utils/projectsDetails";
 export type ProjectActiontype =  {
     type : string,
     payload : ProjectItemType[]
-}
+};
 
 export const projectsReducer = (state: ProjectItemType[] = [], action : ProjectActiontype ) => {
     switch(action.type){
@@ -13,4 +13,4 @@ export const projectsReducer = (state: ProjectItemType[] = [], action : ProjectA
             return state;
         default : return state
     }
-}
+};

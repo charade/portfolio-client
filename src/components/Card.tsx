@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { useCardStyle } from "../assets/styles/index.styles";
 import { ProjectItemType } from "../utils/projectsDetails";
 import { motion } from "framer-motion";
 import { SelectedItem } from "./projects/ProjectDetails";
 import OpenInFullIcon from '@mui/icons-material/OpenInFull';
-import { IconButton, useMediaQuery } from '@material-ui/core';
+import { useMediaQuery } from '@material-ui/core';
 import { ShortDetails } from "./projects/ShortDetails";
 import { device } from "../utils/device";
 

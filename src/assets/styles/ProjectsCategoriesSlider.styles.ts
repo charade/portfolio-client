@@ -10,6 +10,10 @@ const useProjectsCategoriesSliderStyle = makeStyles(theme => ({
         [theme.breakpoints.up('sm')] : {
             justifyContent : 'center', 
         },
+        '&::-webkit-scrollbar':{
+            display : 'none'
+        },
+        scrollbarWidth : 'none'
     }
 }))
 

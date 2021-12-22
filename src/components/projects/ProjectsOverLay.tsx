@@ -8,8 +8,8 @@ import { device } from "../../utils/device";
 
 export const ProjectsOverLay = () => {
     const canDisplayIndicator = useMediaQuery(device.md);
-    
     const classes = useProjectOverLayStyle();
+    
     return(
         <motion.div className = {classes.overlay}>
             <div className = {classes.navContainer}>

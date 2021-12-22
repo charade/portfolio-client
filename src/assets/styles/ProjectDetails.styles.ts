@@ -25,20 +25,19 @@ const useProjectDetailsStyle = makeStyles(theme => ({
         boxShadow : `0 0 10px ${color.white}`,
         background : 'rgba(0, 0, 0, .9)',
         borderRadius : '25px',
+        overflow : 'hidden',
         //user can zoom over 100%
-        overflow : 'scroll',
         borderRight : '3px solid rgba(255, 255, 255, .7)',
+
         [theme.breakpoints.up('sm')] : {
-            width : '88%',  
-            height :'43%'  
+            width : '90%',  
+            height :'55%'  
         },
         [theme.breakpoints.up('md')] :{
             width : '50%',
-            height : '60%'
         },
         [theme.breakpoints.down(UPPER_MEDIUM)] : {
             width : '75%',
-            height : '40%'
         },
     },
     img : {

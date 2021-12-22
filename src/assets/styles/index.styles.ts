@@ -29,6 +29,7 @@ import useGetInTouchStyle from './GetInTouch.styles';
 import useBoldTextStyle from './BoldText.styles';
 import useScrollTextStyle from "./ScrollText.styles";
 import useShareOnMediaStyle from "./ShareOnMedia.styles";
+import useInfoStyle from './Info.styles';
 
 export {
     useAppStyle,
@@ -61,5 +62,6 @@ export {
     useGetInTouchStyle,
     useBoldTextStyle,
     useScrollTextStyle,
-    useShareOnMediaStyle
+    useShareOnMediaStyle,
+    useInfoStyle
 }

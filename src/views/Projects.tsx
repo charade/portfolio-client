@@ -23,13 +23,6 @@ export default function Projects(){
                 }}
             >
                 <Stars count = {3000} depth = {200} radius = { 100 }/>
-                <OrbitControls 
-                    enablePan = {false} 
-                    enableZoom = {false} 
-                    enableRotate = {false}
-                    maxDistance = {120} 
-                    minDistance = {113.5}
-                />
                 <Suspense fallback = {null} >
                     <AstralModel
                         vecPos = {{x :-10, y: 0, z :9}}
